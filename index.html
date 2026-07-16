@@ -407,6 +407,132 @@ padding:100px 8%;
     gap:12px;
 }
 
+ /* PRODUCT POPUP */
+
+.product-modal{
+display:none;
+position:fixed;
+z-index:9999;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.8);
+overflow:auto;
+}
+
+.product-box{
+background:white;
+width:90%;
+max-width:1100px;
+margin:50px auto;
+padding:30px;
+border-radius:25px;
+animation:popup .4s ease;
+}
+
+@keyframes popup{
+from{
+transform:scale(.7);
+opacity:0;
+}
+to{
+transform:scale(1);
+opacity:1;
+}
+}
+
+
+.product-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:30px;
+}
+
+.product-header h2{
+font-size:35px;
+color:#00994d;
+}
+
+.close-product{
+font-size:40px;
+cursor:pointer;
+}
+
+
+.product-list{
+
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:25px;
+
+}
+
+
+.product-item{
+
+background:#fff;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.1);
+overflow:hidden;
+transition:.3s;
+
+}
+
+.product-item:hover{
+transform:translateY(-8px);
+}
+
+
+.product-item img{
+
+width:100%;
+height:200px;
+object-fit:cover;
+
+}
+
+
+.product-info{
+
+padding:20px;
+
+}
+
+
+.product-info h3{
+
+margin-bottom:10px;
+
+}
+
+
+.price{
+
+font-size:22px;
+font-weight:700;
+color:#e53935;
+
+}
+
+
+.order-btn{
+
+display:block;
+margin-top:15px;
+background:#25D366;
+color:white;
+text-align:center;
+padding:12px;
+border-radius:30px;
+text-decoration:none;
+font-weight:600;
+
+}
+
 </style>
 </head>
 
@@ -448,7 +574,7 @@ Pelbagai pilihan makanan, minuman, produk rumah dan barangan borong
 dengan harga berpatutan untuk keluarga dan perniagaan.
 </p>
 
-<a href="#" onclick="openGallery()" class="btn btn-primary">
+<a href="#" onclick="openProductPopup()" class="btn btn-primary">
 🛒 Lihat Produk
 </a>
 
@@ -684,7 +810,173 @@ modal.style.display="none";
 }
 }
 
+
+ function openProductPopup(){
+
+document.getElementById("productPopup").style.display="block";
+
+}
+
+
+function closeProductPopup(){
+
+document.getElementById("productPopup").style.display="none";
+
+}
+
+
+window.onclick=function(event){
+
+let popup=document.getElementById("productPopup");
+
+if(event.target==popup){
+
+popup.style.display="none";
+
+}
+
+}
+
 </script>
+
+ <div id="productPopup" class="product-modal">
+
+<div class="product-box">
+
+<div class="product-header">
+
+<h2>
+🛒 Produk Hlai Suria 88
+</h2>
+
+<span class="close-product"
+onclick="closeProductPopup()">
+&times;
+</span>
+
+</div>
+
+
+<div class="product-list">
+
+
+<div class="product-item">
+
+<img src="https://images.unsplash.com/photo-1580915411954-282cb1b0d780">
+
+<div class="product-info">
+
+<h3>Nescafe 3in1</h3>
+
+<p class="price">
+RM12.90
+</p>
+
+<a class="order-btn"
+href="https://wa.me/601139993118?text=Saya%20ingin%20membeli%20Nescafe%203in1"
+target="_blank">
+
+📲 Tambah ke WhatsApp
+
+</a>
+
+</div>
+
+</div>
+
+
+
+
+<div class="product-item">
+
+<img src="https://images.unsplash.com/photo-1542838132-92c53300491e">
+
+<div class="product-info">
+
+<h3>Beras 5kg</h3>
+
+<p class="price">
+RM35.00
+</p>
+
+
+<a class="order-btn"
+href="https://wa.me/601139993118?text=Saya%20ingin%20membeli%20Beras%205kg"
+target="_blank">
+
+📲 Tambah ke WhatsApp
+
+</a>
+
+
+</div>
+
+</div>
+
+
+
+
+<div class="product-item">
+
+<img src="https://images.unsplash.com/photo-1625772299849-6a702c0a4c6b">
+
+<div class="product-info">
+
+<h3>Minuman Tin</h3>
+
+<p class="price">
+RM2.50
+</p>
+
+
+<a class="order-btn"
+href="https://wa.me/601139993118?text=Saya%20ingin%20membeli%20Minuman%20Tin"
+target="_blank">
+
+📲 Tambah ke WhatsApp
+
+</a>
+
+
+</div>
+
+</div>
+
+
+
+<div class="product-item">
+
+<img src="https://images.unsplash.com/photo-1556228720-195a672e8a03">
+
+<div class="product-info">
+
+<h3>Sabun Mandian</h3>
+
+<p class="price">
+RM8.90
+</p>
+
+
+<a class="order-btn"
+href="https://wa.me/601139993118?text=Saya%20ingin%20membeli%20Sabun%20Mandian"
+target="_blank">
+
+📲 Tambah ke WhatsApp
+
+</a>
+
+
+</div>
+
+</div>
+
+
+
+</div>
+
+</div>
+
+</div>
 
 </body>
 </html>
