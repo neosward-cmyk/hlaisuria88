@@ -1155,30 +1155,6 @@ q.value=parseInt(q.value)-1;
 function addCart(index){
 
 
- function removeCart(index){
-
-
-let item = cart[index];
-
-
-let confirmDelete = confirm(
-"Buang "+item.name+" dari cart?"
-);
-
-
-if(confirmDelete){
-
-
-cart.splice(index,1);
-
-
-updateCart();
-
-
-}
-
-
-}
 
 
 let qty=parseInt(
@@ -1220,6 +1196,31 @@ updateCart();
 
 
 alert(item.name+" telah ditambah ke cart");
+
+}
+
+ function removeCart(index){
+
+
+let item = cart[index];
+
+
+let confirmDelete = confirm(
+"Buang "+item.name+" dari cart?"
+);
+
+
+if(confirmDelete){
+
+
+cart.splice(index,1);
+
+
+updateCart();
+
+
+}
+
 
 }
 
