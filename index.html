@@ -1730,83 +1730,52 @@ alert(
 
 
 
-let installPrompt;
+function addToHomeScreen(){
+
+let ua = navigator.userAgent.toLowerCase();
 
 
-// Simpan popup install dari Chrome
-
-window.addEventListener(
-"beforeinstallprompt",
-(e)=>{
-
-
-e.preventDefault();
-
-
-installPrompt=e;
-
-
-console.log("Install tersedia");
-
-
-});
-
-
-
-
-// Button install
-
-document.getElementById(
-"installAppBtn"
-).addEventListener(
-"click",
-async()=>{
-
-
-if(installPrompt){
-
-
-installPrompt.prompt();
-
-
-
-const result =
-await installPrompt.userChoice;
-
-
-
-if(result.outcome==="accepted"){
+if(/iphone|ipad|ipod/.test(ua)){
 
 
 alert(
-"✅ Hlai Suria 88 berjaya ditambah ke telefon!"
+"📱 Cara Tambah Hlai Suria 88:\n\n"+
+"1. Tekan butang Share ⬆️\n"+
+"2. Scroll ke bawah\n"+
+"3. Pilih 'Add to Home Screen'\n"+
+"4. Tekan Add"
 );
 
 
 }
 
 
-installPrompt=null;
+else if(/android/.test(ua)){
 
+
+alert(
+"📱 Cara Tambah Hlai Suria 88:\n\n"+
+"1. Tekan menu Chrome ⋮\n"+
+"2. Pilih 'Add to Home screen'\n"+
+"3. Tekan Add"
+);
 
 
 }
+
 
 else{
 
 
 alert(
-"📱 Untuk telefon ini:\n\n"+
-"Buka menu browser ⋮\n"+
-"Pilih 'Add to Home Screen'"
+"💻 Tekan Ctrl + D untuk simpan website ini."
 );
 
 
 }
 
 
-
-});
+}
  
 
  
@@ -1933,7 +1902,7 @@ Tambah website ini ke Home Screen telefon anda untuk akses lebih cepat.
 
 
 <button 
-id="installAppBtn"
+onclick="addToHomeScreen()" 
 class="webapp-btn">
 
 📱 Tambah Ke Telefon
