@@ -576,6 +576,68 @@ border-radius:40px;
 cursor:pointer;
 }
 
+
+.qty-box{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+margin:15px 0;
+}
+
+.qty-box button{
+width:35px;
+height:35px;
+border:none;
+background:#00994d;
+color:#fff;
+font-size:20px;
+font-weight:700;
+border-radius:8px;
+cursor:pointer;
+}
+
+.qty-input{
+width:60px;
+height:35px;
+text-align:center;
+border:1px solid #ddd;
+border-radius:8px;
+font-weight:600;
+}
+
+.cart-box{
+position:fixed;
+right:20px;
+bottom:100px;
+width:320px;
+background:#fff;
+padding:20px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+z-index:9999;
+}
+
+.cart-item{
+display:flex;
+justify-content:space-between;
+margin-bottom:12px;
+padding-bottom:12px;
+border-bottom:1px solid #eee;
+}
+
+.checkout-btn{
+width:100%;
+padding:15px;
+background:#25D366;
+border:none;
+border-radius:30px;
+color:#fff;
+font-weight:700;
+cursor:pointer;
+margin-top:15px;
+}
+
 </style>
 </head>
 
@@ -880,6 +942,105 @@ popup.style.display="none";
 
 }
 
+
+ let cart=[];
+
+function changeQty(btn,amount){
+
+let input=btn.parentElement.querySelector('.qty-input');
+let qty=parseInt(input.value)||1;
+
+qty+=amount;
+
+if(qty<1) qty=1;
+
+input.value=qty;
+}
+
+function addToCartWithQty(button,name,price){
+
+const qty=parseInt(
+button.parentElement.querySelector('.qty-input').value
+);
+
+let item=cart.find(p=>p.name===name);
+
+if(item){
+item.qty+=qty;
+}else{
+cart.push({
+name:name,
+price:price,
+qty:qty
+});
+}
+
+renderCart();
+}
+
+function renderCart(){
+
+let cartItems=document.getElementById("cartItems");
+let total=0;
+
+cartItems.innerHTML="";
+
+cart.forEach(item=>{
+
+total+=item.price*item.qty;
+
+cartItems.innerHTML+=`
+<div class="cart-item">
+<div>
+<b>${item.name}</b><br>
+${item.qty} x RM${item.price.toFixed(2)}
+</div>
+<div>
+RM${(item.qty*item.price).toFixed(2)}
+<br>
+<button onclick="removeItem('${item.name}')">❌</button>
+</div>
+</div>
+`;
+});
+
+document.getElementById("cartTotal").innerHTML=
+total.toFixed(2);
+}
+
+function removeItem(name){
+
+cart=cart.filter(item=>item.name!==name);
+
+renderCart();
+}
+
+function checkoutWhatsApp(){
+
+if(cart.length===0){
+alert("Cart kosong!");
+return;
+}
+
+let msg="🛒 TEMPAHAN HLAI SURIA 88%0A%0A";
+let total=0;
+
+cart.forEach(item=>{
+
+msg+=`${item.name} x${item.qty} - RM${(item.qty*item.price).toFixed(2)}%0A`;
+
+total+=item.qty*item.price;
+
+});
+
+msg+=`%0A💰 JUMLAH: RM${total.toFixed(2)}`;
+
+window.open(
+`https://wa.me/601139993118?text=${msg}`,
+'_blank'
+);
+}
+
 </script>
 
  <div id="productPopup" class="product-modal">
@@ -911,20 +1072,26 @@ onclick="closeProductPopup()">
 
 <h3>Nescafe 3in1</h3>
 
-<p class="price">
-RM12.90
-</p>
+<p class="price">RM12.90</p>
+
+<div class="qty-box">
+
+<button onclick="changeQty(this,-1)">−</button>
+
+<input type="number" value="1" min="1" class="qty-input">
+
+<button onclick="changeQty(this,1)">+</button>
+
+</div>
 
 <button class="order-btn"
-onclick="addToCart('Nescafe 3in1',12.90)">
+onclick="addToCartWithQty(this,'Nescafe 3in1',12.90)">
 🛒 Tambah ke Cart
 </button>
 
- 
 </div>
 
 </div>
-
 
 
 
@@ -936,16 +1103,18 @@ onclick="addToCart('Nescafe 3in1',12.90)">
 
 <h3>Beras 5kg</h3>
 
-<p class="price">
-RM35.00
-</p>
+<p class="price">RM35.00</p>
 
+<div class="qty-box">
+<button onclick="changeQty(this,-1)">−</button>
+<input type="number" value="1" min="1" class="qty-input">
+<button onclick="changeQty(this,1)">+</button>
+</div>
 
 <button class="order-btn"
-onclick="addToCart('Beras 5kg',35.00)">
+onclick="addToCartWithQty(this,'Beras 5kg',35.00)">
 🛒 Tambah ke Cart
 </button>
-
 
 </div>
 
@@ -962,16 +1131,18 @@ onclick="addToCart('Beras 5kg',35.00)">
 
 <h3>Minuman Tin</h3>
 
-<p class="price">
-RM2.50
-</p>
+<p class="price">RM2.50</p>
 
+<div class="qty-box">
+<button onclick="changeQty(this,-1)">−</button>
+<input type="number" value="1" min="1" class="qty-input">
+<button onclick="changeQty(this,1)">+</button>
+</div>
 
 <button class="order-btn"
-onclick="addToCart('Minuman Tin',2.50)">
+onclick="addToCartWithQty(this,'Minuman Tin',2.50)">
 🛒 Tambah ke Cart
 </button>
-
 
 </div>
 
@@ -987,20 +1158,22 @@ onclick="addToCart('Minuman Tin',2.50)">
 
 <h3>Sabun Mandian</h3>
 
-<p class="price">
-RM8.90
-</p>
+<p class="price">RM8.90</p>
 
+<div class="qty-box">
+<button onclick="changeQty(this,-1)">−</button>
+<input type="number" value="1" min="1" class="qty-input">
+<button onclick="changeQty(this,1)">+</button>
+</div>
 
 <button class="order-btn"
-onclick="addToCart('Sabun Mandian',8.90)">
+onclick="addToCartWithQty(this,'Sabun Mandian',8.90)">
 🛒 Tambah ke Cart
 </button>
 
 </div>
 
 </div>
-
 
 
 </div>
@@ -1129,6 +1302,27 @@ window.open(
 }
 
 </script>
+
+ <div id="cartBox" class="cart-box">
+
+<h3>🛒 Cart Anda</h3>
+
+<div id="cartItems"></div>
+
+<h3>
+Jumlah: RM
+<span id="cartTotal">0.00</span>
+</h3>
+
+<button
+class="checkout-btn"
+onclick="checkoutWhatsApp()">
+
+📦 Checkout WhatsApp
+
+</button>
+
+</div>
 
 </body>
 </html>
