@@ -929,8 +929,406 @@ target="_blank">
 
 <script>
 
+ <script>
+
+let cart = [];
+
+
+/* =========================
+   PRODUK DATA
+========================= */
+
+const products = [
+
+{
+name:"Beras 10kg",
+price:35,
+image:"https://images.unsplash.com/photo-1586201375761-83865001e31c"
+},
+
+{
+name:"Minuman Tin",
+price:2,
+image:"https://images.unsplash.com/photo-1622483767028-3f66f32aef97"
+},
+
+{
+name:"Sabun Basuh",
+price:8,
+image:"https://images.unsplash.com/photo-1583947215259-38e31be8751f"
+},
+
+{
+name:"Minyak Masak",
+price:15,
+image:"https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5"
+}
+
+];
+
+
+
+/* =========================
+ OPEN PRODUCT POPUP
+========================= */
+
+function openProductPopup(){
+
+let modal=document.getElementById("productModal");
+
+modal.style.display="block";
+
+
+let list=document.getElementById("productList");
+
+list.innerHTML="";
+
+
+products.forEach((p,index)=>{
+
+
+list.innerHTML+=`
+
+<div class="product-item">
+
+
+<img src="${p.image}">
+
+
+<div class="product-info">
+
+<h3>${p.name}</h3>
+
+<div class="price">
+RM ${p.price}
+</div>
+
+
+<div class="qty-box">
+
+<button onclick="minusQty(${index})">
+-
+</button>
+
+
+<input 
+class="qty-input"
+id="qty${index}"
+value="1"
+>
+
+
+<button onclick="plusQty(${index})">
++
+</button>
+
+</div>
+
+
+<button 
+class="order-btn"
+onclick="addCart(${index})">
+
+🛒 Tambah Ke Cart
+
+</button>
+
+
+</div>
+
+</div>
+
+
+`;
+
+});
+
+
+}
+
+
+
+
+function closeProductPopup(){
+
+document.getElementById("productModal").style.display="none";
+
+}
+
+
+
+
+/* =========================
+ QUANTITY
+========================= */
+
+
+function plusQty(i){
+
+let q=document.getElementById("qty"+i);
+
+q.value=parseInt(q.value)+1;
+
+}
+
+
+
+function minusQty(i){
+
+let q=document.getElementById("qty"+i);
+
+if(q.value>1){
+
+q.value=parseInt(q.value)-1;
+
+}
+
+}
+
+
+
+
+
+/* =========================
+ CART
+========================= */
+
+
+function addCart(index){
+
+
+let qty=parseInt(
+document.getElementById("qty"+index).value
+);
+
+
+let item=products[index];
+
+
+let exist=cart.find(
+x=>x.name==item.name
+);
+
+
+if(exist){
+
+exist.qty+=qty;
+
+}
+
+else{
+
+
+cart.push({
+
+name:item.name,
+price:item.price,
+qty:qty
+
+});
+
+
+}
+
+
+
+updateCart();
+
+
+alert(item.name+" telah ditambah ke cart");
+
+}
+
+
+
+
+
+function updateCart(){
+
+
+let box=document.getElementById("cartItems");
+
+
+box.innerHTML="";
+
+
+let total=0;
+
+
+
+cart.forEach(item=>{
+
+
+total += item.price * item.qty;
+
+
+box.innerHTML+=`
+
+<div class="cart-item">
+
+<span>
+${item.name}
+<br>
+${item.qty} x RM${item.price}
+
+</span>
+
+
+<b>
+RM${item.qty*item.price}
+</b>
+
+
+</div>
+
+
+`;
+
+
+});
+
+
+document.getElementById("cartTotal").innerHTML=
+"Jumlah: RM "+total;
+
+
+
+}
+
+
+
+
+
+/* =========================
+ WHATSAPP CHECKOUT
+========================= */
+
+
+function checkoutWhatsApp(){
+
+
+let message="*Tempahan Hlai Suria 88*%0A%0A";
+
+
+let total=0;
+
+
+
+cart.forEach(item=>{
+
+
+message+=
+`${item.name} (${item.qty}) = RM${item.qty*item.price}%0A`;
+
+
+total+=item.qty*item.price;
+
+
+});
+
+
+message+=
+`%0AJumlah Bayaran: RM${total}`;
+
+
+
+window.open(
+"https://wa.me/601139993118?text="+message,
+"_blank"
+);
+
+
+
+}
+
+
+
+/* =========================
+ GALLERY
+========================= */
+
+
+function closeGallery(){
+
+document.getElementById("gallery").style.display="none";
+
+}
+
 
 </script>
+
+
+</script>
+
+
+</div>
+
+ <!-- PRODUCT POPUP -->
+
+<div id="productModal" class="product-modal">
+
+<div class="product-box">
+
+<div class="product-header">
+
+<h2>
+🛒 Produk Hlai Suria 88
+</h2>
+
+
+<span 
+class="close-product"
+onclick="closeProductPopup()">
+&times;
+</span>
+
+
+</div>
+
+
+<div id="productList" class="product-list">
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- CART -->
+
+<div class="cart-box">
+
+
+<h3>
+🛒 Cart Anda
+</h3>
+
+
+<div id="cartItems">
+
+</div>
+
+
+<div 
+id="cartTotal"
+class="cart-total">
+
+Jumlah: RM0
+
+</div>
+
+
+
+<button 
+onclick="checkoutWhatsApp()"
+class="checkout-btn">
+
+📲 Checkout WhatsApp
+
+</button>
 
 
 </div>
