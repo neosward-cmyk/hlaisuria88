@@ -533,6 +533,49 @@ font-weight:600;
 
 }
 
+
+ .cart-box{
+position:fixed;
+right:20px;
+top:100px;
+width:320px;
+background:#fff;
+padding:20px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+z-index:999;
+max-height:500px;
+overflow:auto;
+}
+
+.cart-item{
+display:flex;
+justify-content:space-between;
+margin-bottom:10px;
+padding-bottom:10px;
+border-bottom:1px solid #eee;
+}
+
+.cart-total{
+font-size:22px;
+font-weight:700;
+margin-top:15px;
+color:#00994d;
+}
+
+.checkout-btn{
+width:100%;
+margin-top:15px;
+padding:15px;
+background:#25D366;
+border:none;
+color:white;
+font-size:16px;
+font-weight:600;
+border-radius:40px;
+cursor:pointer;
+}
+
 </style>
 </head>
 
@@ -872,14 +915,12 @@ onclick="closeProductPopup()">
 RM12.90
 </p>
 
-<a class="order-btn"
-href="https://wa.me/601139993118?text=Saya%20ingin%20membeli%20Nescafe%203in1"
-target="_blank">
+<button class="order-btn"
+onclick="addToCart('Nescafe 3in1',12.90)">
+🛒 Tambah ke Cart
+</button>
 
-📲 Tambah ke WhatsApp
-
-</a>
-
+ 
 </div>
 
 </div>
@@ -900,13 +941,10 @@ RM35.00
 </p>
 
 
-<a class="order-btn"
-href="https://wa.me/601139993118?text=Saya%20ingin%20membeli%20Beras%205kg"
-target="_blank">
-
-📲 Tambah ke WhatsApp
-
-</a>
+<button class="order-btn"
+onclick="addToCart('Beras 5kg',35.00)">
+🛒 Tambah ke Cart
+</button>
 
 
 </div>
@@ -929,13 +967,10 @@ RM2.50
 </p>
 
 
-<a class="order-btn"
-href="https://wa.me/601139993118?text=Saya%20ingin%20membeli%20Minuman%20Tin"
-target="_blank">
-
-📲 Tambah ke WhatsApp
-
-</a>
+<button class="order-btn"
+onclick="addToCart('Minuman Tin',2.50)">
+🛒 Tambah ke Cart
+</button>
 
 
 </div>
@@ -957,14 +992,10 @@ RM8.90
 </p>
 
 
-<a class="order-btn"
-href="https://wa.me/601139993118?text=Saya%20ingin%20membeli%20Sabun%20Mandian"
-target="_blank">
-
-📲 Tambah ke WhatsApp
-
-</a>
-
+<button class="order-btn"
+onclick="addToCart('Sabun Mandian',8.90)">
+🛒 Tambah ke Cart
+</button>
 
 </div>
 
@@ -977,6 +1008,127 @@ target="_blank">
 </div>
 
 </div>
+
+
+ <div id="cartBox" class="cart-box">
+
+<h3>🛒 Cart Anda</h3>
+
+<div id="cartItems"></div>
+
+<div class="cart-total">
+Jumlah: RM <span id="cartTotal">0.00</span>
+</div>
+
+<button onclick="checkoutWhatsApp()"
+class="checkout-btn">
+
+📦 Checkout WhatsApp
+
+</button>
+
+</div>
+
+ <script>
+
+let cart = [];
+
+function addToCart(name,price){
+
+let item = cart.find(
+p => p.name === name
+);
+
+if(item){
+
+item.qty++;
+
+}else{
+
+cart.push({
+name:name,
+price:price,
+qty:1
+});
+
+}
+
+renderCart();
+
+}
+
+function renderCart(){
+
+let cartItems =
+document.getElementById("cartItems");
+
+let total = 0;
+
+cartItems.innerHTML="";
+
+cart.forEach(item=>{
+
+total += item.price * item.qty;
+
+cartItems.innerHTML += `
+<div class="cart-item">
+
+<div>
+<b>${item.name}</b><br>
+RM${item.price} x ${item.qty}
+</div>
+
+<div>
+RM${(item.price*item.qty).toFixed(2)}
+</div>
+
+</div>
+`;
+
+});
+
+document.getElementById(
+"cartTotal"
+).innerHTML =
+total.toFixed(2);
+
+}
+
+function checkoutWhatsApp(){
+
+if(cart.length===0){
+
+alert("Cart kosong!");
+
+return;
+
+}
+
+let message =
+"🛒 TEMPAHAN HLAI SURIA 88%0A%0A";
+
+let total = 0;
+
+cart.forEach(item=>{
+
+message +=
+`${item.name} x${item.qty} - RM${(item.price*item.qty).toFixed(2)}%0A`;
+
+total += item.price*item.qty;
+
+});
+
+message +=
+`%0A💰 Jumlah: RM${total.toFixed(2)}`;
+
+window.open(
+`https://wa.me/601139993118?text=${message}`,
+'_blank'
+);
+
+}
+
+</script>
 
 </body>
 </html>
