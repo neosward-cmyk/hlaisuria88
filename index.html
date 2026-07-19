@@ -937,12 +937,8 @@ function closeGallery(){
 document.getElementById("gallery").style.display="none";
 }
 
-window.onclick=function(event){
-let modal=document.getElementById("gallery");
-if(event.target==modal){
-modal.style.display="none";
-}
-}
+
+
 
 
  function openProductPopup(){
@@ -959,32 +955,27 @@ document.getElementById("productPopup").style.display="none";
 }
 
 
-window.onclick=function(event){
 
-let popup=document.getElementById("productPopup");
+window.onclick = function(event){
 
-if(event.target==popup){
+    const gallery = document.getElementById("gallery");
+    const popup = document.getElementById("productPopup");
 
-popup.style.display="none";
+    if(event.target === gallery){
+        gallery.style.display = "none";
+    }
+
+    if(event.target === popup){
+        popup.style.display = "none";
+    }
 
 }
 
-}
 
 
  let cart=[];
 
-function changeQty(btn,amount){
 
-let input=btn.parentElement.querySelector('.qty-input');
-let qty=parseInt(input.value)||1;
-
-qty+=amount;
-
-if(qty<1) qty=1;
-
-input.value=qty;
-}
 
 function addToCartWithQty(button,name,price){
 
@@ -1072,20 +1063,19 @@ window.open(
  
 }
 
- function changeQty(btn, amount){
+function changeQty(btn, amount){
 
-const input =
-btn.parentElement.querySelector('.qty-input');
+    const input = btn.parentElement.querySelector(".qty-input");
 
-let qty = parseInt(input.value);
+    let qty = parseInt(input.value) || 1;
 
-qty += amount;
+    qty += amount;
 
-if(qty < 1){
-qty = 1;
-}
+    if(qty < 1){
+        qty = 1;
+    }
 
-input.value = qty;
+    input.value = qty;
 
 }
 
