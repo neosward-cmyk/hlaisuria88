@@ -900,6 +900,72 @@ cursor:pointer;
 
 }
 
+ /* PROMOSI POSTER BESAR */
+
+.promo-poster{
+max-width:1000px;
+margin:auto;
+}
+
+.promo-poster img{
+width:100%;
+display:block;
+border-radius:25px;
+cursor:pointer;
+box-shadow:0 15px 40px rgba(0,0,0,.15);
+transition:.3s;
+}
+
+.promo-poster img:hover{
+transform:scale(1.01);
+}
+
+/* FULLSCREEN POSTER */
+
+.poster-viewer{
+display:none;
+position:fixed;
+z-index:999999;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.95);
+justify-content:center;
+align-items:center;
+padding:15px;
+}
+
+.poster-viewer img{
+max-width:100%;
+max-height:100%;
+object-fit:contain;
+}
+
+.poster-close{
+position:absolute;
+top:20px;
+right:25px;
+font-size:45px;
+color:white;
+cursor:pointer;
+font-weight:bold;
+}
+
+@media(max-width:768px){
+
+.promo-poster img{
+border-radius:18px;
+}
+
+.poster-close{
+font-size:38px;
+top:10px;
+right:15px;
+}
+
+}
+
 </style>
 </head>
 
@@ -1055,22 +1121,12 @@ class="btn btn-secondary">
 <h2>Promosi Mingguan</h2>
 </div>
 
-<div class="promo-grid">
+<div class="promo-poster">
 
-<div class="promo-card">
-<h3>🛒 Diskaun Barang Runcit</h3>
-<p>Harga istimewa untuk produk terpilih.</p>
-</div>
-
-<div class="promo-card">
-<h3>📦 Pembelian Borong</h3>
-<p>Tawaran khas untuk pembelian kuantiti besar.</p>
-</div>
-
-<div class="promo-card">
-<h3>🎁 Hadiah Pelanggan</h3>
-<p>Dapatkan hadiah dengan pembelian minimum.</p>
-</div>
+<img src="POSTER-ANDA.jpg"
+alt="Promosi Mingguan Hlai Suria 88"
+onclick="openPromoPoster(this.src)"
+>
 
 </div>
 
@@ -1778,6 +1834,37 @@ alert(
 }
  
 
+
+function openPromoPoster(src){
+
+document.getElementById("posterViewer").style.display="flex";
+
+document.getElementById("posterImage").src=src;
+
+document.body.style.overflow="hidden";
+
+}
+
+function closePromoPoster(){
+
+document.getElementById("posterViewer").style.display="none";
+
+document.body.style.overflow="auto";
+
+}
+
+document.getElementById("posterViewer").addEventListener("click",function(e){
+
+if(e.target.id==="posterViewer"){
+
+closePromoPoster();
+
+}
+
+});
+
+
+
  
  
 
@@ -1911,6 +1998,26 @@ class="webapp-btn">
 
 
 </div>
+
+
+
+<!-- FULL SCREEN POSTER -->
+
+<div id="posterViewer" class="poster-viewer">
+
+<span
+class="poster-close"
+onclick="closePromoPoster()">
+&times;
+</span>
+
+<img
+id="posterImage"
+src=""
+alt="Poster Promosi">
+
+</div>
+
 
  
 
