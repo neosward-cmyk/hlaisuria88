@@ -689,6 +689,40 @@ cursor:pointer;
 
 }
 
+ .cart-floating{
+
+position:fixed;
+right:25px;
+bottom:25px;
+background:#00994d;
+color:white;
+border:none;
+padding:15px 25px;
+border-radius:50px;
+font-size:18px;
+font-weight:700;
+cursor:pointer;
+z-index:10000;
+box-shadow:0 10px 25px rgba(0,0,0,.2);
+
+}
+
+
+.cart-box{
+
+display:none;
+position:fixed;
+right:25px;
+bottom:90px;
+width:320px;
+background:white;
+padding:20px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+z-index:9999;
+
+}
+
 </style>
 </head>
 
@@ -730,7 +764,7 @@ Pelbagai pilihan makanan, minuman, produk rumah dan barangan borong
 dengan harga berpatutan untuk keluarga dan perniagaan.
 </p>
 
-<a href="#" onclick="openProductPopup()" class="btn btn-primary">
+<a href="#" onclick="openProductPopup();return false;" class="btn btn-primary">
 🛒 Lihat Produk
 </a>
 
@@ -1286,6 +1320,29 @@ document.getElementById("cartBox").style.display="block";
 }
 
 
+ function toggleCart(){
+
+let cart=document.getElementById("cartBox");
+let btn=document.getElementById("cartBtn");
+
+
+if(cart.style.display==="block"){
+
+cart.style.display="none";
+btn.innerHTML="🛒 Cart";
+
+}
+
+else{
+
+cart.style.display="block";
+btn.innerHTML="❌ Tutup Cart";
+
+}
+
+}
+
+
 </script>
 
 
@@ -1361,6 +1418,11 @@ class="checkout-btn">
 
 
  <button onclick="openCart()" class="cart-floating">
+🛒 Cart
+</button>
+
+
+<button onclick="toggleCart()" class="cart-floating" id="cartBtn">
 🛒 Cart
 </button>
 
