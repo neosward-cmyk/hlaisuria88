@@ -822,6 +822,84 @@ color:white;
 
 }
 
+ /* WEB APP INSTALL POPUP */
+
+.webapp-popup{
+
+display:none;
+position:fixed;
+bottom:20px;
+left:20px;
+right:20px;
+background:white;
+padding:25px;
+border-radius:25px;
+box-shadow:0 15px 40px rgba(0,0,0,.25);
+z-index:99999;
+
+animation:appSlide .4s ease;
+
+}
+
+
+@keyframes appSlide{
+
+from{
+transform:translateY(100px);
+opacity:0;
+}
+
+to{
+transform:translateY(0);
+opacity:1;
+}
+
+}
+
+
+.webapp-popup h3{
+
+color:#00994d;
+font-size:22px;
+margin-bottom:10px;
+
+}
+
+
+.webapp-popup p{
+
+color:#555;
+font-size:14px;
+
+}
+
+
+.webapp-btn{
+
+width:100%;
+padding:14px;
+margin-top:15px;
+border:none;
+border-radius:30px;
+background:#00994d;
+color:white;
+font-size:16px;
+font-weight:700;
+cursor:pointer;
+
+}
+
+
+.webapp-close{
+
+position:absolute;
+right:20px;
+top:15px;
+font-size:25px;
+cursor:pointer;
+
+}
+
 </style>
 </head>
 
@@ -1571,6 +1649,88 @@ document.getElementById("confirmModal").style.display="none";
 }
 
 
+
+// PAPAR POPUP SELEPAS 5 SAAT
+
+setTimeout(()=>{
+
+
+if(!localStorage.getItem("appPopupShown")){
+
+
+document.getElementById(
+"webAppPopup"
+).style.display="block";
+
+
+}
+
+
+},5000);
+
+
+
+function closeWebAppPopup(){
+
+document.getElementById(
+"webAppPopup"
+).style.display="none";
+
+
+localStorage.setItem(
+"appPopupShown",
+"yes"
+);
+
+
+}
+
+
+
+
+function showInstallGuide(){
+
+
+let isIOS =
+/iphone|ipad|ipod/i.test(
+navigator.userAgent
+);
+
+
+
+if(isIOS){
+
+
+alert(
+"📱 Cara Install iPhone:\n\n"+
+"1. Tekan butang Share ⬆️\n"+
+"2. Pilih 'Add to Home Screen'\n"+
+"3. Tekan Add"
+);
+
+
+}
+
+else{
+
+
+alert(
+"📱 Cara Install Android:\n\n"+
+"1. Tekan menu Chrome ⋮\n"+
+"2. Pilih 'Add to Home Screen'\n"+
+"3. Tekan Install"
+);
+
+
+}
+
+
+
+}
+
+
+
+ 
  
 
 </script>
@@ -1670,6 +1830,41 @@ OK
 </div>
 
 </div>
+
+
+<div id="webAppPopup" class="webapp-popup">
+
+
+<span 
+class="webapp-close"
+onclick="closeWebAppPopup()">
+
+×
+</span>
+
+
+<h3>
+📱 Hlai Suria 88 App
+</h3>
+
+
+<p>
+Tambah website ini ke Home Screen telefon anda untuk akses lebih cepat.
+</p>
+
+
+<button 
+onclick="showInstallGuide()"
+class="webapp-btn">
+
++ Tambah Ke Telefon
+
+</button>
+
+
+</div>
+
+ 
 
 </body>
 </html>
