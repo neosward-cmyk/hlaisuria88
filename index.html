@@ -1256,7 +1256,7 @@ margin-top:5px;
 
 
 <b>
-RM${item.qty*item.price}
+RM ${(item.qty * item.price).toFixed(2)}
 </b>
 
 </div>
@@ -1267,7 +1267,7 @@ RM${item.qty*item.price}
 
 
 document.getElementById("cartTotal").innerHTML=
-"Jumlah: RM "+total;
+"Jumlah: RM "+total.toFixed(2);
 
 
 document.getElementById("cartBtn").innerHTML=
@@ -1303,7 +1303,7 @@ let total=0;
 cart.forEach(item=>{
 
 message+=
-`${item.name} (${item.qty}) = RM${item.qty*item.price}%0A`;
+`${item.name} (${item.qty}) = RM${(item.qty*item.price).toFixed(2)}%0A`;
 
 total+=item.qty*item.price;
 
@@ -1311,7 +1311,7 @@ total+=item.qty*item.price;
 
 
 message+=
-`%0AJumlah Bayaran: RM${total}`;
+`%0AJumlah Bayaran: RM${total.toFixed(2)}`;
 
 
 window.open(
