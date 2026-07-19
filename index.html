@@ -1212,26 +1212,20 @@ updateCart();
 
 }
 
-
-
-
 function updateCart(){
-
 
 let box=document.getElementById("cartItems");
 
-
 box.innerHTML="";
 
-
 let total=0;
-
+let count=0;
 
 
 cart.forEach((item,index)=>{
 
-
 total += item.price * item.qty;
+count += item.qty;
 
 
 box.innerHTML+=`
@@ -1239,20 +1233,19 @@ box.innerHTML+=`
 <div class="cart-item">
 
 <span>
-${item.name}
-<br>
+${item.name}<br>
 ${item.qty} x RM${item.price}
+
 <br>
 
-<button onclick="removeCart(${index})" 
+<button onclick="removeCart(${index})"
 style="
-margin-top:8px;
 background:#e53935;
 color:white;
 border:none;
-padding:5px 12px;
+padding:5px 10px;
 border-radius:20px;
-cursor:pointer;
+margin-top:5px;
 ">
 
 🗑 Buang
@@ -1266,9 +1259,7 @@ cursor:pointer;
 RM${item.qty*item.price}
 </b>
 
-
 </div>
-
 
 `;
 
@@ -1279,6 +1270,8 @@ document.getElementById("cartTotal").innerHTML=
 "Jumlah: RM "+total;
 
 
+document.getElementById("cartBtn").innerHTML=
+"🛒 Cart ("+count+")";
 
 }
 
