@@ -695,6 +695,132 @@ max-height:500px;
 overflow:auto;
 }
 
+/* =========================
+   CUSTOM CONFIRM POPUP
+========================= */
+
+.confirm-modal{
+display:none;
+position:fixed;
+z-index:20000;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.65);
+backdrop-filter:blur(5px);
+}
+
+
+.confirm-box{
+
+background:white;
+width:90%;
+max-width:420px;
+margin:180px auto;
+padding:35px;
+border-radius:25px;
+text-align:center;
+box-shadow:0 20px 50px rgba(0,0,0,.25);
+
+animation:popupShow .3s ease;
+
+}
+
+
+@keyframes popupShow{
+
+from{
+transform:scale(.7);
+opacity:0;
+}
+
+to{
+transform:scale(1);
+opacity:1;
+}
+
+}
+
+
+
+.confirm-icon{
+
+width:70px;
+height:70px;
+margin:auto;
+border-radius:50%;
+background:#00994d;
+color:white;
+font-size:35px;
+display:flex;
+align-items:center;
+justify-content:center;
+margin-bottom:20px;
+
+}
+
+
+.confirm-box h3{
+
+font-size:24px;
+margin-bottom:10px;
+
+}
+
+
+.confirm-box p{
+
+color:#666;
+margin-bottom:25px;
+
+}
+
+
+
+.confirm-buttons{
+
+display:flex;
+gap:15px;
+justify-content:center;
+
+}
+
+
+.confirm-buttons button{
+
+padding:12px 25px;
+border:none;
+border-radius:30px;
+font-weight:700;
+cursor:pointer;
+font-size:15px;
+
+}
+
+
+.confirm-ok{
+
+background:#00994d;
+color:white;
+
+}
+
+
+.confirm-cancel{
+
+background:#ddd;
+color:#333;
+
+}
+
+
+.confirm-delete{
+
+background:#e53935;
+color:white;
+
+}
 
 </style>
 </head>
@@ -1192,25 +1318,43 @@ qty:qty
 updateCart();
 
 
-alert(item.name+" telah ditambah ke cart");
+showConfirm(
+"Berjaya Ditambah!",
+item.name+" telah dimasukkan ke dalam cart.",
+"add"
+);
 
 }
 
 
 function removeCart(index){
 
-if(!cart[index]) return;
+
+let item=cart[index];
 
 
-if(confirm("Buang "+cart[index].name+" dari cart?")){
+showConfirm(
+"Buang Produk?",
+"Anda pasti mahu buang "+item.name+" dari cart?",
+"delete",
+
+function(){
+
 
 cart.splice(index,1);
 
 updateCart();
 
-}
 
 }
+
+);
+
+
+}
+
+ 
+
 
 function updateCart(){
 
@@ -1365,6 +1509,70 @@ btn.innerHTML="❌ Tutup Cart";
 }
 
 
+function showConfirm(title,message,type="add",callback=null){
+
+
+let modal=document.getElementById("confirmModal");
+
+let icon=document.getElementById("confirmIcon");
+
+let action=document.getElementById("confirmAction");
+
+
+document.getElementById("confirmTitle").innerHTML=title;
+
+document.getElementById("confirmMessage").innerHTML=message;
+
+
+if(type=="delete"){
+
+icon.innerHTML="🗑";
+icon.style.background="#e53935";
+
+action.className="confirm-delete";
+
+}
+
+else{
+
+icon.innerHTML="🛒";
+icon.style.background="#00994d";
+
+action.className="confirm-ok";
+
+}
+
+
+modal.style.display="block";
+
+
+action.onclick=function(){
+
+if(callback){
+
+callback();
+
+}
+
+closeConfirm();
+
+}
+
+
+}
+
+
+
+
+function closeConfirm(){
+
+document.getElementById("confirmModal").style.display="none";
+
+}
+
+
+ 
+
 </script>
 
 
@@ -1411,6 +1619,57 @@ class="checkout-btn">
 <button onclick="toggleCart()" class="cart-floating" id="cartBtn">
 🛒 Cart
 </button>
+
+
+ <!-- CONFIRM POPUP -->
+
+<div id="confirmModal" class="confirm-modal">
+
+<div class="confirm-box">
+
+
+<div class="confirm-icon" id="confirmIcon">
+🛒
+</div>
+
+
+<h3 id="confirmTitle">
+Tambah ke Cart
+</h3>
+
+
+<p id="confirmMessage">
+Produk telah ditambah ke cart.
+</p>
+
+
+<div class="confirm-buttons">
+
+
+<button 
+class="confirm-cancel"
+onclick="closeConfirm()">
+
+Tutup
+
+</button>
+
+
+<button 
+id="confirmAction"
+class="confirm-ok">
+
+OK
+
+</button>
+
+
+</div>
+
+
+</div>
+
+</div>
 
 </body>
 </html>
