@@ -638,6 +638,35 @@ cursor:pointer;
 margin-top:15px;
 }
 
+
+ .qty-box{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:10px;
+margin-top:15px;
+}
+
+.qty-box button{
+width:35px;
+height:35px;
+border:none;
+background:#00994d;
+color:white;
+font-size:20px;
+border-radius:8px;
+cursor:pointer;
+}
+
+.qty-input{
+width:60px;
+text-align:center;
+font-size:16px;
+padding:8px;
+border:1px solid #ddd;
+border-radius:8px;
+}
+
 </style>
 </head>
 
@@ -1039,6 +1068,25 @@ window.open(
 `https://wa.me/601139993118?text=${msg}`,
 '_blank'
 );
+
+ 
+}
+
+ function changeQty(btn, amount){
+
+const input =
+btn.parentElement.querySelector('.qty-input');
+
+let qty = parseInt(input.value);
+
+qty += amount;
+
+if(qty < 1){
+qty = 1;
+}
+
+input.value = qty;
+
 }
 
 </script>
@@ -1206,27 +1254,53 @@ class="checkout-btn">
 
 let cart = [];
 
-function addToCart(name,price){
+function addToCartWithQty(button,name,price){
 
-let item = cart.find(
+const qty =
+parseInt(
+button.parentElement
+.querySelector('.qty-input').value
+);
+
+let item =
+cart.find(
 p => p.name === name
 );
 
 if(item){
 
-item.qty++;
+item.qty += qty;
 
 }else{
 
 cart.push({
 name:name,
 price:price,
-qty:1
+qty:qty
 });
 
 }
 
 renderCart();
+ 
+cartItems.innerHTML += `
+<div class="cart-item">
+
+<div>
+<b>${item.name}</b><br>
+RM${item.price} x ${item.qty}
+</div>
+
+<div>
+RM${(item.price*item.qty).toFixed(2)}
+<br>
+<button onclick="removeItem('${item.name}')">
+❌
+</button>
+</div>
+
+</div>
+`;
 
 }
 
@@ -1298,6 +1372,17 @@ window.open(
 `https://wa.me/601139993118?text=${message}`,
 '_blank'
 );
+
+}
+
+  function removeItem(name){
+
+cart =
+cart.filter(
+item => item.name !== name
+);
+
+renderCart();
 
 }
 
