@@ -1730,6 +1730,85 @@ alert(
 
 
 
+let installPrompt;
+
+
+// Simpan popup install dari Chrome
+
+window.addEventListener(
+"beforeinstallprompt",
+(e)=>{
+
+
+e.preventDefault();
+
+
+installPrompt=e;
+
+
+console.log("Install tersedia");
+
+
+});
+
+
+
+
+// Button install
+
+document.getElementById(
+"installAppBtn"
+).addEventListener(
+"click",
+async()=>{
+
+
+if(installPrompt){
+
+
+installPrompt.prompt();
+
+
+
+const result =
+await installPrompt.userChoice;
+
+
+
+if(result.outcome==="accepted"){
+
+
+alert(
+"✅ Hlai Suria 88 berjaya ditambah ke telefon!"
+);
+
+
+}
+
+
+installPrompt=null;
+
+
+
+}
+
+else{
+
+
+alert(
+"📱 Untuk telefon ini:\n\n"+
+"Buka menu browser ⋮\n"+
+"Pilih 'Add to Home Screen'"
+);
+
+
+}
+
+
+
+});
+ 
+
  
  
 
@@ -1854,10 +1933,10 @@ Tambah website ini ke Home Screen telefon anda untuk akses lebih cepat.
 
 
 <button 
-onclick="showInstallGuide()"
+id="installAppBtn"
 class="webapp-btn">
 
-+ Tambah Ke Telefon
+📱 Tambah Ke Telefon
 
 </button>
 
