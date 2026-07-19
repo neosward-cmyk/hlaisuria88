@@ -1196,31 +1196,21 @@ alert(item.name+" telah ditambah ke cart");
 
 }
 
- function removeCart(index){
+
+function removeCart(index){
+
+if(!cart[index]) return;
 
 
-let item = cart[index];
-
-
-let confirmDelete = confirm(
-"Buang "+item.name+" dari cart?"
-);
-
-
-if(confirmDelete){
-
+if(confirm("Buang "+cart[index].name+" dari cart?")){
 
 cart.splice(index,1);
 
-
 updateCart();
 
-
 }
 
-
 }
-
 
 
 
