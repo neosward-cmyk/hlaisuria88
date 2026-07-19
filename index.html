@@ -1293,23 +1293,26 @@ document.getElementById("cartTotal").innerHTML=
 
 function checkoutWhatsApp(){
 
+if(cart.length===0){
+
+alert("Cart masih kosong!");
+
+return;
+
+}
+
 
 let message="*Tempahan Hlai Suria 88*%0A%0A";
-
 
 let total=0;
 
 
-
 cart.forEach(item=>{
-
 
 message+=
 `${item.name} (${item.qty}) = RM${item.qty*item.price}%0A`;
 
-
 total+=item.qty*item.price;
-
 
 });
 
@@ -1318,13 +1321,10 @@ message+=
 `%0AJumlah Bayaran: RM${total}`;
 
 
-
 window.open(
 "https://wa.me/601139993118?text="+message,
 "_blank"
 );
-
-
 
 }
 
