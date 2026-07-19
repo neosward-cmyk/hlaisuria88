@@ -667,6 +667,28 @@ border:1px solid #ddd;
 border-radius:8px;
 }
 
+ .cart-box{
+display:none;
+}
+
+
+ .cart-floating{
+
+position:fixed;
+right:25px;
+bottom:100px;
+background:#00994d;
+color:white;
+border:none;
+padding:15px 25px;
+border-radius:50px;
+font-size:18px;
+font-weight:700;
+z-index:9999;
+cursor:pointer;
+
+}
+
 </style>
 </head>
 
@@ -927,6 +949,9 @@ target="_blank">
 
 </div>
 
+ <!-- PRODUCT POPUP -->
+<div id="productModal" class="product-modal">
+
 <script>
 
 
@@ -999,7 +1024,7 @@ list.innerHTML+=`
 <h3>${p.name}</h3>
 
 <div class="price">
-RM ${p.price}
+RM ${p.price.toFixed(2)}
 </div>
 
 
@@ -1254,6 +1279,13 @@ document.getElementById("gallery").style.display="none";
 }
 
 
+ function openCart(){
+
+document.getElementById("cartBox").style.display="block";
+
+}
+
+
 </script>
 
 
@@ -1261,8 +1293,6 @@ document.getElementById("gallery").style.display="none";
 
 
  <!-- PRODUCT POPUP -->
-
-<div id="productModal" class="product-modal">
 
 <div class="product-box">
 
@@ -1296,7 +1326,7 @@ onclick="closeProductPopup()">
 
 <!-- CART -->
 
-<div class="cart-box">
+<div class="cart-box" id="cartBox">
 
 
 <h3>
@@ -1328,6 +1358,11 @@ class="checkout-btn">
 </button>
 
 </div>
+
+
+ <button onclick="openCart()" class="cart-floating">
+🛒 Cart
+</button>
 
 </body>
 </html>
