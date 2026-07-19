@@ -1155,6 +1155,32 @@ q.value=parseInt(q.value)-1;
 function addCart(index){
 
 
+ function removeCart(index){
+
+
+let item = cart[index];
+
+
+let confirmDelete = confirm(
+"Buang "+item.name+" dari cart?"
+);
+
+
+if(confirmDelete){
+
+
+cart.splice(index,1);
+
+
+updateCart();
+
+
+}
+
+
+}
+
+
 let qty=parseInt(
 document.getElementById("qty"+index).value
 );
@@ -1214,7 +1240,7 @@ let total=0;
 
 
 
-cart.forEach(item=>{
+cart.forEach((item,index)=>{
 
 
 total += item.price * item.qty;
@@ -1228,6 +1254,22 @@ box.innerHTML+=`
 ${item.name}
 <br>
 ${item.qty} x RM${item.price}
+<br>
+
+<button onclick="removeCart(${index})" 
+style="
+margin-top:8px;
+background:#e53935;
+color:white;
+border:none;
+padding:5px 12px;
+border-radius:20px;
+cursor:pointer;
+">
+
+🗑 Buang
+
+</button>
 
 </span>
 
@@ -1241,7 +1283,6 @@ RM${item.qty*item.price}
 
 
 `;
-
 
 });
 
