@@ -1320,7 +1320,28 @@ font-size:18px;
 }
 
 
+.qr-image{
+width:220px;
+height:220px;
+object-fit:contain;
+border-radius:20px;
+margin:20px auto;
+display:block;
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
 
+.qr-payment-text{
+text-align:center;
+font-size:14px;
+color:#555;
+margin-bottom:20px;
+}
+
+.qr-buttons{
+display:flex;
+flex-direction:column;
+gap:12px;
+}
 
     
     
@@ -2546,6 +2567,14 @@ closeDeliveryModal();
 
 
 
+
+window.currentOrderMessage = message;
+
+document.getElementById("qrModal").style.display="block";
+
+
+    
+
 // buka WhatsApp
 
 window.open(
@@ -2988,6 +3017,59 @@ updateCart();
 
 
 
+function sendOrderAfterQR(){
+
+let message = window.currentOrderMessage;
+
+
+window.open(
+"https://wa.me/601139993118?text="+encodeURIComponent(message),
+"_blank"
+);
+
+
+// kosongkan cart
+
+cart=[];
+
+updateCart();
+
+
+closeQRModal();
+
+
+showConfirm(
+"Tempahan Dihantar",
+"Terima kasih kerana membuat tempahan.",
+"add"
+);
+
+
+}
+
+
+
+function closeQRModal(){
+
+document.getElementById("qrModal").style.display="none";
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
  
  
 
@@ -3299,7 +3381,69 @@ Tutup
 
 </div>
 
+<!-- QR PAYMENT POPUP -->
 
+<div id="qrModal" class="confirm-modal">
+
+<div class="confirm-box">
+
+
+<div class="confirm-icon checkout-icon">
+💳
+</div>
+
+
+<h3>
+Pembayaran QR Kedai
+</h3>
+
+
+<p>
+Sila scan QR untuk membuat pembayaran.
+</p>
+
+
+<img 
+src="./images/qr-kedai.jpeg"
+class="qr-image"
+alt="QR Payment Hlai Suria 88">
+
+
+<p class="qr-payment-text">
+
+Selepas pembayaran selesai,
+tekan butang WhatsApp untuk hantar tempahan.
+
+</p>
+
+
+<div class="qr-buttons">
+
+
+<button
+class="confirm-ok"
+onclick="sendOrderAfterQR()">
+
+📲 Hantar Tempahan WhatsApp
+
+</button>
+
+
+<button
+class="confirm-cancel"
+onclick="closeQRModal()">
+
+Tutup
+
+</button>
+
+
+</div>
+
+
+</div>
+
+</div>
 
 
 
