@@ -2486,7 +2486,19 @@ document.getElementById("cartBtn").innerHTML=
 
 
 
+function getGrandTotal(){
 
+let total = 0;
+
+cart.forEach(item=>{
+
+total += item.price * item.qty;
+
+});
+
+return total;
+
+}
 
 /* =========================
  WHATSAPP CHECKOUT
@@ -2570,8 +2582,13 @@ closeDeliveryModal();
 
 window.currentOrderMessage = message;
 
-document.getElementById("qrModal").style.display="block";
+let grandTotal = total;
 
+document.getElementById("qrGrandTotal").innerHTML =
+"Jumlah Bayaran: RM " + grandTotal.toFixed(2);
+
+
+document.getElementById("qrModal").style.display="block";
 
     
 // Simpan order sementara untuk QR
@@ -2581,6 +2598,12 @@ message.replaceAll("%0A","\n");
 
 
 // buka QR Payment
+
+let grandTotal = total;
+
+document.getElementById("qrGrandTotal").innerHTML =
+"Jumlah Bayaran: RM " + grandTotal.toFixed(2);
+
 
 document.getElementById("qrModal").style.display="block";
 
@@ -3421,6 +3444,17 @@ Pembayaran QR Kedai
 <p>
 Sila buat pembayaran dahulu menggunakan QR Kedai.
 </p>
+
+<div id="qrGrandTotal"
+style="
+font-size:28px;
+font-weight:800;
+color:#e53935;
+margin:15px 0;
+text-align:center;
+">
+Jumlah Bayaran: RM0.00
+</div>
 
 
 <img 
