@@ -2328,40 +2328,40 @@ updateCart();
 
 function cartPlus(index){
 
-cart[index].qty++;
+    cart[index].qty = Number(cart[index].qty) + 1;
 
-updateCart();
+    updateCart();
 
 }
+
 
 
 function cartMinus(index){
 
-if(cart[index].qty > 1){
+    if(cart[index].qty > 1){
 
-cart[index].qty--;
+        cart[index].qty = Number(cart[index].qty) - 1;
 
-}else{
+        updateCart();
 
-showConfirm(
-"Buang Produk?",
-"Bilangan sudah 1. Buang produk dari cart?",
-"delete",
-function(){
+    }else{
 
-cart.splice(index,1);
-updateCart();
+        showConfirm(
+            "Buang Produk?",
+            "Bilangan sudah 1. Buang produk dari cart?",
+            "delete",
+            function(){
+
+                cart.splice(index,1);
+
+                updateCart();
+
+            }
+        );
+
+    }
 
 }
-
-);
-
-}
-
-updateCart();
-
-}
-
 
 
 
