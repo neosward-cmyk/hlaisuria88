@@ -539,14 +539,6 @@ font-weight:600;
 
 
 
-.cart-item{
-display:flex;
-justify-content:space-between;
-margin-bottom:10px;
-padding-bottom:10px;
-border-bottom:1px solid #eee;
-}
-
 .cart-total{
 font-size:22px;
 font-weight:700;
@@ -619,24 +611,6 @@ margin-top:15px;
 }
 
 
- .qty-box{
-display:flex;
-justify-content:center;
-align-items:center;
-gap:10px;
-margin-top:15px;
-}
-
-.qty-box button{
-width:35px;
-height:35px;
-border:none;
-background:#00994d;
-color:white;
-font-size:20px;
-border-radius:8px;
-cursor:pointer;
-}
 
 .qty-input{
 width:60px;
@@ -647,24 +621,6 @@ border:1px solid #ddd;
 border-radius:8px;
 }
 
-
-
- .cart-floating{
-
-position:fixed;
-right:25px;
-bottom:100px;
-background:#00994d;
-color:white;
-border:none;
-padding:15px 25px;
-border-radius:50px;
-font-size:18px;
-font-weight:700;
-z-index:9999;
-cursor:pointer;
-
-}
 
  .cart-floating{
 
@@ -1348,10 +1304,41 @@ transform:translateY(-3px);
 
 
 
+.clear-btn{
+
+display:block;
+width:100%;
+border:none;
+background:#00994d;
+color:white;
+padding:13px;
+border-radius:30px;
+font-weight:700;
+font-size:16px;
+cursor:pointer;
+transition:.3s;
+
+}
+
+.clear-btn:hover{
+
+background:#ff6b00;
+transform:translateY(-3px);
+
+}
 
 
+@media(max-width:768px){
 
+.main-logo{
+height:55px;
+}
 
+.logo h2{
+font-size:18px;
+}
+
+}
 
 
 
@@ -2488,6 +2475,24 @@ message +=
 
 }
 
+else if(method==="Self-Pickup"){
+
+message +=
+`%0ALokasi Ambil:
+Hlai Suria 88, Jalan Petani, Kuala Terengganu`;
+
+}
+
+total += deliveryFee;
+
+message +=
+`%0AKawasan Delivery: ${area}`;
+
+message +=
+`%0AKos Delivery: RM${deliveryFee.toFixed(2)}`;
+
+}
+
 
 message +=
 `%0A%0AJumlah Bayaran: RM${total.toFixed(2)}`;
@@ -2880,6 +2885,56 @@ fee
 
 
 
+function addClearCart(name,price){
+
+let exist = cart.find(
+x=>x.name==name
+);
+
+
+if(exist){
+
+exist.qty++;
+
+}else{
+
+
+cart.push({
+
+name:name,
+price:price,
+qty:1
+
+});
+
+
+}
+
+
+updateCart();
+
+
+document.getElementById("cartBox").style.display="block";
+
+
+showConfirm(
+"Berjaya Ditambah!",
+name+" telah dimasukkan ke dalam cart.",
+"add"
+);
+
+
+}
+
+
+
+
+    window.onload=function(){
+
+updateCart();
+
+}
+
 
 
  
@@ -3038,10 +3093,13 @@ alt="Poster Promosi">
 
 
 <script>
-const track = document.querySelector(".slide-track");
+const track=document.querySelector(".slide-track");
 
-// Gandakan semua gambar sekali sahaja
+if(track){
+
 track.innerHTML += track.innerHTML;
+
+}
 </script>
 
 
