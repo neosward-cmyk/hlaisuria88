@@ -2579,33 +2579,22 @@ closeDeliveryModal();
 
 
 
-
-window.currentOrderMessage = message;
-
-let grandTotal = total;
-
-document.getElementById("qrGrandTotal").innerHTML =
-"Jumlah Bayaran: RM " + grandTotal.toFixed(2);
-
-
-document.getElementById("qrModal").style.display="block";
-
-    
 // Simpan order sementara untuk QR
 
 window.currentOrderMessage = 
 message.replaceAll("%0A","\n");
 
 
-// buka QR Payment
-
-let grandTotal = total;
+// Papar jumlah bayaran bersama QR
 
 document.getElementById("qrGrandTotal").innerHTML =
-"Jumlah Bayaran: RM " + grandTotal.toFixed(2);
+"Jumlah Bayaran: RM " + total.toFixed(2);
 
+
+// Buka popup QR
 
 document.getElementById("qrModal").style.display="block";
+
 
 
 
