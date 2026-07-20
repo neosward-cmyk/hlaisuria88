@@ -546,18 +546,6 @@ margin-top:15px;
 color:#00994d;
 }
 
-.checkout-btn{
-width:100%;
-margin-top:15px;
-padding:15px;
-background:#25D366;
-border:none;
-color:white;
-font-size:16px;
-font-weight:600;
-border-radius:40px;
-cursor:pointer;
-}
 
 
 .qty-box{
@@ -578,15 +566,6 @@ font-size:20px;
 font-weight:700;
 border-radius:8px;
 cursor:pointer;
-}
-
-.qty-input{
-width:60px;
-height:35px;
-text-align:center;
-border:1px solid #ddd;
-border-radius:8px;
-font-weight:600;
 }
 
 
@@ -2493,9 +2472,6 @@ message +=
 
 closeCheckoutOptions();
 
-
-if(document.getElementById("deliveryModal")){
-
 closeDeliveryModal();
 
 }
@@ -2503,10 +2479,9 @@ closeDeliveryModal();
 
 
 window.open(
-"https://wa.me/601139993118?text="+message,
+"https://wa.me/601139993118?text="+encodeURIComponent(message),
 "_blank"
 );
-
 
 
 cart=[];
@@ -2844,9 +2819,11 @@ document.getElementById(
 
 function closeDeliveryModal(){
 
-document.getElementById(
-"deliveryModal"
-).style.display="none";
+let modal=document.getElementById("deliveryModal");
+
+if(modal){
+modal.style.display="none";
+}
 
 }
 
@@ -2961,7 +2938,7 @@ updateCart();
 id="cartTotal"
 class="cart-total">
 
-Jumlah: RM0
+Jumlah: RM0.00
 
 </div>
 
