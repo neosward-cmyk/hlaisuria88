@@ -2590,6 +2590,34 @@ document.getElementById("qrGrandTotal").innerHTML =
 "Jumlah Bayaran: RM "+total.toFixed(2);
 
 
+document.getElementById("qrChargeType").innerHTML =
+"Kaedah: "+method;
+
+
+if(method==="Delivery"){
+
+document.getElementById("qrDeliveryCharge").innerHTML =
+"Caj Penghantaran ("+area+"): RM "+deliveryFee.toFixed(2);
+
+}
+else{
+
+document.getElementById("qrDeliveryCharge").innerHTML =
+"Caj Penghantaran: RM0.00 (Self-Pickup)";
+
+}
+
+
+
+
+
+
+
+
+
+    
+
+
 
 closeCheckoutOptions();
 closeDeliveryModal();
@@ -3430,6 +3458,33 @@ Pembayaran QR Kedai
 Sila buat pembayaran dahulu menggunakan QR Kedai.
 </p>
 
+
+
+    
+
+<div id="qrChargeType"
+style="
+font-size:18px;
+font-weight:700;
+color:#00994d;
+text-align:center;
+margin-bottom:10px;
+">
+Kaedah: -
+</div>
+
+
+<div id="qrDeliveryCharge"
+style="
+font-size:16px;
+color:#555;
+text-align:center;
+margin-bottom:10px;
+">
+Caj Delivery: RM0.00
+</div>
+
+
 <div id="qrGrandTotal"
 style="
 font-size:28px;
@@ -3440,6 +3495,12 @@ text-align:center;
 ">
 Jumlah Bayaran: RM0.00
 </div>
+
+
+
+
+
+    
 
 
 <img 
