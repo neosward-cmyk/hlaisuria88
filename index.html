@@ -2421,15 +2421,9 @@ document.getElementById("cartBtn").innerHTML=
 ========================= */
 
 
-function checkoutWhatsApp(
-method,
-area="",
-deliveryFee=0
-){
+function checkoutWhatsApp(method, area="", deliveryFee=0){
 
 if(cart.length===0){
-
-
 
 showConfirm(
 "Cart Kosong",
@@ -2437,18 +2431,16 @@ showConfirm(
 "delete"
 );
 
-
-    
-
 return;
 
 }
 
 
-let message=
+let message =
 "*Tempahan Hlai Suria 88*%0A"+
 "*Kaedah:* "+method+
 "%0A%0A";
+
 
 let total=0;
 
@@ -2463,33 +2455,34 @@ total += item.qty * item.price;
 });
 
 
+
 if(method==="Delivery"){
 
+
 total += deliveryFee;
+
 
 message +=
 `%0AKawasan Delivery: ${area}`;
 
+
 message +=
 `%0AKos Delivery: RM${deliveryFee.toFixed(2)}`;
 
+
 }
 
+
+
 else if(method==="Self-Pickup"){
+
 
 message +=
 `%0ALokasi Ambil:
 Hlai Suria 88, Jalan Petani, Kuala Terengganu`;
 
+
 }
-
-total += deliveryFee;
-
-message +=
-`%0AKawasan Delivery: ${area}`;
-
-message +=
-`%0AKos Delivery: RM${deliveryFee.toFixed(2)}`;
 
 
 
@@ -2497,24 +2490,30 @@ message +=
 `%0A%0AJumlah Bayaran: RM${total.toFixed(2)}`;
 
 
+
 closeCheckoutOptions();
 
+
 if(document.getElementById("deliveryModal")){
+
 closeDeliveryModal();
+
 }
 
 
-
-
-    
 
 window.open(
 "https://wa.me/601139993118?text="+message,
 "_blank"
 );
 
+
+
 cart=[];
+
 updateCart();
+
+
 
 showConfirm(
 "Tempahan Dihantar",
@@ -2522,10 +2521,8 @@ showConfirm(
 "add"
 );
 
-    
 
 }
-
 
 
 /* =========================
