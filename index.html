@@ -1003,7 +1003,17 @@ animation-play-state:paused;
 }
 
 
+.card{
+cursor:pointer;
+}
 
+.card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 15px 35px rgba(0,0,0,.15);
+
+}
     
 
 </style>
@@ -1128,7 +1138,7 @@ class="btn btn-secondary">
 
 <div class="categories">
 
-<div class="card">
+<div class="card" onclick="openCategory('runcit')">
 <img src="./images/kategorigroceries.jpeg">
 <div class="card-body">
 <i class="fa-solid fa-basket-shopping"></i>
@@ -1137,7 +1147,7 @@ class="btn btn-secondary">
 </div>
 </div>
 
-<div class="card">
+<div class="card" onclick="openCategory('minuman')">
 <img src="./images/kategoriminum.jpeg">
 <div class="card-body">
 <i class="fa-solid fa-mug-hot"></i>
@@ -1146,7 +1156,7 @@ class="btn btn-secondary">
 </div>
 </div>
 
-<div class="card">
+<div class="card" onclick="openCategory('penjagaan')">
 <img src="./images/kategoripenjagaandiri.jpeg">
 <div class="card-body">
 <i class="fa-solid fa-pump-soap"></i>
@@ -1302,25 +1312,43 @@ const products = [
 {
 name:"Beras 10kg",
 price:35,
-image:"https://images.unsplash.com/photo-1586201375761-83865001e31c"
+category:"runcit",
+image:"./images/jati10kg.jpeg"
+},
+
+{
+name:"Beras 5kg",
+price:18,
+category:"runcit",
+image:"./images/jati5kg.jpeg"
+},
+
+{
+name:"Susu Tin Gold Coin",
+price:4.50,
+category:"minuman",
+image:"./images/susutingoldcoin.jpeg"
 },
 
 {
 name:"Minuman Tin",
-price:2,
-image:"https://images.unsplash.com/photo-1622483767028-3f66f32aef97"
+price:2.00,
+category:"minuman",
+image:"./images/minumantin.jpeg"
 },
 
 {
 name:"Sabun Basuh",
-price:8,
-image:"https://images.unsplash.com/photo-1583947215259-38e31be8751f"
+price:8.00,
+category:"penjagaan",
+image:"./images/sabun.jpeg"
 },
 
 {
-name:"Minyak Masak",
-price:15,
-image:"https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5"
+name:"Syampu",
+price:12.00,
+category:"penjagaan",
+image:"./images/syampu.jpeg"
 }
 
 ];
@@ -1332,6 +1360,7 @@ image:"https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5"
 ========================= */
 
 function openProductPopup(){
+
 
 let modal=document.getElementById("productModal");
 
@@ -1404,8 +1433,76 @@ onclick="addCart(${index})">
 });
 
 
+ }   
+
+
+function openCategory(category){
+
+let modal=document.getElementById("productModal");
+
+modal.style.display="block";
+
+let list=document.getElementById("productList");
+
+list.innerHTML="";
+
+let filtered = products.filter(
+p => p.category === category
+);
+
+filtered.forEach((p,index)=>{
+
+let originalIndex = products.indexOf(p);
+
+list.innerHTML += `
+
+<div class="product-item">
+
+<img src="${p.image}">
+
+<div class="product-info">
+
+<h3>${p.name}</h3>
+
+<div class="price">
+RM ${p.price.toFixed(2)}
+</div>
+
+<div class="qty-box">
+
+<button onclick="minusQty(${originalIndex})">-</button>
+
+<input
+type="number"
+min="1"
+class="qty-input"
+id="qty${originalIndex}"
+value="1">
+
+<button onclick="plusQty(${originalIndex})">+</button>
+
+</div>
+
+<button
+class="order-btn"
+onclick="addCart(${originalIndex})">
+
+🛒 Tambah Ke Cart
+
+</button>
+
+</div>
+
+</div>
+
+`;
+
+});
+
 }
 
+
+    
 
 
 
