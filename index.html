@@ -1942,7 +1942,11 @@ document.getElementById("cartBtn").innerHTML=
 ========================= */
 
 
-function checkoutWhatsApp(method){
+function checkoutWhatsApp(
+method,
+area="",
+deliveryFee=0
+){
 
 if(cart.length===0){
 
@@ -1972,19 +1976,35 @@ let total=0;
 
 cart.forEach(item=>{
 
-message+=
+message +=
 `${item.name} (${item.qty}) = RM${(item.qty*item.price).toFixed(2)}%0A`;
 
-total+=item.qty*item.price;
+total += item.qty * item.price;
 
 });
 
 
-message+=
-`%0AJumlah Bayaran: RM${total.toFixed(2)}`;
+if(method==="Delivery"){
+
+total += deliveryFee;
+
+message +=
+`%0AKawasan Delivery: ${area}`;
+
+message +=
+`%0AKos Delivery: RM${deliveryFee.toFixed(2)}`;
+
+}
+
+
+message +=
+`%0A%0AJumlah Bayaran: RM${total.toFixed(2)}`;
 
 
 closeCheckoutOptions();
+
+closeDeliveryModal();
+    
 
 
 
@@ -2318,6 +2338,56 @@ document.getElementById(
 
 
 
+    function openDeliveryModal(){
+
+closeCheckoutOptions();
+
+document.getElementById(
+"deliveryModal"
+).style.display="block";
+
+}
+
+function closeDeliveryModal(){
+
+document.getElementById(
+"deliveryModal"
+).style.display="none";
+
+}
+
+
+    function confirmDelivery(){
+
+let selected =
+document.getElementById(
+"deliveryArea"
+).value;
+
+if(selected===""){
+
+alert("Sila pilih kawasan.");
+
+return;
+
+}
+
+let data = selected.split("|");
+
+let area = data[0];
+let fee = parseFloat(data[1]);
+
+checkoutWhatsApp(
+"Delivery",
+area,
+fee
+);
+
+}
+
+
+
+
 
     
 
@@ -2511,7 +2581,7 @@ onclick="checkoutWhatsApp('Self-Pickup')">
 
 <button
 class="confirm-ok"
-onclick="checkoutWhatsApp('Delivery')">
+onclick="openDeliveryModal()">
 
 🚚 Delivery
 
@@ -2526,6 +2596,105 @@ Tutup
 </button>
 
 </div>
+
+</div>
+
+</div>
+
+
+    <!-- DELIVERY AREA POPUP -->
+
+<div id="deliveryModal" class="confirm-modal">
+
+<div class="confirm-box">
+
+<div class="confirm-icon">
+🚚
+</div>
+
+<h3>Pilih Kawasan Delivery</h3>
+
+<p>Sila pilih kawasan penghantaran.</p>
+
+<select id="deliveryArea"
+style="
+width:100%;
+padding:12px;
+border:1px solid #ddd;
+border-radius:12px;
+margin-bottom:15px;
+font-size:15px;
+">
+
+<option value="">-- Pilih Kawasan --</option>
+
+<option value="Bandar Kuala Terengganu|5">
+Bandar Kuala Terengganu (RM5)
+</option>
+
+<option value="Batu Buruk|5">
+Batu Buruk (RM5)
+</option>
+
+<option value="Ladang Tok Pelam|5">
+Ladang Tok Pelam (RM5)
+</option>
+
+<option value="Kuala Ibai|6">
+Kuala Ibai (RM6)
+</option>
+
+<option value="Chendering|8">
+Chendering (RM8)
+</option>
+
+<option value="Bukit Besar|5">
+Bukit Besar (RM5)
+</option>
+
+<option value="Manir|8">
+Manir (RM8)
+</option>
+
+<option value="Wakaf Mempelam|8">
+Wakaf Mempelam (RM8)
+</option>
+
+<option value="Gong Badak|10">
+Gong Badak (RM10)
+</option>
+
+<option value="Seberang Takir|10">
+Seberang Takir (RM10)
+</option>
+
+<option value="Kuala Nerus|12">
+Kuala Nerus (RM12)
+</option>
+
+<option value="Tok Jembal|12">
+Tok Jembal (RM12)
+</option>
+
+</select>
+
+<button
+class="confirm-ok"
+onclick="confirmDelivery()">
+
+Teruskan
+
+</button>
+
+<br><br>
+
+<button
+class="confirm-cancel"
+onclick="closeDeliveryModal()">
+
+Tutup
+
+</button>
 
 </div>
 
