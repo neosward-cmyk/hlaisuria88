@@ -2325,6 +2325,51 @@ updateCart();
 
 }
 
+
+function cartPlus(index){
+
+cart[index].qty++;
+
+updateCart();
+
+}
+
+
+function cartMinus(index){
+
+if(cart[index].qty > 1){
+
+cart[index].qty--;
+
+}else{
+
+showConfirm(
+"Buang Produk?",
+"Bilangan sudah 1. Buang produk dari cart?",
+"delete",
+function(){
+
+cart.splice(index,1);
+updateCart();
+
+}
+
+);
+
+}
+
+updateCart();
+
+}
+
+
+
+
+
+    
+
+    
+
  
 
 
@@ -2349,8 +2394,33 @@ box.innerHTML+=`
 <div class="cart-item">
 
 <span>
-${item.name}<br>
-${item.qty} x RM${item.price.toFixed(2)}
+
+<strong>${item.name}</strong>
+
+<br>
+
+<div class="qty-box">
+
+<button onclick="cartMinus(${index})">
+-
+</button>
+
+
+<input 
+class="qty-input"
+value="${item.qty}"
+readonly>
+
+
+<button onclick="cartPlus(${index})">
++
+</button>
+
+</div>
+
+
+RM ${item.price.toFixed(2)} / unit
+
 
 <br>
 
@@ -2361,12 +2431,13 @@ color:white;
 border:none;
 padding:5px 10px;
 border-radius:20px;
-margin-top:5px;
+margin-top:8px;
 ">
 
 🗑 Buang
 
 </button>
+
 
 </span>
 
@@ -2374,6 +2445,7 @@ margin-top:5px;
 <b>
 RM ${(item.qty * item.price).toFixed(2)}
 </b>
+
 
 </div>
 
