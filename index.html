@@ -1942,7 +1942,7 @@ document.getElementById("cartBtn").innerHTML=
 ========================= */
 
 
-function checkoutWhatsApp(){
+function checkoutWhatsApp(method){
 
 if(cart.length===0){
 
@@ -1962,7 +1962,10 @@ return;
 }
 
 
-let message="*Tempahan Hlai Suria 88*%0A%0A";
+let message=
+"*Tempahan Hlai Suria 88*%0A"+
+"*Kaedah:* "+method+
+"%0A%0A";
 
 let total=0;
 
@@ -1980,6 +1983,13 @@ total+=item.qty*item.price;
 message+=
 `%0AJumlah Bayaran: RM${total.toFixed(2)}`;
 
+
+closeCheckoutOptions();
+
+
+
+
+    
 
 window.open(
 "https://wa.me/601139993118?text="+message,
@@ -2278,6 +2288,35 @@ closeProductPopup();
 
 
 
+    function openCheckoutOptions(){
+
+if(cart.length===0){
+
+showConfirm(
+"Cart Kosong",
+"Sila tambah produk terlebih dahulu.",
+"delete"
+);
+
+return;
+}
+
+document.getElementById(
+"checkoutModal"
+).style.display="block";
+
+}
+
+function closeCheckoutOptions(){
+
+document.getElementById(
+"checkoutModal"
+).style.display="none";
+
+}
+
+
+
 
 
     
@@ -2316,11 +2355,11 @@ Jumlah: RM0
 
 
 
-<button 
-onclick="checkoutWhatsApp()"
+<button
+onclick="openCheckoutOptions()"
 class="checkout-btn">
 
-📲 Checkout WhatsApp
+Checkout
 
 </button>
 
@@ -2446,6 +2485,61 @@ track.innerHTML += track.innerHTML;
 
 
 
+<!-- CHECKOUT OPTION MODAL -->
+
+<div id="checkoutModal" class="confirm-modal">
+
+<div class="confirm-box">
+
+<div class="confirm-icon">
+🛒
+</div>
+
+<h3>Pilih Kaedah Tempahan</h3>
+
+<p>Sila pilih cara anda ingin menerima barang.</p>
+
+<div style="display:flex;flex-direction:column;gap:12px;">
+
+<button
+class="confirm-ok"
+onclick="checkoutWhatsApp('Self-Pickup')">
+
+🏪 Self-Pickup
+
+</button>
+
+<button
+class="confirm-ok"
+onclick="checkoutWhatsApp('Delivery')">
+
+🚚 Delivery
+
+</button>
+
+<button
+class="confirm-cancel"
+onclick="closeCheckoutOptions()">
+
+Tutup
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+    
     
  
 
