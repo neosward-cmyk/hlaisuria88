@@ -1419,6 +1419,142 @@ text-align:center;
 
 }
     
+
+
+/* QR PAYMENT PROFESSIONAL STYLE */
+
+
+#qrModal .confirm-box{
+
+width:95%;
+max-width:900px;
+
+padding:40px;
+
+}
+
+
+
+.qr-layout{
+
+display:grid;
+
+grid-template-columns:
+1fr 320px;
+
+gap:40px;
+
+align-items:center;
+
+}
+
+
+
+.qr-info{
+
+text-align:left;
+
+}
+
+
+
+.qr-info h3{
+
+font-size:28px;
+
+margin-bottom:10px;
+
+}
+
+
+
+.qr-detail{
+
+background:#f7f8fa;
+
+padding:14px;
+
+border-radius:15px;
+
+margin:10px 0;
+
+font-weight:600;
+
+}
+
+
+
+.qr-total{
+
+font-size:32px;
+
+font-weight:800;
+
+color:#e53935;
+
+margin-top:20px;
+
+}
+
+
+
+.qr-side{
+
+text-align:center;
+
+}
+
+
+
+.qr-side .qr-image{
+
+width:260px;
+
+height:260px;
+
+}
+
+
+
+.qr-side button{
+
+width:100%;
+
+margin-top:12px;
+
+}
+
+
+
+@media(max-width:768px){
+
+
+.qr-layout{
+
+grid-template-columns:1fr;
+
+}
+
+
+
+.qr-info{
+
+text-align:center;
+
+}
+
+
+#qrModal .confirm-box{
+
+padding:25px;
+
+}
+
+
+}
+
+
+
     
 
 
@@ -3536,6 +3672,9 @@ Tutup
 
 </div>
 
+
+
+
 <!-- QR PAYMENT POPUP -->
 
 <div id="qrModal" class="confirm-modal">
@@ -3544,6 +3683,12 @@ Tutup
 
 
 <div class="qr-layout">
+
+
+<!-- INFO KIRI -->
+
+<div class="qr-info">
+
 
 <div class="confirm-icon checkout-icon">
 💳
@@ -3561,62 +3706,52 @@ Sila buat pembayaran dahulu menggunakan QR Kedai.
 
 
 
-    
 <div id="qrChargeType"
-style="
-font-size:18px;
-font-weight:700;
-color:#00994d;
-text-align:center;
-margin-bottom:15px;
-">
+class="qr-detail">
+
 Kaedah: -
 </div>
 
 
+
 <div id="qrCartTotal"
-style="
-font-size:17px;
-color:#333;
-text-align:center;
-margin-bottom:8px;
-font-weight:600;
-">
+class="qr-detail">
+
 Jumlah Barang: RM0.00
+
 </div>
 
 
+
 <div id="qrDeliveryCharge"
-style="
-font-size:17px;
-color:#555;
-text-align:center;
-margin-bottom:8px;
-font-weight:600;
-">
+class="qr-detail">
+
 Caj Delivery: RM0.00
+
 </div>
 
 
 <hr>
 
 
+
 <div id="qrGrandTotal"
-style="
-font-size:30px;
-font-weight:800;
-color:#e53935;
-margin:15px 0;
-text-align:center;
-">
+class="qr-total">
+
 Jumlah Bayaran: RM0.00
+
+</div>
+
+
 </div>
 
 
 
 
+<!-- QR KANAN -->
 
-    
+
+<div class="qr-side">
 
 
 <img 
@@ -3627,15 +3762,11 @@ alt="QR Payment Hlai Suria 88">
 
 <p class="qr-payment-text">
 
-Selepas pembayaran selesai,
-tekan butang di bawah untuk hantar butiran tempahan kepada kedai.
+Scan QR untuk membuat pembayaran.
+
+Selepas selesai, tekan butang hantar tempahan.
 
 </p>
-
-</div>
-    
-
-<div class="qr-buttons">
 
 
 <button
@@ -3645,6 +3776,7 @@ onclick="sendOrderAfterQR()">
 📲 Hantar Tempahan WhatsApp
 
 </button>
+
 
 
 <button
@@ -3658,6 +3790,20 @@ Tutup
 
 </div>
 
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+    
 
 </div>
 
