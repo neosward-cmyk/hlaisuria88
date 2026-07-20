@@ -1769,7 +1769,7 @@ class="btn btn-location">
 <div class="categories">
 
 
-<div class="card" onclick="openCategory('borong')">
+<div class="card" onclick="openCategory('borong-product')">
 
 <img src="./images/borong.jpeg">
 
@@ -2195,28 +2195,28 @@ image:"./images/shampoo.jpeg"
 {
 name:"Beras Borong 10kg (5 Unit)",
 price:170,
-category:"borong",
+category:"borong-product",
 image:"./images/jati10kg.jpeg"
 },
 
 {
 name:"Minuman Tin 24 Kotak",
 price:45,
-category:"borong",
+category:"borong-product",
 image:"./images/minumantin.jpeg"
 },
 
 {
 name:"Susu Tin Borong 48 Unit",
 price:180,
-category:"borong",
+category:"borong-product",
 image:"./images/susutingoldcoin.jpeg"
 },
 
 {
 name:"Sabun Basuh Borong",
 price:90,
-category:"borong",
+category:"borong-product",
 image:"./images/sabunbasuh.jpeg"
 },
 
@@ -3298,13 +3298,6 @@ alert("Maklumat tempahan tiada.");
 
 return;
 
-showConfirm(
-"Tempahan Dihantar",
-"Terima kasih kerana membuat pembayaran dan tempahan.",
-"add"
-);
-
-
     
 
 }
@@ -3317,6 +3310,17 @@ window.open(
 encodeURIComponent(message),
 "_blank"
 );
+
+showConfirm(
+"Tempahan Dihantar",
+"Terima kasih kerana membuat pembayaran dan tempahan.",
+"add"
+);
+
+
+
+
+    
 
 
 // kosongkan cart selepas hantar
@@ -3533,9 +3537,6 @@ alt="Poster Promosi">
 
 <div class="confirm-icon checkout-icon">
 🛍️
-
-<div class="qr-info">
-    
 </div>
 
 <h3>Pilih Kaedah Tempahan</h3>
@@ -3552,6 +3553,7 @@ onclick="checkoutWhatsApp('Self-Pickup')">
 
 </button>
 
+
 <button
 class="confirm-ok"
 onclick="openDeliveryModal()">
@@ -3559,6 +3561,7 @@ onclick="openDeliveryModal()">
 🚚 Delivery
 
 </button>
+
 
 <button
 class="confirm-cancel"
@@ -3570,10 +3573,10 @@ Tutup
 
 </div>
 
-</div>
 
 </div>
 
+</div>
 
     <!-- DELIVERY AREA POPUP -->
 
