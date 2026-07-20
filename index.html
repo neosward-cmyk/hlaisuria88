@@ -1343,6 +1343,81 @@ flex-direction:column;
 gap:12px;
 }
 
+
+
+
+
+    /* ==========================
+   QR PAYMENT WIDE POPUP
+========================== */
+
+#qrModal .confirm-box{
+
+width:95%;
+max-width:850px;
+padding:35px;
+
+}
+
+
+#qrModal .qr-layout{
+
+display:grid;
+grid-template-columns:1fr 300px;
+gap:35px;
+align-items:center;
+
+}
+
+
+#qrModal .qr-info{
+
+text-align:left;
+
+}
+
+
+#qrModal .qr-image{
+
+width:260px;
+height:260px;
+margin:auto;
+
+}
+
+
+#qrModal .qr-buttons{
+
+margin-top:20px;
+
+}
+
+
+@media(max-width:768px){
+
+#qrModal .confirm-box{
+
+width:95%;
+padding:25px;
+
+}
+
+
+#qrModal .qr-layout{
+
+grid-template-columns:1fr;
+
+}
+
+
+#qrModal .qr-info{
+
+text-align:center;
+
+}
+
+
+}
     
     
 
@@ -3322,6 +3397,9 @@ alt="Poster Promosi">
 
 <div class="confirm-icon checkout-icon">
 🛍️
+
+<div class="qr-info">
+    
 </div>
 
 <h3>Pilih Kaedah Tempahan</h3>
@@ -3465,6 +3543,8 @@ Tutup
 <div class="confirm-box">
 
 
+<div class="qr-layout">
+
 <div class="confirm-icon checkout-icon">
 💳
 </div>
@@ -3552,6 +3632,8 @@ tekan butang di bawah untuk hantar butiran tempahan kepada kedai.
 
 </p>
 
+</div>
+    
 
 <div class="qr-buttons">
 
