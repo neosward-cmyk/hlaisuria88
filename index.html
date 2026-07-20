@@ -2586,28 +2586,49 @@ window.currentOrderMessage = message;
 
 
 
-document.getElementById("qrGrandTotal").innerHTML =
-"Jumlah Bayaran: RM "+total.toFixed(2);
+
+let barangTotal = 0;
+
+
+cart.forEach(item=>{
+
+barangTotal += item.qty * item.price;
+
+});
+
 
 
 document.getElementById("qrChargeType").innerHTML =
 "Kaedah: "+method;
 
 
+
+document.getElementById("qrCartTotal").innerHTML =
+"Jumlah Barang: RM "+barangTotal.toFixed(2);
+
+
+
 if(method==="Delivery"){
 
-document.getElementById("qrDeliveryCharge").innerHTML =
-"Caj Penghantaran ("+area+"): RM "+deliveryFee.toFixed(2);
-
-}
-else{
 
 document.getElementById("qrDeliveryCharge").innerHTML =
-"Caj Penghantaran: RM0.00 (Self-Pickup)";
+"Caj Delivery ("+area+"): RM "+
+deliveryFee.toFixed(2);
+
+
+}else{
+
+
+document.getElementById("qrDeliveryCharge").innerHTML =
+"Caj Delivery: RM0.00 (Self-Pickup)";
+
 
 }
 
 
+
+document.getElementById("qrGrandTotal").innerHTML =
+"Jumlah Bayaran: RM "+total.toFixed(2);
 
 
 
@@ -3461,33 +3482,48 @@ Sila buat pembayaran dahulu menggunakan QR Kedai.
 
 
     
-
 <div id="qrChargeType"
 style="
 font-size:18px;
 font-weight:700;
 color:#00994d;
 text-align:center;
-margin-bottom:10px;
+margin-bottom:15px;
 ">
 Kaedah: -
 </div>
 
 
+<div id="qrCartTotal"
+style="
+font-size:17px;
+color:#333;
+text-align:center;
+margin-bottom:8px;
+font-weight:600;
+">
+Jumlah Barang: RM0.00
+</div>
+
+
 <div id="qrDeliveryCharge"
 style="
-font-size:16px;
+font-size:17px;
 color:#555;
 text-align:center;
-margin-bottom:10px;
+margin-bottom:8px;
+font-weight:600;
 ">
 Caj Delivery: RM0.00
 </div>
 
 
+<hr>
+
+
 <div id="qrGrandTotal"
 style="
-font-size:28px;
+font-size:30px;
 font-weight:800;
 color:#e53935;
 margin:15px 0;
