@@ -2942,7 +2942,11 @@ document.getElementById(
 
 if(selected===""){
 
-alert("Sila pilih kawasan.");
+showConfirm(
+"Lokasi Belum Dipilih",
+"Sila pilih kawasan penghantaran dahulu.",
+"delete"
+);
 
 return;
 
@@ -3010,6 +3014,14 @@ name+" telah dimasukkan ke dalam cart.",
     window.onload=function(){
 
 updateCart();
+
+const track=document.querySelector(".slide-track");
+
+if(track){
+track.innerHTML += track.innerHTML;
+}
+
+      
 
 }
 
@@ -3250,15 +3262,6 @@ alt="Poster Promosi">
 
 
 
-<script>
-const track=document.querySelector(".slide-track");
-
-if(track){
-
-track.innerHTML += track.innerHTML;
-
-}
-</script>
 
 
 
