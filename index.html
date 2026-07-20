@@ -3289,6 +3289,24 @@ track.innerHTML += track.innerHTML;
 
 function sendOrderAfterQR(){
 
+
+let paid=document.getElementById("paidCheck");
+
+if(!paid.checked){
+
+showConfirm(
+"Belum Selesai",
+"Sila tandakan anda sudah membuat pembayaran.",
+"delete"
+);
+
+return;
+
+}
+
+
+    
+
 let message = window.currentOrderMessage;
 
 
@@ -3763,6 +3781,7 @@ class="qr-image"
 alt="QR Payment Hlai Suria 88">
 
 
+
 <p class="qr-payment-text">
 
 Scan QR untuk membuat pembayaran.
@@ -3770,6 +3789,21 @@ Scan QR untuk membuat pembayaran.
 Selepas selesai, tekan butang hantar tempahan.
 
 </p>
+
+
+<label style="
+display:block;
+margin:15px 0;
+font-weight:600;
+">
+
+<input 
+type="checkbox" 
+id="paidCheck">
+
+Saya sudah membuat pembayaran
+
+</label>
 
 
 <button
@@ -3780,6 +3814,14 @@ onclick="sendOrderAfterQR()">
 
 </button>
 
+
+
+
+
+
+
+
+    
 
 
 <button
