@@ -2521,9 +2521,9 @@ return;
 
 
 let message =
-"*Tempahan Hlai Suria 88*%0A"+
+"*Tempahan Hlai Suria 88*\n"+
 "*Kaedah:* "+method+
-"%0A%0A";
+"\n\n";
 
 
 let total=0;
@@ -2531,10 +2531,15 @@ let total=0;
 
 cart.forEach(item=>{
 
-message +=
-`${item.name} (${item.qty}) = RM${(item.qty*item.price).toFixed(2)}%0A`;
+let subtotal=item.qty * item.price;
 
-total += item.qty * item.price;
+message +=
+item.name+" ("+item.qty+") = RM"+
+subtotal.toFixed(2)+"\n";
+
+
+total += subtotal;
+
 
 });
 
@@ -2547,62 +2552,51 @@ total += deliveryFee;
 
 
 message +=
-`%0AKawasan Delivery: ${area}`;
+"\nKawasan Delivery: "+area;
+
 
 message +=
-`%0AKos Delivery: RM${deliveryFee.toFixed(2)}`;
+"\nKos Delivery: RM"+
+deliveryFee.toFixed(2);
 
 
 }
+
 
 
 if(method==="Self-Pickup"){
 
 
 message +=
-`%0ALokasi Ambil: Hlai Suria 88, Jalan Petani, Kuala Terengganu`;
+"\nLokasi Ambil: Hlai Suria 88, Jalan Petani, Kuala Terengganu";
+
 
 }
 
 
 
 message +=
-`%0A%0AJumlah Bayaran: RM${total.toFixed(2)}`;
+"\n\nJumlah Bayaran: RM"+
+total.toFixed(2);
 
 
 
-// tutup popup
+
+window.currentOrderMessage = message;
+
+
+
+document.getElementById("qrGrandTotal").innerHTML =
+"Jumlah Bayaran: RM "+total.toFixed(2);
+
+
 
 closeCheckoutOptions();
-
 closeDeliveryModal();
 
 
 
-// Simpan order sementara untuk QR
-
-window.currentOrderMessage = 
-message.replaceAll("%0A","\n");
-
-
-// Papar jumlah bayaran bersama QR
-
-document.getElementById("qrGrandTotal").innerHTML =
-"Jumlah Bayaran: RM " + total.toFixed(2);
-
-
-// Buka popup QR
-
 document.getElementById("qrModal").style.display="block";
-
-
-
-
-showConfirm(
-"Tempahan Dihantar",
-"Terima kasih kerana membuat tempahan.",
-"add"
-);
 
 
 }
@@ -3032,6 +3026,15 @@ alert("Maklumat tempahan tiada.");
 
 return;
 
+showConfirm(
+"Tempahan Dihantar",
+"Terima kasih kerana membuat pembayaran dan tempahan.",
+"add"
+);
+
+
+    
+
 }
 
 
@@ -3062,22 +3065,13 @@ closeDeliveryModal();
 
 // notifikasi
 
-showConfirm(
-"Tempahan Dihantar",
-"Terima kasih kerana membuat pembayaran dan tempahan.",
-"add"
-);
+
 
 
 }
 
 
 
-
-
-
-
-    
 
 
 
@@ -3085,10 +3079,9 @@ function closeQRModal(){
 
 document.getElementById("qrModal").style.display="none";
 
+window.currentOrderMessage="";
+
 }
-
-
-
 
 
 
