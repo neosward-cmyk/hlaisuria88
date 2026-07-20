@@ -2121,68 +2121,123 @@ font-size:14px;
 
 
 
-
-/* ==========================
+    /* ==========================
    FIX QR POPUP MOBILE SCROLL
 ========================== */
 
+
 #qrModal{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:999999;
+    background:rgba(0,0,0,.65);
 
-overflow-y:auto;
-padding:20px 0;
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
 
+    padding:20px 10px;
 }
 
 
 #qrModal .confirm-box{
 
-max-height:90vh;
-overflow-y:auto;
--webkit-overflow-scrolling:touch;
+    width:95%;
+    max-width:900px;
+
+    margin:20px auto;
+
+    max-height:none;
+
+    overflow:visible;
+
+    padding:30px;
 
 }
 
-
-/* MOBILE QR POPUP */
 
 @media(max-width:768px){
 
 
 #qrModal{
 
-align-items:flex-start;
+    align-items:flex-start;
 
 }
 
 
 #qrModal .confirm-box{
 
-margin:20px auto;
-max-height:calc(100vh - 40px);
-overflow-y:auto;
-padding-bottom:30px;
+    width:95%;
+
+    margin:10px auto 30px;
+
+    padding:20px;
 
 }
 
 
-/* QR IMAGE */
+
+.qr-layout{
+
+    display:flex;
+    flex-direction:column;
+
+}
+
+
+
+.qr-info{
+
+    text-align:center;
+
+}
+
+
+
+.qr-side{
+
+    width:100%;
+
+}
+
+
 
 #qrModal .qr-side .qr-image{
 
-width:180px;
-height:180px;
+    width:180px;
+    height:180px;
+
+}
+
+
+
+#qrModal .confirm-buttons{
+
+    flex-direction:column;
 
 }
 
 
 }
 
+/* FIX CART OVERLAY MOBILE */
 
-    .qr-scroll{
+.cart-box{
+    z-index:9999;
+}
 
-display:none;
-overflow-y:auto;
 
+.confirm-modal{
+    z-index:50000;
+}
+
+
+#checkoutModal,
+#deliveryModal,
+#qrModal,
+#confirmModal{
+    z-index:60000;
 }
 
 
@@ -3148,8 +3203,7 @@ updateCart();
    document.getElementById("cartBox").style.display="block";
 
 
-document.getElementById("cartBox").style.zIndex="30000";
-
+document.getElementById("cartBox").style.zIndex="9999";
 
     
 
@@ -3775,6 +3829,14 @@ closeProductPopup();
 
     function openCheckoutOptions(){
 
+
+document.getElementById("cartBox").style.display="none";
+
+        document.body.style.overflow="hidden";
+
+
+        
+
 if(cart.length===0){
 
 showConfirm(
@@ -3798,9 +3860,9 @@ document.getElementById(
 "checkoutModal"
 ).style.display="none";
 
+document.body.style.overflow="auto";
+
 }
-
-
 
 
     function openDeliveryModal(){
