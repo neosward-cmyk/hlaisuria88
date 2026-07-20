@@ -2549,7 +2549,9 @@ closeDeliveryModal();
 // buka WhatsApp
 
 window.open(
-"https://wa.me/601139993118?text="+message,
+"https://wa.me/601139993118?text="+encodeURIComponent(
+message.replaceAll("%0A","\n")
+),
 "_blank"
 );
 
