@@ -2574,23 +2574,15 @@ document.getElementById("qrModal").style.display="block";
 
 
     
+// Simpan order sementara untuk QR
 
-// buka WhatsApp
-
-window.open(
-"https://wa.me/601139993118?text="+encodeURIComponent(
-message.replaceAll("%0A","\n")
-),
-"_blank"
-);
+window.currentOrderMessage = 
+message.replaceAll("%0A","\n");
 
 
+// buka QR Payment
 
-// kosongkan cart
-
-cart=[];
-
-updateCart();
+document.getElementById("qrModal").style.display="block";
 
 
 
@@ -3022,30 +3014,58 @@ function sendOrderAfterQR(){
 let message = window.currentOrderMessage;
 
 
+if(!message){
+
+alert("Maklumat tempahan tiada.");
+
+return;
+
+}
+
+
+// buka WhatsApp selepas QR
+
 window.open(
-"https://wa.me/601139993118?text="+encodeURIComponent(message),
+"https://wa.me/601139993118?text="+
+encodeURIComponent(message),
 "_blank"
 );
 
 
-// kosongkan cart
+// kosongkan cart selepas hantar
 
 cart=[];
 
 updateCart();
 
 
+// tutup popup
+
 closeQRModal();
 
+closeCheckoutOptions();
+
+closeDeliveryModal();
+
+
+// notifikasi
 
 showConfirm(
 "Tempahan Dihantar",
-"Terima kasih kerana membuat tempahan.",
+"Terima kasih kerana membuat pembayaran dan tempahan.",
 "add"
 );
 
 
 }
+
+
+
+
+
+
+
+    
 
 
 
@@ -3399,7 +3419,7 @@ Pembayaran QR Kedai
 
 
 <p>
-Sila scan QR untuk membuat pembayaran.
+Sila buat pembayaran dahulu menggunakan QR Kedai.
 </p>
 
 
@@ -3412,7 +3432,7 @@ alt="QR Payment Hlai Suria 88">
 <p class="qr-payment-text">
 
 Selepas pembayaran selesai,
-tekan butang WhatsApp untuk hantar tempahan.
+tekan butang di bawah untuk hantar butiran tempahan kepada kedai.
 
 </p>
 
