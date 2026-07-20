@@ -717,16 +717,45 @@ backdrop-filter:blur(5px);
 
 .confirm-box{
 
-background:white;
+background:linear-gradient(145deg,#ffffff,#f8f8f8);
 width:90%;
-max-width:420px;
-margin:180px auto;
-padding:35px;
-border-radius:25px;
+max-width:430px;
+margin:120px auto;
+padding:35px 30px;
+border-radius:30px;
 text-align:center;
-box-shadow:0 20px 50px rgba(0,0,0,.25);
 
-animation:popupShow .3s ease;
+box-shadow:
+0 20px 60px rgba(0,0,0,.25),
+0 0 0 1px rgba(255,255,255,.5);
+
+animation:popupShow .35s cubic-bezier(.17,.67,.45,1.2);
+
+position:relative;
+overflow:hidden;
+
+}
+
+
+.confirm-box:before{
+
+content:"";
+position:absolute;
+top:-80px;
+right:-80px;
+
+width:180px;
+height:180px;
+
+background:linear-gradient(
+135deg,
+#00994d,
+#ff6b00
+);
+
+opacity:.12;
+
+border-radius:50%;
 
 }
 
@@ -1029,7 +1058,120 @@ margin-right:0;
 
 
 
+    .checkout-icon{
 
+background:
+linear-gradient(
+135deg,
+#00994d,
+#ff6b00
+)!important;
+
+box-shadow:
+0 10px 25px rgba(0,153,77,.35);
+
+}
+
+
+
+ .checkout-choice{
+
+display:flex;
+flex-direction:column;
+gap:15px;
+
+}
+
+
+.checkout-choice button{
+
+height:60px;
+border-radius:18px;
+
+font-size:17px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+
+transition:.3s;
+
+}
+
+
+.checkout-choice button:hover{
+
+transform:translateY(-3px);
+
+box-shadow:
+0 10px 25px rgba(0,0,0,.15);
+
+}   
+
+
+.delivery-select{
+
+width:100%;
+
+padding:16px 18px;
+
+border:none;
+
+background:#f7f8fa;
+
+border-radius:18px;
+
+font-size:16px;
+
+font-weight:600;
+
+color:#333;
+
+outline:none;
+
+cursor:pointer;
+
+box-shadow:
+inset 0 0 0 1px #ddd;
+
+transition:.3s;
+
+appearance:none;
+
+background-image:
+linear-gradient(45deg,transparent 50%,#00994d 50%),
+linear-gradient(135deg,#00994d 50%,transparent 50%);
+
+background-position:
+calc(100% - 20px) 22px,
+calc(100% - 14px) 22px;
+
+background-size:
+6px 6px,
+6px 6px;
+
+background-repeat:no-repeat;
+
+}
+
+
+.delivery-select:hover{
+
+box-shadow:
+0 0 0 3px rgba(0,153,77,.15);
+
+}
+
+
+.delivery-select:focus{
+
+box-shadow:
+0 0 0 3px rgba(255,107,0,.25);
+
+}
+
+    
 
 
 
@@ -1832,6 +1974,11 @@ updateCart();
    document.getElementById("cartBox").style.display="block";
 
 
+document.getElementById("cartBox").style.zIndex="30000";
+
+
+    
+
 showConfirm(
 "Berjaya Ditambah!",
 item.name+" telah dimasukkan ke dalam cart.",
@@ -2003,8 +2150,9 @@ message +=
 
 closeCheckoutOptions();
 
+if(document.getElementById("deliveryModal")){
 closeDeliveryModal();
-    
+}
 
 
 
@@ -2389,8 +2537,6 @@ fee
 
 
 
-    
-
  
  
 
@@ -2561,15 +2707,15 @@ track.innerHTML += track.innerHTML;
 
 <div class="confirm-box">
 
-<div class="confirm-icon">
-🛒
+<div class="confirm-icon checkout-icon">
+🛍️
 </div>
 
 <h3>Pilih Kaedah Tempahan</h3>
 
 <p>Sila pilih cara anda ingin menerima barang.</p>
 
-<div style="display:flex;flex-direction:column;gap:12px;">
+<div class="checkout-choice">
 
 <button
 class="confirm-ok"
@@ -2612,20 +2758,19 @@ Tutup
 🚚
 </div>
 
-<h3>Pilih Kawasan Delivery</h3>
+<h3>
+🚚 Pilih Lokasi Penghantaran
+</h3>
 
-<p>Sila pilih kawasan penghantaran.</p>
+<p>
+Kami akan hantar barang terus ke lokasi anda.
+</p>
 
 <select id="deliveryArea"
-style="
-width:100%;
-padding:12px;
-border:1px solid #ddd;
-border-radius:12px;
-margin-bottom:15px;
-font-size:15px;
-">
+class="delivery-select">
 
+
+    
 <option value="">-- Pilih Kawasan --</option>
 
 <option value="Bandar Kuala Terengganu|5">
