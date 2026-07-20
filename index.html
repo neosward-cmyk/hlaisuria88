@@ -2516,7 +2516,6 @@ total += deliveryFee;
 message +=
 `%0AKawasan Delivery: ${area}`;
 
-
 message +=
 `%0AKos Delivery: RM${deliveryFee.toFixed(2)}`;
 
@@ -2524,14 +2523,11 @@ message +=
 }
 
 
-
-else if(method==="Self-Pickup"){
+if(method==="Self-Pickup"){
 
 
 message +=
-`%0ALokasi Ambil:
-Hlai Suria 88, Jalan Petani, Kuala Terengganu`;
-
+`%0ALokasi Ambil: Hlai Suria 88, Jalan Petani, Kuala Terengganu`;
 
 }
 
@@ -2542,18 +2538,24 @@ message +=
 
 
 
+// tutup popup
+
 closeCheckoutOptions();
 
 closeDeliveryModal();
 
 
 
+// buka WhatsApp
 
 window.open(
-"https://wa.me/601139993118?text="+encodeURIComponent(message),
+"https://wa.me/601139993118?text="+message,
 "_blank"
 );
 
+
+
+// kosongkan cart
 
 cart=[];
 
@@ -2570,6 +2572,9 @@ showConfirm(
 
 }
 
+
+
+    
 
 /* =========================
  GALLERY
