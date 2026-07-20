@@ -185,8 +185,11 @@ color:var(--green);
 }
 
 .slider{
-overflow:hidden;
-border-radius:25px;
+    overflow:hidden;
+    border-radius:25px;
+    padding:20px;
+    background:#fff;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
 }
 
 .slide-track{
@@ -195,11 +198,11 @@ animation:scroll 20s linear infinite;
 }
 
 .slide-track img{
-width:420px;
-height:280px;
-object-fit:cover;
-margin-right:15px;
-border-radius:20px;
+    width:420px;
+    aspect-ratio: 4 / 5;
+    object-fit:cover;
+    margin-right:15px;
+    border-radius:20px;
 }
 
 @keyframes scroll{
