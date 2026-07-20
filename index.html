@@ -956,9 +956,11 @@ padding:15px;
 }
 
 .poster-viewer img{
-max-width:100%;
+width:100%;
+height:auto;
 max-height:100%;
 object-fit:contain;
+border-radius:15px;
 }
 
 .poster-close{
@@ -984,6 +986,25 @@ right:15px;
 }
 
 }
+
+
+.cart-count{
+background:#e53935;
+color:#fff;
+padding:2px 8px;
+border-radius:20px;
+font-size:12px;
+margin-left:5px;
+}
+
+
+.slider:hover .slide-track{
+animation-play-state:paused;
+}
+
+
+
+    
 
 </style>
 </head>
@@ -1349,11 +1370,12 @@ RM ${p.price.toFixed(2)}
 </button>
 
 
-<input 
+<input
+type="number"
+min="1"
 class="qty-input"
 id="qty${index}"
-value="1"
->
+value="1">
 
 
 <button onclick="plusQty(${index})">
@@ -1475,6 +1497,9 @@ qty:qty
 updateCart();
 
 
+   document.getElementById("cartBox").style.display="block";
+
+
 showConfirm(
 "Berjaya Ditambah!",
 item.name+" telah dimasukkan ke dalam cart.",
@@ -1535,7 +1560,7 @@ box.innerHTML+=`
 
 <span>
 ${item.name}<br>
-${item.qty} x RM${item.price}
+${item.qty} x RM${item.price.toFixed(2)}
 
 <br>
 
@@ -1572,7 +1597,7 @@ document.getElementById("cartTotal").innerHTML=
 
 
 document.getElementById("cartBtn").innerHTML=
-"🛒 Cart ("+count+")";
+`🛒 Cart <span class="cart-count">${count}</span>`;
 
 }
 
@@ -1589,7 +1614,16 @@ function checkoutWhatsApp(){
 
 if(cart.length===0){
 
-alert("Cart masih kosong!");
+
+
+showConfirm(
+"Cart Kosong",
+"Sila tambah produk terlebih dahulu.",
+"delete"
+);
+
+
+    
 
 return;
 
@@ -1620,6 +1654,17 @@ window.open(
 "_blank"
 );
 
+cart=[];
+updateCart();
+
+showConfirm(
+"Tempahan Dihantar",
+"Terima kasih kerana membuat tempahan.",
+"add"
+);
+
+    
+
 }
 
 
@@ -1638,30 +1683,27 @@ document.getElementById("gallery").style.display="none";
 
  function openCart(){
 
-document.getElementById("cartBox").style.display="block";
+  document.getElementById("cartBox").style.display="block";
 
 }
 
 
- function toggleCart(){
+function toggleCart(){
 
-let cart=document.getElementById("cartBox");
-let btn=document.getElementById("cartBtn");
+let cartBox=document.getElementById("cartBox");
 
+if(cartBox.style.display==="block"){
 
-if(cart.style.display==="block"){
-
-cart.style.display="none";
-btn.innerHTML="🛒 Cart";
+cartBox.style.display="none";
 
 }
-
 else{
 
-cart.style.display="block";
-btn.innerHTML="❌ Tutup Cart";
+cartBox.style.display="block";
 
 }
+
+updateCart();
 
 }
 
@@ -1887,6 +1929,26 @@ closePromoPoster();
 });
 
 
+
+
+
+window.onclick=function(e){
+
+let productModal=document.getElementById("productModal");
+
+if(e.target===productModal){
+
+closeProductPopup();
+
+}
+
+}
+
+
+
+
+
+    
 
  
  
