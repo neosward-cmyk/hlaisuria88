@@ -2244,33 +2244,129 @@ font-size:14px;
 
 
 
+/* ==========================
+   YOUTUBE SHORT + TIKTOK FRAME
+========================== */
+
 .social-video-grid{
 display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:20px;
-max-width:800px;
-margin-top:30px;
+grid-template-columns:repeat(2, minmax(0,1fr));
+gap:25px;
+max-width:850px;
+margin:35px auto 0;
 }
 
+
+.video-card{
+width:100%;
+}
+
+
+.video-title{
+text-align:center;
+font-size:18px;
+font-weight:700;
+margin-bottom:15px;
+color:white;
+}
+
+
+/* FRAME IKUT SAIZ SHORT MOBILE */
 
 .video-frame{
+
+position:relative;
+width:100%;
 aspect-ratio:9/16;
-border-radius:20px;
+border-radius:25px;
 overflow:hidden;
 background:#000;
+
+box-shadow:
+0 15px 35px rgba(0,0,0,.25);
+
 }
 
+
+/* YOUTUBE SHORT */
+
+.video-frame iframe{
+
+position:absolute;
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+border:0;
+
+}
+
+
+/* TIKTOK */
+
+.hero-tiktok{
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+}
+
+
+.hero-tiktok blockquote.tiktok-embed{
+
+margin:0!important;
+
+width:100%!important;
+height:100%!important;
+
+max-width:none!important;
+
+background:#000!important;
+
+}
+
+
+.hero-tiktok section{
+
+height:100%!important;
+
+}
+
+
+
+/* MOBILE */
 
 @media(max-width:768px){
 
+
 .social-video-grid{
+
 grid-template-columns:1fr;
+gap:30px;
+
 }
 
+
 .video-frame{
-max-width:330px;
+
+width:100%;
+max-width:360px;
 margin:auto;
+
+aspect-ratio:9/16;
+
 }
+
+
+.video-title{
+
+font-size:16px;
+
+}
+
 
 }
 
@@ -2378,7 +2474,8 @@ class="btn btn-location">
 <div class="video-frame">
 
 <iframe
-src="https://www.youtube.com/embed/SHORT_ID"
+src="https://www.youtube.com/embed/SHORT_ID?rel=0"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 allowfullscreen>
 </iframe>
 
@@ -2398,7 +2495,8 @@ allowfullscreen>
 <blockquote
 class="tiktok-embed"
 cite="https://www.tiktok.com/@USERNAME/video/VIDEO_ID"
-data-video-id="VIDEO_ID">
+data-video-id="VIDEO_ID"
+style="max-width:100%;min-width:100%;">
 
 <section></section>
 
