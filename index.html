@@ -2278,28 +2278,7 @@ position:relative;
 
 /* BUANG SCROLL BAR IFRAME */
 
-.video-frame iframe{
 
-width:100%;
-height:100%;
-
-border:0;
-
-display:block;
-
-overflow:hidden;
-
-}
-
-
-
-.video-frame iframe{
-
-width:100%;
-height:100%;
-border:0;
-
-}
 
 
 .video-title{
@@ -2566,6 +2545,77 @@ cursor:pointer;
 
 
 
+    /* REMOVE VIDEO SCROLL */
+
+html,body{
+overflow-x:hidden;
+}
+
+
+.video-frame{
+overflow:hidden;
+position:relative;
+cursor:pointer;
+}
+
+
+.video-frame img{
+
+width:100%;
+height:100%;
+object-fit:cover;
+
+}
+
+
+/* FULLSCREEN VIDEO FIX */
+
+
+.video-viewer{
+
+display:none;
+position:fixed;
+inset:0;
+
+background:#000;
+
+z-index:9999999;
+
+align-items:center;
+justify-content:center;
+
+overflow:hidden;
+
+}
+
+
+
+.video-viewer iframe{
+
+width:100vw!important;
+height:100vh!important;
+
+border:0!important;
+
+overflow:hidden!important;
+
+}
+
+
+
+/* HIDE SCROLL */
+
+body.video-open{
+
+overflow:hidden!important;
+height:100vh;
+
+}
+
+
+
+
+
 
 
 
@@ -2723,12 +2773,9 @@ Tonton video terbaru Hlai Suria 88 di YouTube Shorts dan TikTok
 
 
 <div class="video-frame"
-onclick="openVideoViewer('https://www.youtube.com/embed/VIDEO_ID')">
+onclick="openVideoViewer('https://www.youtube.com/embed/VIDEO_ID?autoplay=1')">
 
-<iframe
-src="https://www.youtube.com/embed/VIDEO_ID"
-allowfullscreen>
-</iframe>
+<img src="./images/youtube-cover.jpg">
 
 </div>
 
@@ -2746,14 +2793,14 @@ allowfullscreen>
 
 
 <div class="video-frame"
-onclick="openVideoViewer('https://www.tiktok.com/embed/v2/7639625736592117012')">
+onclick="openVideoViewer('https://www.tiktok.com/embed/v2/7639625736592117012?lang=en-US')">
 
-<iframe
-src="https://www.tiktok.com/embed/v2/7639625736592117012"
-allowfullscreen>
-</iframe>
+<img src="./images/tiktok-cover.jpg">
 
 </div>
+
+
+    
 </div>
 
 
@@ -2767,21 +2814,12 @@ allowfullscreen>
 </div>
 
 
-<div class="video-frame">
+<div class="video-frame"
+onclick="openVideoViewer('LINK_VIDEO_ANDA')">
 
-<iframe
-onclick="openVideoViewer('https://www.facebook.com/plugins/video.php')"
-src="https://www.facebook.com/plugins/video.php?
-href=FACEBOOK_REELS_URL
-&show_text=false
-&width=260"
-
-allowfullscreen>
-
-</iframe>
+<img src="./images/facebook-cover.jpg">
 
 </div>
-
 </div>
 
 
@@ -2795,17 +2833,10 @@ allowfullscreen>
 </div>
 
 
-<div class="video-frame">
+<div class="video-frame"
+onclick="openVideoViewer('LINK_VIDEO_ANDA')">
 
-
-<iframe
-onclick="openVideoViewer('https://www.threads.net/embed/post/THREAD_ID')"
-src="https://www.threads.net/embed/post/THREAD_ID"
-
-allowfullscreen>
-
-</iframe>
-
+<img src="./images/facebook-cover.jpg">
 
 </div>
 
@@ -4573,25 +4604,40 @@ function openVideoViewer(src){
 
 let viewer=document.getElementById("videoViewer");
 
+let iframe=document.getElementById("fullVideoFrame");
+
+
+iframe.src=src;
+
+
 viewer.style.display="flex";
 
-document.getElementById("fullVideoFrame").src=src;
 
 document.body.classList.add("video-open");
 
+
 }
+
 
 function closeVideoViewer(){
 
 let viewer=document.getElementById("videoViewer");
 
+let iframe=document.getElementById("fullVideoFrame");
+
+
 viewer.style.display="none";
 
-document.getElementById("fullVideoFrame").src="";
+
+iframe.src="";
+
 
 document.body.classList.remove("video-open");
 
+
 }
+
+
 
 
 
