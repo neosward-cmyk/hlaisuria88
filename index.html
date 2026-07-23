@@ -4681,11 +4681,19 @@ window.currentOrderMessage="";
 
 
 /* =========================
-   ACTIVE MENU ON SCROLL
+ ACTIVE NAVBAR ON SCROLL
 ========================= */
 
 
-const sections = document.querySelectorAll("section[id]");
+const navSections = [
+"utama",
+"produk",
+"borong",
+"promosi",
+"hubungi"
+];
+
+
 const navLinks = document.querySelectorAll(".nav-links a");
 
 
@@ -4695,20 +4703,51 @@ window.addEventListener("scroll",()=>{
 let current="";
 
 
-sections.forEach(section=>{
+navSections.forEach(id=>{
 
 
-const sectionTop = section.offsetTop - 150;
+let section=document.getElementById(id);
 
-const sectionHeight = section.offsetHeight;
+
+if(section){
+
+
+let top = section.offsetTop - 180;
+
+let height = section.offsetHeight;
 
 
 if(
-window.scrollY >= sectionTop &&
-window.scrollY < sectionTop + sectionHeight
+window.scrollY >= top &&
+window.scrollY < top + height
 ){
 
-current = section.getAttribute("id");
+current=id;
+
+}
+
+
+}
+
+
+});
+
+
+});
+
+
+
+navLinks.forEach(link=>{
+
+
+link.classList.remove("active");
+
+
+if(
+link.getAttribute("href") === "#"+current
+){
+
+link.classList.add("active");
 
 }
 
