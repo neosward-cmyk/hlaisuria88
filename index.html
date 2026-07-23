@@ -2625,7 +2625,31 @@ scale(1.08);
 }
 
 
+/* ACTIVE MENU KETIKA SCROLL */
 
+.nav-links a.active{
+
+background:linear-gradient(
+135deg,
+#00994d,
+#ff6b00
+);
+
+color:white;
+
+box-shadow:
+0 8px 20px rgba(0,153,77,.35);
+
+transform:translateY(-3px);
+
+}
+
+
+.nav-links a.active::after{
+
+width:50%;
+
+}
 
 
 
@@ -2675,7 +2699,8 @@ scale(1.08);
 </div>
 
 <div class="nav-links">
-<a href="#">
+
+<a href="#utama">
 🏠 Utama
 </a>
 
@@ -2694,11 +2719,12 @@ scale(1.08);
 <a href="#hubungi">
 📲 Hubungi
 </a>
+
 </div>
 
 </nav>
 
-<section class="hero">
+<section class="hero" id="utama">
 
 <div class="hero-content">
 
@@ -4654,7 +4680,62 @@ window.currentOrderMessage="";
 
 
 
+/* =========================
+   ACTIVE MENU ON SCROLL
+========================= */
 
+
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(".nav-links a");
+
+
+window.addEventListener("scroll",()=>{
+
+
+let current="";
+
+
+sections.forEach(section=>{
+
+
+const sectionTop = section.offsetTop - 150;
+
+const sectionHeight = section.offsetHeight;
+
+
+if(
+window.scrollY >= sectionTop &&
+window.scrollY < sectionTop + sectionHeight
+){
+
+current = section.getAttribute("id");
+
+}
+
+
+});
+
+
+
+navLinks.forEach(link=>{
+
+
+link.classList.remove("active");
+
+
+if(
+link.getAttribute("href") === "#"+current
+){
+
+link.classList.add("active");
+
+}
+
+
+});
+
+
+});
 
 
 
