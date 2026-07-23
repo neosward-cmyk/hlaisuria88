@@ -1609,11 +1609,10 @@ gap:8px;
 
 .hero{
 
-min-height:85vh;
-padding:80px 20px;
-
-background-position:center;
-
+.hero{
+min-height:auto;
+padding-top:60px;
+padding-bottom:60px;
 }
 
 
@@ -2247,70 +2246,30 @@ font-size:14px;
 
 .social-video-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:25px;
-margin-top:35px;
-max-width:900px;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+max-width:800px;
+margin-top:30px;
 }
 
-.video-card{
-background:#fff;
-border-radius:25px;
-padding:15px;
-box-shadow:0 15px 40px rgba(0,0,0,.18);
-transition:.3s;
-overflow:hidden;
-}
-
-.video-card:hover{
-transform:translateY(-5px);
-}
-
-.video-title{
-font-size:18px;
-font-weight:700;
-margin-bottom:12px;
-text-align:center;
-color:#00994d;
-}
 
 .video-frame{
-width:100%;
 aspect-ratio:9/16;
-border-radius:18px;
+border-radius:20px;
 overflow:hidden;
 background:#000;
 }
 
-.video-frame iframe{
-width:100%;
-height:100%;
-border:none;
-display:block;
-}
-
-.hero-tiktok{
-display:flex;
-justify-content:center;
-}
-
-.hero-tiktok blockquote{
-margin:0!important;
-width:100%!important;
-max-width:none!important;
-}
 
 @media(max-width:768px){
 
 .social-video-grid{
 grid-template-columns:1fr;
-max-width:400px;
-margin:auto;
-margin-top:30px;
 }
 
-.video-card{
-padding:12px;
+.video-frame{
+max-width:330px;
+margin:auto;
 }
 
 }
