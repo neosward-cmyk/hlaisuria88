@@ -2243,75 +2243,80 @@ font-size:14px;
 
 
 
-.hero-video{
-margin-top:30px;
-width:100%;
-max-width:700px;
-border-radius:20px;
-overflow:hidden;
-box-shadow:0 15px 40px rgba(0,0,0,.25);
-}
-
-.hero-video iframe{
-width:100%;
-height:400px;
-display:block;
-border:none;
-}
-
-@media(max-width:768px){
-
-.hero-video iframe{
-height:220px;
-}
-
-}
 
 
-
-
-
-
-    .social-video-grid{
+.social-video-grid{
 display:grid;
-grid-template-columns:1fr 1fr;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 gap:25px;
-margin-top:30px;
-align-items:start;
+margin-top:35px;
+max-width:900px;
 }
 
-.hero-video,
-.hero-tiktok{
+.video-card{
 background:#fff;
-border-radius:20px;
+border-radius:25px;
+padding:15px;
+box-shadow:0 15px 40px rgba(0,0,0,.18);
+transition:.3s;
 overflow:hidden;
-box-shadow:0 15px 40px rgba(0,0,0,.2);
 }
 
-.hero-video iframe{
+.video-card:hover{
+transform:translateY(-5px);
+}
+
+.video-title{
+font-size:18px;
+font-weight:700;
+margin-bottom:12px;
+text-align:center;
+color:#00994d;
+}
+
+.video-frame{
 width:100%;
-height:400px;
+aspect-ratio:9/16;
+border-radius:18px;
+overflow:hidden;
+background:#000;
+}
+
+.video-frame iframe{
+width:100%;
+height:100%;
 border:none;
 display:block;
 }
 
 .hero-tiktok{
-padding:10px;
-background:white;
+display:flex;
+justify-content:center;
+}
+
+.hero-tiktok blockquote{
+margin:0!important;
+width:100%!important;
+max-width:none!important;
 }
 
 @media(max-width:768px){
 
 .social-video-grid{
 grid-template-columns:1fr;
+max-width:400px;
+margin:auto;
+margin-top:30px;
 }
 
-.hero-video iframe{
-height:220px;
+.video-card{
+padding:12px;
 }
 
 }
 
+
+   
 
 
 
@@ -2405,24 +2410,36 @@ class="btn btn-location">
 
 <div class="social-video-grid">
 
-<div class="hero-video">
+<div class="video-card">
+
+<div class="video-title">
+▶️ Video Kedai
+</div>
+
+<div class="video-frame">
 
 <iframe
-src="https://www.youtube.com/embed/YOUTUBE_VIDEO_ID"
-title="YouTube Hlai Suria 88"
+src="https://www.youtube.com/embed/SHORT_ID"
 allowfullscreen>
 </iframe>
 
 </div>
 
+</div>
 
-<div class="hero-tiktok">
+
+<div class="video-card">
+
+<div class="video-title">
+🎵 TikTok Rasmi
+</div>
+
+<div class="video-frame hero-tiktok">
 
 <blockquote
 class="tiktok-embed"
 cite="https://www.tiktok.com/@USERNAME/video/VIDEO_ID"
-data-video-id="VIDEO_ID"
-style="max-width:605px;min-width:325px;">
+data-video-id="VIDEO_ID">
 
 <section></section>
 
@@ -2432,8 +2449,9 @@ style="max-width:605px;min-width:325px;">
 
 </div>
 
-<script async src="https://www.tiktok.com/embed.js"></script>
+</div>
 
+<script async src="https://www.tiktok.com/embed.js"></script>
 
 
 
