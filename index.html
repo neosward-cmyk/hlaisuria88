@@ -2279,17 +2279,17 @@ font-size:14px;
 
 
 
-
 /* =========================
-   SOCIAL VIDEO HERO
+   SOCIAL VIDEO HERO FULL SCREEN
 ========================= */
 
 .hero-video-section{
 
 display:flex;
-gap:20px;
-margin-top:35px;
+gap:25px;
+margin-top:40px;
 flex-wrap:wrap;
+justify-content:flex-start;
 
 }
 
@@ -2297,32 +2297,23 @@ flex-wrap:wrap;
 .video-frame{
 
 width:300px;
-height:540px;
+aspect-ratio:9 / 16;
+height:auto;
+
 border-radius:25px;
 overflow:hidden;
+
 background:#000;
-box-shadow:0 15px 40px rgba(0,0,0,.35);
+
+box-shadow:
+0 15px 40px rgba(0,0,0,.35);
 
 position:relative;
 
 }
 
 
-
-.youtube-frame iframe{
-
-transform:scale(1.15);
-transform-origin:center;
-
-}
-
-
-
-
-
-
-
-    
+/* iframe penuh */
 
 .video-frame iframe{
 
@@ -2333,35 +2324,89 @@ display:block;
 
 }
 
-.video-title{
 
-color:white;
-font-size:14px;
-font-weight:600;
-text-align:center;
-margin-bottom:10px;
+/* YouTube Shorts */
+
+.youtube-frame iframe{
+
+transform:none;
+
+}
+
+
+/* TikTok */
+
+.tiktok-frame iframe{
+
+transform:scale(1.05);
+transform-origin:center;
 
 }
 
 
 
+/* Tajuk video */
+
+.video-title{
+
+color:white;
+font-size:15px;
+font-weight:700;
+text-align:center;
+margin-bottom:12px;
+
+}
+
+
+/* MOBILE */
+
 @media(max-width:768px){
+
 
 .hero-video-section{
 
 justify-content:center;
+gap:15px;
 
 }
 
 
 .video-frame{
 
-width:170px;
-height:300px;
+width:45vw;
+max-width:180px;
+
+aspect-ratio:9 / 16;
+
+border-radius:20px;
 
 }
 
+
+.video-title{
+
+font-size:12px;
+
 }
+
+
+}
+
+
+/* PHONE KECIL */
+
+@media(max-width:390px){
+
+
+.video-frame{
+
+width:160px;
+
+}
+
+
+}
+
 
 
 
@@ -2492,12 +2537,10 @@ class="btn btn-location">
 <div class="video-frame youtube-frame">
 
 <iframe
-
-src="https://www.youtube.com/embed/VIDEO_ID"
-
-allow="autoplay; encrypted-media"
+src="https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbranding=1"
+title="YouTube Shorts"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 allowfullscreen>
-
 </iframe>
 
 </div>
@@ -2520,6 +2563,10 @@ allowfullscreen>
 <iframe
 
 src="https://www.tiktok.com/embed/v2/7639625736592117012"
+
+scrolling="no"
+
+allow="autoplay; encrypted-media"
 
 allowfullscreen>
 
