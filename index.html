@@ -2242,6 +2242,90 @@ font-size:14px;
 }
 
 
+
+.hero-video{
+margin-top:30px;
+width:100%;
+max-width:700px;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 15px 40px rgba(0,0,0,.25);
+}
+
+.hero-video iframe{
+width:100%;
+height:400px;
+display:block;
+border:none;
+}
+
+@media(max-width:768px){
+
+.hero-video iframe{
+height:220px;
+}
+
+}
+
+
+
+
+
+
+    .social-video-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:25px;
+margin-top:30px;
+align-items:start;
+}
+
+.hero-video,
+.hero-tiktok{
+background:#fff;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 15px 40px rgba(0,0,0,.2);
+}
+
+.hero-video iframe{
+width:100%;
+height:400px;
+border:none;
+display:block;
+}
+
+.hero-tiktok{
+padding:10px;
+background:white;
+}
+
+@media(max-width:768px){
+
+.social-video-grid{
+grid-template-columns:1fr;
+}
+
+.hero-video iframe{
+height:220px;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
 
 
@@ -2316,6 +2400,46 @@ class="btn btn-location">
 📍 Lokasi Kami
 
 </a>
+
+
+
+<div class="social-video-grid">
+
+<div class="hero-video">
+
+<iframe
+src="https://www.youtube.com/embed/YOUTUBE_VIDEO_ID"
+title="YouTube Hlai Suria 88"
+allowfullscreen>
+</iframe>
+
+</div>
+
+
+<div class="hero-tiktok">
+
+<blockquote
+class="tiktok-embed"
+cite="https://www.tiktok.com/@USERNAME/video/VIDEO_ID"
+data-video-id="VIDEO_ID"
+style="max-width:605px;min-width:325px;">
+
+<section></section>
+
+</blockquote>
+
+</div>
+
+</div>
+
+<script async src="https://www.tiktok.com/embed.js"></script>
+
+
+
+
+
+
+    
 
     
 
