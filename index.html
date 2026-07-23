@@ -2720,6 +2720,10 @@ width:50%;
 📲 Hubungi
 </a>
 
+<a href="#lokasi">
+📍 Lokasi
+</a>
+
 </div>
 
 </nav>
@@ -4684,71 +4688,44 @@ window.currentOrderMessage="";
  ACTIVE NAVBAR ON SCROLL
 ========================= */
 
-
 const navSections = [
 "utama",
 "produk",
 "borong",
 "promosi",
-"hubungi"
+"hubungi",
+"lokasi"
 ];
-
 
 const navLinks = document.querySelectorAll(".nav-links a");
 
 
-window.addEventListener("scroll",()=>{
-
+function updateActiveNav(){
 
 let current="";
 
 
 navSections.forEach(id=>{
 
-
 let section=document.getElementById(id);
 
 
 if(section){
 
+let sectionTop = section.offsetTop - 200;
 
-let top = section.offsetTop - 180;
-
-let height = section.offsetHeight;
+let sectionHeight = section.offsetHeight;
 
 
 if(
-window.scrollY >= top &&
-window.scrollY < top + height
+window.scrollY >= sectionTop &&
+window.scrollY < sectionTop + sectionHeight
 ){
 
 current=id;
 
 }
 
-
-}
-
-
-});
-
-
-});
-
-
-
-navLinks.forEach(link=>{
-
-
-link.classList.remove("active");
-
-
-if(
-link.getAttribute("href") === "#"+current
-){
-
-link.classList.add("active");
-
 }
 
 
@@ -4758,13 +4735,10 @@ link.classList.add("active");
 
 navLinks.forEach(link=>{
 
-
 link.classList.remove("active");
 
 
-if(
-link.getAttribute("href") === "#"+current
-){
+if(link.getAttribute("href") === "#"+current){
 
 link.classList.add("active");
 
@@ -4774,8 +4748,13 @@ link.classList.add("active");
 });
 
 
-});
+}
 
+
+
+window.addEventListener("scroll",updateActiveNav);
+
+window.addEventListener("load",updateActiveNav);
 
 
 
