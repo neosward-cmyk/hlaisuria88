@@ -16,6 +16,11 @@
 
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
+<meta name="apple-mobile-web-app-title" content="Hlai Suria 88">
+
+
+<link rel="apple-touch-icon" href="./images/logo.jpeg">
+
 
 
 
@@ -2682,7 +2687,21 @@ width:50%;
 }
 
 
+.install-ios{
 
+background:#fff3cd;
+
+padding:15px;
+
+border-radius:15px;
+
+margin-top:15px;
+
+font-size:14px;
+
+line-height:1.6;
+
+}
 
 
 
@@ -4702,56 +4721,201 @@ if('serviceWorker' in navigator){
 
 
 
-let deferredPrompt;
+/* =========================
+   PWA INSTALL SYSTEM
+========================= */
 
-window.addEventListener("beforeinstallprompt",(e)=>{
 
-    e.preventDefault();
+let deferredPrompt = null;
 
-    deferredPrompt=e;
 
-    document.getElementById("webAppPopup").style.display="block";
+
+window.addEventListener(
+"beforeinstallprompt",
+(e)=>{
+
+
+e.preventDefault();
+
+
+deferredPrompt = e;
+
+
+
+// keluar popup selepas 3 saat
+
+setTimeout(()=>{
+
+
+if(!localStorage.getItem("pwaClosed")){
+
+
+document.getElementById(
+"webAppPopup"
+).style.display="block";
+
+
+}
+
+
+},3000);
+
+
 
 });
 
+
+
+
+
+
 async function addToHomeScreen(){
 
-    if(!deferredPrompt) return;
 
-    deferredPrompt.prompt();
 
-    const result=await deferredPrompt.userChoice;
+// Android Chrome
 
-    if(result.outcome==="accepted"){
+if(deferredPrompt){
 
-        document.getElementById("webAppPopup").style.display="none";
 
-    }
+deferredPrompt.prompt();
 
-    deferredPrompt=null;
+
+
+const result =
+await deferredPrompt.userChoice;
+
+
+
+if(result.outcome==="accepted"){
+
+
+localStorage.setItem(
+"installed",
+"yes"
+);
+
+
+document.getElementById(
+"webAppPopup"
+).style.display="none";
+
+
+}
+
+
+deferredPrompt=null;
+
+
+return;
 
 }
 
 
 
 
+// iPhone Safari
 
-window.addEventListener("appinstalled",()=>{
+let isIOS =
+/iphone|ipad|ipod/i.test(
+window.navigator.userAgent
+);
 
-    localStorage.setItem("installed","yes");
 
-    document.getElementById("webAppPopup").style.display="none";
 
-});
+if(isIOS){
+
+
+document.getElementById(
+"installText"
+).innerHTML = `
+
+<div class="install-ios">
+
+<b>📱 Cara Install iPhone:</b>
+
+<br><br>
+
+1. Tekan butang 
+<b>Share ⬆️</b>
+
+<br>
+
+2. Pilih 
+<b>Add to Home Screen</b>
+
+<br>
+
+3. Tekan 
+<b>Add</b>
+
+</div>
+
+`;
+
+
+return;
+
+
+}
+
+
+
+
+// Browser tidak support
+
+
+showConfirm(
+"Install Tidak Tersedia",
+"Sila buka menggunakan Chrome untuk install aplikasi.",
+"delete"
+);
+
+
+
+}
+
 
 
 
 
 function closeWebAppPopup(){
 
-document.getElementById("webAppPopup").style.display="none";
+
+document.getElementById(
+"webAppPopup"
+).style.display="none";
+
+
+localStorage.setItem(
+"pwaClosed",
+"yes"
+);
+
 
 }
+
+
+
+
+window.addEventListener(
+"appinstalled",
+()=>{
+
+
+localStorage.setItem(
+"installed",
+"yes"
+);
+
+
+
+document.getElementById(
+"webAppPopup"
+).style.display="none";
+
+
+});
 
 
 
@@ -4877,19 +5041,33 @@ OK
 
 <div id="webAppPopup" class="webapp-popup">
 
-
 <span 
 class="webapp-close"
 onclick="closeWebAppPopup()">
-
 ×
 </span>
 
 
+<h3>
+📱 Pasang Hlai Suria 88 App
+</h3>
+
+<p id="installText">
+Pasang website ini ke Home Screen untuk akses lebih cepat seperti aplikasi.
+</p>
+
+
+<button 
+onclick="addToHomeScreen()"
+class="webapp-btn"
+id="installBtn">
+
+Pasang Sekarang
+
+</button>
 
 
 </div>
-
 
 
 <!-- FULL SCREEN POSTER -->
