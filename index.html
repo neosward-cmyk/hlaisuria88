@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html lang="ms">
 <head>
 
@@ -35,6 +36,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Hlai Suria 88 | Kedai Serbaneka & Borong</title>
+
+<meta name="description"
+content="Hlai Suria 88 - Kedai Serbaneka dan Borong Kuala Terengganu. Produk runcit, minuman, barangan rumah dan pembelian borong.">
+
+
+<meta name="keywords"
+content="kedai borong Kuala Terengganu, barang runcit, Hlai Suria 88">
+
+
+   
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -2795,7 +2806,21 @@ class="btn btn-location">
 
 
 
+<h3>
+📱 Pasang Hlai Suria 88 App
+</h3>
 
+<p>
+Tambah website ini ke Home Screen untuk akses lebih cepat.
+</p>
+
+<button 
+onclick="addToHomeScreen()"
+class="webapp-btn">
+
+Pasang Sekarang
+
+</button>
 
 
 
@@ -4722,7 +4747,11 @@ window.addEventListener("appinstalled",()=>{
 
 
 
+function closeWebAppPopup(){
 
+document.getElementById("webAppPopup").style.display="none";
+
+}
 
 
 
