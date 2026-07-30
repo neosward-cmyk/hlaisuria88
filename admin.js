@@ -131,7 +131,7 @@ price:90,
       stock:100,
 category:"runcit",
 image:"./images/gredD.jpeg"
-},
+}
 
 ];
 
