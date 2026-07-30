@@ -4611,6 +4611,52 @@ showConfirm(
     
 
 
+// =============================
+// AUTO TOLAK STOCK
+// =============================
+
+
+cart.forEach(cartItem=>{
+
+
+let product = products.find(
+p => p.name === cartItem.name
+);
+
+
+if(product){
+
+
+product.stock -= cartItem.qty;
+
+
+// elak stock negatif
+
+if(product.stock < 0){
+
+product.stock = 0;
+
+}
+
+
+}
+
+
+
+});
+
+
+
+// simpan stock terbaru
+
+localStorage.setItem(
+"products",
+JSON.stringify(products)
+);
+
+
+
+
 // kosongkan cart selepas hantar
 
 cart=[];
@@ -4619,7 +4665,6 @@ updateCart();
 
 
 // tutup popup
-
 closeQRModal();
 
 closeCheckoutOptions();
