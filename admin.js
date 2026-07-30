@@ -156,6 +156,42 @@ JSON.stringify(products)
 
 
 
+
+function refreshProducts(){
+
+
+products =
+JSON.parse(
+localStorage.getItem("products")
+)
+|| [];
+
+
+displayProducts();
+
+
+
+alert(
+"✅ Data produk telah dikemaskini"
+);
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function displayProducts(){
 
 
