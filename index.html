@@ -2433,12 +2433,17 @@ flex-wrap:wrap;
 
 /* SOCIAL MEDIA CARD OPTIMIZED */
 
+/* =========================
+   COMPACT SOCIAL MEDIA CARD
+========================= */
+
 .social-media-grid{
 
 display:grid;
 grid-template-columns:repeat(4,1fr);
-gap:15px;
-justify-content:center;
+gap:18px;
+max-width:900px;
+margin:auto;
 
 }
 
@@ -2446,49 +2451,98 @@ justify-content:center;
 .social-card{
 
 background:white;
-border-radius:18px;
-overflow:hidden;
-box-shadow:0 8px 25px rgba(0,0,0,.12);
-transition:.3s;
+border-radius:20px;
+padding:25px 15px;
+
 text-align:center;
+
+box-shadow:
+0 10px 25px rgba(0,0,0,.08);
+
+transition:.3s;
 
 }
 
 
 .social-card:hover{
 
-transform:translateY(-5px);
+transform:translateY(-8px);
+
+box-shadow:
+0 15px 35px rgba(0,0,0,.15);
 
 }
 
 
-.social-thumb{
 
-width:100%;
-aspect-ratio:9/16;
-object-fit:cover;
-display:block;
+.social-icon{
+
+width:65px;
+height:65px;
+
+margin:auto;
+margin-bottom:15px;
+
+border-radius:50%;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-size:32px;
+
+color:white;
 
 }
+
+
+
+.youtube-icon{
+
+background:#ff0000;
+
+}
+
+
+.tiktok-icon{
+
+background:#000;
+
+}
+
+
+.facebook-icon{
+
+background:#1877f2;
+
+}
+
+
+.threads-icon{
+
+background:#333;
+
+}
+
 
 
 
 .social-title{
 
-font-size:14px;
+font-size:15px;
 font-weight:700;
-padding:10px 5px;
+
+margin-bottom:12px;
 
 }
+
 
 
 .social-btn{
 
 display:block;
 
-margin:8px 12px 15px;
-
-padding:10px;
+padding:9px 15px;
 
 border-radius:30px;
 
@@ -2521,6 +2575,48 @@ background:#1877f2;
 
 .threads-btn{
 background:#333;
+}
+
+
+
+
+
+@media(max-width:768px){
+
+
+.social-media-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+gap:12px;
+
+}
+
+
+.social-card{
+
+padding:20px 10px;
+
+}
+
+
+.social-icon{
+
+width:55px;
+height:55px;
+
+font-size:26px;
+
+}
+
+
+.social-title{
+
+font-size:13px;
+
+}
+
+
 }
 
 
@@ -2858,20 +2954,20 @@ Promosi, stok terbaru dan aktiviti Hlai Suria 88
 </div>
 
 
-
 <div class="social-media-grid">
 
 
-<!-- YOUTUBE -->
-
 <div class="social-card">
 
-<img 
-src="./images/youtube.jpeg"
-class="social-thumb">
+<div class="social-icon youtube-icon">
+
+<i class="fa-brands fa-youtube"></i>
+
+</div>
+
 
 <div class="social-title">
-▶️ YouTube Shorts
+YouTube
 </div>
 
 
@@ -2880,7 +2976,7 @@ href="https://www.youtube.com/@hlaisuria88"
 target="_blank"
 class="social-btn youtube-btn">
 
-Tonton YouTube
+Tonton
 
 </a>
 
@@ -2888,17 +2984,19 @@ Tonton YouTube
 
 
 
-<!-- TIKTOK -->
+
 
 <div class="social-card">
 
-<img 
-src="./images/tiktok.jpeg"
-class="social-thumb">
+<div class="social-icon tiktok-icon">
+
+<i class="fa-brands fa-tiktok"></i>
+
+</div>
 
 
 <div class="social-title">
-🎵 TikTok
+TikTok
 </div>
 
 
@@ -2907,7 +3005,7 @@ href="https://www.tiktok.com/@suriaku1"
 target="_blank"
 class="social-btn tiktok-btn">
 
-Buka TikTok
+Ikuti
 
 </a>
 
@@ -2916,18 +3014,19 @@ Buka TikTok
 
 
 
-<!-- FACEBOOK -->
+
 
 <div class="social-card">
 
+<div class="social-icon facebook-icon">
 
-<img 
-src="./images/facebook.jpeg"
-class="social-thumb">
+<i class="fa-brands fa-facebook-f"></i>
+
+</div>
 
 
 <div class="social-title">
-📘 Facebook Reels
+Facebook
 </div>
 
 
@@ -2936,10 +3035,9 @@ href="https://www.facebook.com/profile.php?id=61587785911219"
 target="_blank"
 class="social-btn facebook-btn">
 
-Buka Facebook
+Lihat
 
 </a>
-
 
 </div>
 
@@ -2947,18 +3045,18 @@ Buka Facebook
 
 
 
-<!-- THREADS -->
 
 <div class="social-card">
 
+<div class="social-icon threads-icon">
 
-<img 
-src="./images/threads.jpeg"
-class="social-thumb">
+<i class="fa-brands fa-threads"></i>
+
+</div>
 
 
 <div class="social-title">
-🧵 Threads
+Threads
 </div>
 
 
@@ -2967,7 +3065,7 @@ href="https://www.threads.com/@hlaisuria88"
 target="_blank"
 class="social-btn threads-btn">
 
-Buka Threads
+Ikuti
 
 </a>
 
@@ -2977,6 +3075,7 @@ Buka Threads
 
 
 </div>
+
 
 
 </section>
