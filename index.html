@@ -4767,6 +4767,13 @@ JSON.stringify(products)
 
 
 
+
+reduceStock();
+
+
+
+   
+
 // kosongkan cart selepas hantar
 
 cart=[];
@@ -5114,6 +5121,46 @@ products = currentProducts;
 }
 
 
+
+function reduceStock(){
+
+
+cart.forEach(item=>{
+
+
+let product = products.find(
+p=>p.name === item.name
+);
+
+
+if(product){
+
+product.stock -= item.qty;
+
+
+if(product.stock < 0){
+
+product.stock = 0;
+
+}
+
+}
+
+
+});
+
+
+localStorage.setItem(
+"products",
+JSON.stringify(products)
+);
+
+
+}
+
+
+
+   
     
 
 
