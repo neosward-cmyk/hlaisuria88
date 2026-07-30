@@ -1,9 +1,39 @@
 let products =
-JSON.parse(
-localStorage.getItem("products")
-)
-||
-[];
+JSON.parse(localStorage.getItem("products")) || [
+
+{
+name:"Beras 10kg",
+price:35,
+stock:100,
+category:"runcit",
+image:"./images/jati10kg.jpeg"
+},
+
+{
+name:"Beras 5kg",
+price:18,
+stock:100,
+category:"runcit",
+image:"./images/jati5kg.jpeg"
+},
+
+{
+name:"Susu Tin Gold Coin",
+price:4.50,
+stock:100,
+category:"minuman",
+image:"./images/susutingoldcoin.jpeg"
+},
+
+{
+name:"Minuman Tin",
+price:2,
+stock:100,
+category:"minuman",
+image:"./images/minumantin.jpeg"
+}
+
+];
 
 
 
@@ -142,7 +172,7 @@ document.getElementById("category").value
 
 
 
-products.push(product);
+products.unshift(product);
 
 
 save();
