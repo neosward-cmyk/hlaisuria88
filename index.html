@@ -3586,6 +3586,9 @@ localStorage.getItem("products")
 )
 ||
 
+
+[
+   
 {
 name:"Beras 10kg",
 price:35,
@@ -3784,18 +3787,21 @@ RM ${p.price.toFixed(2)}
 </div>
 
 
-<p style="
-margin-top:10px;
-font-weight:600;
-color:#00994d;
-">
+<p class="stock">
 
-📦 Stok:
-${p.stock}
-unit
+📦 ${
+p.stock <=0
+?
+"Habis"
+:
+p.stock <10
+?
+"Hampir Habis"
+:
+p.stock+" unit"
+}
 
 </p>
-
 
 <div class="qty-box">
 
@@ -5039,18 +5045,6 @@ document.getElementById(
 
 
 });
-
-
-<p class="stock">
-
-📦 Stok:
-${p.stock <= 0 
-?"Habis"
-:p.stock < 10
-?"Hampir Habis"
-:p.stock+" unit"}
-
-</p>
 
 
    
