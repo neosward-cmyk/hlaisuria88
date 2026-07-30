@@ -3643,6 +3643,15 @@ JSON.stringify(products)
 function openProductPopup(){
 
 
+
+products =
+JSON.parse(localStorage.getItem("products"))
+|| [];
+
+
+   
+
+
 let modal=document.getElementById("productModal");
 
 modal.style.display="block";
