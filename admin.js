@@ -1,5 +1,4 @@
-let products =
-JSON.parse(localStorage.getItem("products")) || [
+let defaultProducts = [
 
 {
 name:"Beras 10kg",
@@ -35,6 +34,23 @@ image:"./images/minumantin.jpeg"
 
 ];
 
+
+
+let products =
+JSON.parse(localStorage.getItem("products"));
+
+
+if(!products){
+
+products = defaultProducts;
+
+
+localStorage.setItem(
+"products",
+JSON.stringify(products)
+);
+
+}
 
 
 
