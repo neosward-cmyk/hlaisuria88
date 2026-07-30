@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ms">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>
+Admin Produk | Hlai Suria 88
+</title>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+
+<style>
+
+*{
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+
+body{
+
+background:#f5f7fa;
+padding:30px;
+
+}
+
+
+.container{
+
+max-width:1100px;
+margin:auto;
+
+}
+
+
+
+.header{
+
+background:linear-gradient(
+135deg,
+#00994d,
+#ff6b00
+);
+
+color:white;
+padding:30px;
+border-radius:25px;
+margin-bottom:30px;
+
+}
+
+
+.card{
+
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 10px 30px #0002;
+
+margin-bottom:25px;
+
+}
+
+
+
+input,select{
+
+width:100%;
+padding:12px;
+
+border:1px solid #ddd;
+border-radius:10px;
+
+margin-bottom:15px;
+
+}
+
+
+
+button{
+
+border:none;
+padding:12px 20px;
+border-radius:30px;
+cursor:pointer;
+font-weight:700;
+
+}
+
+
+.add{
+
+background:#00994d;
+color:white;
+
+}
+
+
+
+.delete{
+
+background:#e53935;
+color:white;
+
+}
+
+
+
+.edit{
+
+background:#ff6b00;
+color:white;
+
+}
+
+
+
+table{
+
+width:100%;
+border-collapse:collapse;
+
+}
+
+
+
+td,th{
+
+padding:15px;
+border-bottom:1px solid #eee;
+text-align:center;
+
+}
+
+
+
+img{
+
+width:70px;
+height:70px;
+object-fit:cover;
+border-radius:10px;
+
+}
+
+
+
+@media(max-width:700px){
+
+table{
+
+font-size:12px;
+
+}
+
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<div class="header">
+
+<h1>
+🛒 Hlai Suria 88 Admin
+</h1>
+
+<p>
+Urus Produk, Harga & Stok
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+
+<h2>
+Tambah Produk Baru
+</h2>
+
+
+<input id="name"
+placeholder="Nama Produk">
+
+
+<input id="price"
+type="number"
+placeholder="Harga">
+
+
+<input id="stock"
+type="number"
+placeholder="Jumlah Stok">
+
+
+<input id="image"
+placeholder="URL / Path Gambar">
+
+
+<select id="category">
+
+<option value="runcit">
+Barang Runcit
+</option>
+
+<option value="minuman">
+Minuman
+</option>
+
+<option value="penjagaan">
+Penjagaan Diri
+</option>
+
+<option value="borong-product">
+Borong
+</option>
+
+
+</select>
+
+
+<button class="add"
+onclick="addProduct()">
+
+➕ Tambah Produk
+
+</button>
+
+
+</div>
+
+
+
+
+<div class="card">
+
+
+<h2>
+Senarai Produk
+</h2>
+
+
+<table>
+
+
+<thead>
+
+<tr>
+
+<th>
+Gambar
+</th>
+
+<th>
+Nama
+</th>
+
+<th>
+Harga
+</th>
+
+<th>
+Stok
+</th>
+
+<th>
+Aksi
+</th>
+
+
+</tr>
+
+</thead>
+
+
+<tbody id="productTable">
+
+</tbody>
+
+
+</table>
+
+
+</div>
+
+
+</div>
+
+
+
+
+<script src="admin.js"></script>
+
+
+</body>
+
+</html>
