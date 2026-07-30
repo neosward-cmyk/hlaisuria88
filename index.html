@@ -4937,7 +4937,19 @@ document.getElementById(
 
 
    
+function addProduct(newProduct){
 
+
+products.push(newProduct);
+
+
+localStorage.setItem(
+"products",
+JSON.stringify(products)
+);
+
+
+}
 
 
 
