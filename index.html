@@ -5041,7 +5041,16 @@ document.getElementById(
 });
 
 
+<p class="stock">
 
+📦 Stok:
+${p.stock <= 0 
+?"Habis"
+:p.stock < 10
+?"Hampir Habis"
+:p.stock+" unit"}
+
+</p>
 
 
    
