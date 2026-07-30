@@ -289,7 +289,7 @@ document.getElementById("category").value
 
 
 
-products.unshift(product);
+products.push(product);
 
 
 save();
