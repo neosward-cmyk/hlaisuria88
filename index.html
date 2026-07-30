@@ -4939,18 +4939,24 @@ document.getElementById(
    
 function addProduct(newProduct){
 
+let currentProducts =
+JSON.parse(localStorage.getItem("products")) || [];
 
-products.push(newProduct);
+
+currentProducts.push(newProduct);
 
 
 localStorage.setItem(
 "products",
-JSON.stringify(products)
+JSON.stringify(currentProducts)
 );
 
 
-}
+// refresh variable utama
+products = currentProducts;
 
+
+}
 
 
     
