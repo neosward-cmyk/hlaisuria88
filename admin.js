@@ -35,7 +35,7 @@ image:"./images/minumantin.jpeg"
 {
 name:"Sabun Mandi",
 price:8.00,
-  stock:100,
+stock:100,
 category:"penjagaan",
 image:"./images/sabunmandi.jpeg"
 },
@@ -44,7 +44,7 @@ image:"./images/sabunmandi.jpeg"
 {
 name:"Sabun Basuh Baju",
 price:8.00,
-  stock:100,
+stock:100,
 category:"penjagaan",
 image:"./images/sabunbasuh.jpeg"
 },
@@ -54,7 +54,7 @@ image:"./images/sabunbasuh.jpeg"
 {
 name:"Syampu",
 price:12.00,
-  stock:100,
+stock:100,
 category:"penjagaan",
 image:"./images/shampoo.jpeg"
 },
@@ -62,7 +62,7 @@ image:"./images/shampoo.jpeg"
 {
 name:"Beras Borong 10kg (5 Unit)",
 price:170,
-  stock:100,
+stock:100,
 category:"borong-product",
 image:"./images/jati10kg.jpeg"
 },
@@ -70,7 +70,7 @@ image:"./images/jati10kg.jpeg"
 {
 name:"Minuman Tin 24 Kotak",
 price:45,
-  stock:100,
+stock:100,
 category:"borong-product",
 image:"./images/minumantin.jpeg"
 },
@@ -78,7 +78,7 @@ image:"./images/minumantin.jpeg"
 {
 name:"Susu Tin Borong 48 Unit",
 price:180,
-  stock:100,
+stock:100,
 category:"borong-product",
 image:"./images/susutingoldcoin.jpeg"
 },
@@ -86,12 +86,12 @@ image:"./images/susutingoldcoin.jpeg"
 {
 name:"Sabun Basuh Borong",
 price:90,
-  stock:100,
+stock:100,
 category:"borong-product",
 image:"./images/sabunbasuh.jpeg"
 },
 
-    {
+{
 name:"Telur Ayam Gred AA",
 price:90,
 stock:100,
@@ -99,10 +99,10 @@ category:"runcit",
 image:"./images/gredAA.jpeg"
 },
 
-    {
+ {
 name:"Telur Ayam Gred A",
 price:90,
-      stock:100,
+stock:100,
 category:"runcit",
 image:"./images/gredA.jpeg"
 },
@@ -110,29 +110,29 @@ image:"./images/gredA.jpeg"
 {
 name:"Telur Ayam Gred B",
 price:90,
-  stock:100,
+stock:100,
 category:"runcit",
 image:"./images/gredB.jpeg"
 },
 
 
-    {
+{
 name:"Telur Ayam Gred C",
 price:90,
-      stock:100,
+stock:100,
 category:"runcit",
 image:"./images/gredC.jpeg"
 },
 
-
-    {
+ {
 name:"Telur Ayam Gred D",
 price:90,
-      stock:100,
+stock:100,
 category:"runcit",
 image:"./images/gredD.jpeg"
 }
 
+  
 ];
 
 
