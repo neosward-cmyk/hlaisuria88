@@ -4230,14 +4230,13 @@ cart.forEach(item=>{
 let subtotal=item.qty * item.price;
 
 message +=
-item.name+
-"\nBarcode: "+
-(item.barcode || "-")+
-"\nQty: "+
-item.qty+
-" = RM"+
-subtotal.toFixed(2)+
-"\n\n";
+`
+📦 ${item.name}
+🏷️ Barcode: ${item.barcode || "-"}
+🔢 Qty: ${item.qty}
+💰 Harga: RM${subtotal.toFixed(2)}
+
+`;
 
 
 total += subtotal;
