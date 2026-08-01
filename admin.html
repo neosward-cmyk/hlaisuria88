@@ -250,6 +250,9 @@ Tambah Produk Baru
 <input id="name"
 placeholder="Nama Produk">
 
+<input id="barcode"
+placeholder="Barcode Produk">
+
 
 <input id="price"
 type="number"
@@ -323,6 +326,8 @@ Gambar
 Nama
 </th>
 
+<th>Barcode</th>
+
 <th>
 Harga
 </th>
@@ -342,6 +347,10 @@ Aksi
 
 
 <tbody id="productTable">
+
+
+<td>${p.barcode || "-"}</td>
+  
 
 </tbody>
 
