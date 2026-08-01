@@ -268,12 +268,13 @@ onchange="editStock(${index},this.value)">
 <td>
 
 <button
-class="edit"
-onclick="saveItem(${index})">
+class="refresh-btn"
+onclick="refreshProducts()">
 
-💾 Save
+💾 Simpan
 
 </button>
+
 
 
 <button
@@ -386,7 +387,22 @@ save();
 
 
 
+function saveItem(index){
 
+localStorage.setItem(
+"products",
+JSON.stringify(products)
+);
+
+
+alert(
+"✅ Produk berjaya disimpan"
+);
+
+
+displayProducts();
+
+}
 
 
 
