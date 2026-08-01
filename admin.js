@@ -12,7 +12,7 @@ image:"./images/jati10kg.jpeg"
 },
 
 {
-  barcode:"955100000001",
+  barcode:"955100000002",
 name:"Beras 5kg",
 price:18,
   stock:100,
@@ -21,7 +21,7 @@ image:"./images/jati5kg.jpeg"
 },
 
 {
-  barcode:"955100000001",
+  barcode:"955100000003",
 name:"Susu Tin Gold Coin",
 price:4.50,
   stock:100,
@@ -30,7 +30,7 @@ image:"./images/susutingoldcoin.jpeg"
 },
 
 {
-  barcode:"955100000001",
+  barcode:"955100000004",
 name:"Minuman Tin",
 price:2.00,
   stock:100,
@@ -39,7 +39,7 @@ image:"./images/minumantin.jpeg"
 },
 
 {
-  barcode:"955100000001",
+  barcode:"955100000005",
 name:"Sabun Mandi",
 price:8.00,
 stock:100,
@@ -49,7 +49,7 @@ image:"./images/sabunmandi.jpeg"
 
 
 {
-  barcode:"955100000001",
+  barcode:"955100000006",
 name:"Sabun Basuh Baju",
 price:8.00,
 stock:100,
@@ -60,7 +60,7 @@ image:"./images/sabunbasuh.jpeg"
 
     
 {
-  barcode:"955100000001",
+  barcode:"955100000007",
 name:"Syampu",
 price:12.00,
 stock:100,
@@ -69,7 +69,7 @@ image:"./images/shampoo.jpeg"
 },
 
 {
-  barcode:"955100000001",
+  barcode:"955100000008",
 name:"Beras Borong 10kg (5 Unit)",
 price:170,
 stock:100,
@@ -78,7 +78,7 @@ image:"./images/jati10kg.jpeg"
 },
 
 {
-  barcode:"955100000001",
+  barcode:"955100000009",
 name:"Minuman Tin 24 Kotak",
 price:45,
 stock:100,
@@ -87,7 +87,7 @@ image:"./images/minumantin.jpeg"
 },
 
 {
-  barcode:"955100000001",
+  barcode:"955100000010",
 name:"Susu Tin Borong 48 Unit",
 price:180,
 stock:100,
@@ -96,7 +96,7 @@ image:"./images/susutingoldcoin.jpeg"
 },
 
 {
-  barcode:"955100000001",
+  barcode:"955100000011",
 name:"Sabun Basuh Borong",
 price:90,
 stock:100,
@@ -105,7 +105,7 @@ image:"./images/sabunbasuh.jpeg"
 },
 
 {
-  barcode:"955100000001",
+  barcode:"955100000012",
 name:"Telur Ayam Gred AA",
 price:90,
 stock:100,
@@ -114,7 +114,7 @@ image:"./images/gredAA.jpeg"
 },
 
  {
-   barcode:"955100000001",
+   barcode:"955100000013",
 name:"Telur Ayam Gred A",
 price:90,
 stock:100,
@@ -123,7 +123,7 @@ image:"./images/gredA.jpeg"
 },
 
 {
-  barcode:"955100000001",
+  barcode:"955100000014",
 name:"Telur Ayam Gred B",
 price:90,
 stock:100,
@@ -133,7 +133,7 @@ image:"./images/gredB.jpeg"
 
 
 {
-  barcode:"955100000001",
+  barcode:"955100000015",
 name:"Telur Ayam Gred C",
 price:90,
 stock:100,
@@ -142,7 +142,7 @@ image:"./images/gredC.jpeg"
 },
 
  {
-   barcode:"955100000001",
+   barcode:"955100000016",
 name:"Telur Ayam Gred D",
 price:90,
 stock:100,
