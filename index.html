@@ -4230,15 +4230,20 @@ cart.forEach(item=>{
 let subtotal=item.qty * item.price;
 
 message +=
-item.name+" ("+item.qty+") = RM"+
-subtotal.toFixed(2)+"\n";
+item.name+
+"\nBarcode: "+
+(item.barcode || "-")+
+"\nQty: "+
+item.qty+
+" = RM"+
+subtotal.toFixed(2)+
+"\n\n";
 
 
 total += subtotal;
 
 
 });
-
 
 
 if(method==="Delivery"){
