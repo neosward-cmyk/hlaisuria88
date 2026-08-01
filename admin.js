@@ -325,7 +325,21 @@ document.getElementById("category").value
 
 
 
-products.push(product);
+products.push({
+
+barcode:document.getElementById("barcode").value,
+
+name:document.getElementById("name").value,
+
+price:Number(document.getElementById("price").value),
+
+stock:Number(document.getElementById("stock").value),
+
+image:document.getElementById("image").value,
+
+category:document.getElementById("category").value
+
+});
 
 
 save();
@@ -409,3 +423,33 @@ displayProducts();
 
 
 displayProducts();
+
+
+
+const keyword=document
+.getElementById("searchProduct")
+.value
+.toLowerCase();
+
+const list=products.filter(p=>
+
+(p.name||"")
+.toLowerCase()
+.includes(keyword)
+
+||
+
+(p.barcode||"")
+.toLowerCase()
+.includes(keyword)
+
+);
+
+
+
+
+
+
+
+
+
