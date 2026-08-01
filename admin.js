@@ -268,12 +268,19 @@ onchange="editStock(${index},this.value)">
 <td>
 
 <button
+class="edit"
+onclick="saveItem(${index})">
 
+💾 Save
+
+</button>
+
+
+<button
 class="delete"
-
 onclick="deleteProduct(${index})">
 
-🗑
+🗑 Remove
 
 </button>
 
