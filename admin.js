@@ -439,7 +439,7 @@ price:Number(document.getElementById("price").value),
 stock:Number(document.getElementById("stock").value),
 
 image:
-uploadedImage,
+uploadedImage || "./images/default.jpg",
   
 category:document.getElementById("category").value
 
