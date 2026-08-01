@@ -158,6 +158,8 @@ image:"./images/gredD.jpeg"
 let products =
 JSON.parse(localStorage.getItem("products"));
 
+let uploadedImage = "";
+
 
 if(!products){
 
@@ -298,6 +300,121 @@ onclick="deleteProduct(${index})">
 
 
 
+function uploadImage(){
+
+
+let file =
+document.getElementById("imageUpload").files[0];
+
+
+if(!file){
+
+alert("Sila pilih gambar dahulu");
+
+return;
+
+}
+
+
+let formData = new FormData();
+
+
+formData.append(
+"image",
+file
+);
+
+
+
+fetch("upload.php",{
+
+method:"POST",
+
+body:formData
+
+})
+
+
+.then(response=>response.json())
+
+
+.then(data=>{
+
+
+if(data.status=="success"){
+
+
+uploadedImage = data.url;
+
+
+alert(
+"✅ Gambar berjaya dimuat naik"
+);
+
+
+}
+
+else{
+
+
+alert(
+"❌ Gagal upload gambar"
+);
+
+
+}
+
+
+})
+
+
+.catch(error=>{
+
+
+console.log(error);
+
+
+alert(
+"Ralat upload gambar"
+);
+
+
+});
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -321,8 +438,9 @@ price:Number(document.getElementById("price").value),
 
 stock:Number(document.getElementById("stock").value),
 
-image:document.getElementById("image").value,
-
+image:
+uploadedImage,
+  
 category:document.getElementById("category").value
 
 });
@@ -450,65 +568,6 @@ displayProducts();
 
 
 displayProducts();
-
-
-
-
-function uploadImage(){
-
-
-let file =
-document.getElementById(
-"imageUpload"
-).files[0];
-
-
-let formData =
-new FormData();
-
-
-formData.append(
-"image",
-file
-);
-
-
-
-fetch("upload.php",{
-
-method:"POST",
-
-body:formData
-
-
-})
-
-.then(res=>res.json())
-
-.then(data=>{
-
-
-if(data.status=="success"){
-
-
-uploadedImage=data.url;
-
-
-alert(
-"Gambar berjaya upload"
-);
-
-
-}
-
-
-});
-
-
-}
-
-
-
 
 
 
