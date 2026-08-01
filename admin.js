@@ -454,7 +454,58 @@ displayProducts();
 
 
 
+function uploadImage(){
 
+
+let file =
+document.getElementById(
+"imageUpload"
+).files[0];
+
+
+let formData =
+new FormData();
+
+
+formData.append(
+"image",
+file
+);
+
+
+
+fetch("upload.php",{
+
+method:"POST",
+
+body:formData
+
+
+})
+
+.then(res=>res.json())
+
+.then(data=>{
+
+
+if(data.status=="success"){
+
+
+uploadedImage=data.url;
+
+
+alert(
+"Gambar berjaya upload"
+);
+
+
+}
+
+
+});
+
+
+}
 
 
 
