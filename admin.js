@@ -1,14 +1,18 @@
 let defaultProducts = [
 
 {
+
+barcode:"955100000001",
 name:"Beras 10kg",
 price:35,
-  stock:100,
+stock:100,
 category:"runcit",
 image:"./images/jati10kg.jpeg"
+
 },
 
 {
+  barcode:"955100000001",
 name:"Beras 5kg",
 price:18,
   stock:100,
@@ -17,6 +21,7 @@ image:"./images/jati5kg.jpeg"
 },
 
 {
+  barcode:"955100000001",
 name:"Susu Tin Gold Coin",
 price:4.50,
   stock:100,
@@ -25,6 +30,7 @@ image:"./images/susutingoldcoin.jpeg"
 },
 
 {
+  barcode:"955100000001",
 name:"Minuman Tin",
 price:2.00,
   stock:100,
@@ -33,6 +39,7 @@ image:"./images/minumantin.jpeg"
 },
 
 {
+  barcode:"955100000001",
 name:"Sabun Mandi",
 price:8.00,
 stock:100,
@@ -42,6 +49,7 @@ image:"./images/sabunmandi.jpeg"
 
 
 {
+  barcode:"955100000001",
 name:"Sabun Basuh Baju",
 price:8.00,
 stock:100,
@@ -52,6 +60,7 @@ image:"./images/sabunbasuh.jpeg"
 
     
 {
+  barcode:"955100000001",
 name:"Syampu",
 price:12.00,
 stock:100,
@@ -60,6 +69,7 @@ image:"./images/shampoo.jpeg"
 },
 
 {
+  barcode:"955100000001",
 name:"Beras Borong 10kg (5 Unit)",
 price:170,
 stock:100,
@@ -68,6 +78,7 @@ image:"./images/jati10kg.jpeg"
 },
 
 {
+  barcode:"955100000001",
 name:"Minuman Tin 24 Kotak",
 price:45,
 stock:100,
@@ -76,6 +87,7 @@ image:"./images/minumantin.jpeg"
 },
 
 {
+  barcode:"955100000001",
 name:"Susu Tin Borong 48 Unit",
 price:180,
 stock:100,
@@ -84,6 +96,7 @@ image:"./images/susutingoldcoin.jpeg"
 },
 
 {
+  barcode:"955100000001",
 name:"Sabun Basuh Borong",
 price:90,
 stock:100,
@@ -92,6 +105,7 @@ image:"./images/sabunbasuh.jpeg"
 },
 
 {
+  barcode:"955100000001",
 name:"Telur Ayam Gred AA",
 price:90,
 stock:100,
@@ -100,6 +114,7 @@ image:"./images/gredAA.jpeg"
 },
 
  {
+   barcode:"955100000001",
 name:"Telur Ayam Gred A",
 price:90,
 stock:100,
@@ -108,6 +123,7 @@ image:"./images/gredA.jpeg"
 },
 
 {
+  barcode:"955100000001",
 name:"Telur Ayam Gred B",
 price:90,
 stock:100,
@@ -117,6 +133,7 @@ image:"./images/gredB.jpeg"
 
 
 {
+  barcode:"955100000001",
 name:"Telur Ayam Gred C",
 price:90,
 stock:100,
@@ -125,6 +142,7 @@ image:"./images/gredC.jpeg"
 },
 
  {
+   barcode:"955100000001",
 name:"Telur Ayam Gred D",
 price:90,
 stock:100,
@@ -185,107 +203,95 @@ alert(
 
 
 
-
-
-
-
-
-
-
 function displayProducts(){
 
-
-let table =
-document.getElementById(
-"productTable"
-);
-
+let table=document.getElementById("productTable");
 
 table.innerHTML="";
 
-
-
 products.forEach((p,index)=>{
 
-
-table.innerHTML += `
-
+table.innerHTML+=`
 
 <tr>
 
-
 <td>
-
 <img src="${p.image}">
-
 </td>
-
-
 
 <td>
 
-<input 
-value="${p.name}"
-onchange="editName(${index},this.value)"
->
+<input
+
+value="${p.barcode || ""}"
+
+onchange="editBarcode(${index},this.value)">
 
 </td>
 
+<td>
 
+<input
 
+value="${p.name}"
+
+onchange="editName(${index},this.value)">
+
+</td>
 
 <td>
 
 RM
 
-<input 
+<input
+
 type="number"
+
 value="${p.price}"
-onchange="editPrice(${index},this.value)"
->
+
+onchange="editPrice(${index},this.value)">
 
 </td>
 
-
-
-
 <td>
 
-<input 
+<input
+
 type="number"
+
 value="${p.stock}"
-onchange="editStock(${index},this.value)"
->
+
+onchange="editStock(${index},this.value)">
 
 </td>
 
-
-
 <td>
-
 
 <button
+
 class="delete"
+
 onclick="deleteProduct(${index})">
 
 🗑
 
 </button>
 
-
 </td>
-
 
 </tr>
 
-
 `;
-
 
 });
 
-
 }
+
+
+
+
+
+
 
 
 
@@ -293,35 +299,7 @@ onclick="deleteProduct(${index})">
 function addProduct(){
 
 
-let product={
 
-
-name:
-document.getElementById("name").value,
-
-
-price:
-Number(
-document.getElementById("price").value
-),
-
-
-stock:
-Number(
-document.getElementById("stock").value
-),
-
-
-image:
-document.getElementById("image").value,
-
-
-category:
-document.getElementById("category").value
-
-
-
-};
 
 
 
@@ -340,6 +318,7 @@ image:document.getElementById("image").value,
 category:document.getElementById("category").value
 
 });
+
 
 
 save();
@@ -388,6 +367,31 @@ save();
 
 
 
+function editBarcode(i,value){
+
+products[i].barcode=value;
+
+save();
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function deleteProduct(i){
 
 
@@ -426,24 +430,6 @@ displayProducts();
 
 
 
-const keyword=document
-.getElementById("searchProduct")
-.value
-.toLowerCase();
-
-const list=products.filter(p=>
-
-(p.name||"")
-.toLowerCase()
-.includes(keyword)
-
-||
-
-(p.barcode||"")
-.toLowerCase()
-.includes(keyword)
-
-);
 
 
 
