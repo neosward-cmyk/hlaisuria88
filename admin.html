@@ -264,8 +264,11 @@ type="number"
 placeholder="Jumlah Stok">
 
 
-<input id="image"
-placeholder="URL / Path Gambar">
+<input 
+type="file"
+id="imageUpload"
+accept="image/*"
+onchange="uploadImage()">
 
 
 <select id="category">
@@ -323,10 +326,15 @@ Gambar
 </th>
 
 <th>
+Barcode
+</th>
+
+ 
+
+<th>
 Nama
 </th>
 
-<th>Barcode</th>
 
 <th>
 Harga
