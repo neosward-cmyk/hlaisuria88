@@ -270,6 +270,66 @@ transform:scale(1.1);
 
 
 
+.search-box{
+
+display:flex;
+gap:10px;
+margin-bottom:20px;
+
+}
+
+
+.search-box input{
+
+margin:0;
+flex:1;
+
+}
+
+
+.search-box button{
+
+background:#00994d;
+color:white;
+
+}
+
+
+@media(max-width:600px){
+
+.search-box{
+
+flex-direction:column;
+
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
 
   
 
@@ -388,6 +448,27 @@ onclick="addProduct()">
 <h2>
 Senarai Produk
 </h2>
+
+
+
+<div class="search-box">
+
+<input 
+id="searchProduct"
+placeholder="🔍 Cari nama produk, barcode atau kategori..."
+oninput="searchProducts()">
+
+<button onclick="clearSearch()">
+❌
+</button>
+
+</div>
+
+
+
+
+
+  
 
 
 <table>
