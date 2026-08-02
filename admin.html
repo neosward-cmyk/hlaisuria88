@@ -202,7 +202,26 @@ box-shadow:
 }
 
 
+.category-label{
 
+font-weight:700;
+margin-bottom:8px;
+display:block;
+color:#00994d;
+
+}
+
+
+.save-status{
+
+background:#e8f5e9;
+padding:12px;
+border-radius:15px;
+color:#00994d;
+font-weight:600;
+display:none;
+
+}
 
 
 
@@ -271,24 +290,44 @@ accept="image/*"
 onchange="uploadImage()">
 
 
+
+
+
+<label class="category-label">
+Kategori Produk
+</label>
+
+
+  
 <select id="category">
 
 <option value="runcit">
-Barang Runcit
+🛒 Barang Runcit
 </option>
 
 <option value="minuman">
-Minuman
+🥤 Minuman
 </option>
 
 <option value="penjagaan">
-Penjagaan Diri
+🧴 Penjagaan Diri
+</option>
+
+<option value="pencuci">
+🧼 Produk Pencuci
+</option>
+
+<option value="sejukbeku">
+❄️ Produk Sejuk Beku
+</option>
+
+<option value="pembungkus">
+📦 Produk Pembungkus
 </option>
 
 <option value="borong-product">
-Borong
+🏪 Borong
 </option>
-
 
 </select>
 
@@ -355,9 +394,6 @@ Aksi
 
 
 <tbody id="productTable">
-
-
-<td>${p.barcode || "-"}</td>
   
 
 </tbody>
