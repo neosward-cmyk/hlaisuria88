@@ -4443,6 +4443,23 @@ list.innerHTML += `
 RM ${p.price.toFixed(2)}
 </div>
 
+<p class="stock">
+
+📦 ${
+p.stock<=0
+?
+"Habis"
+:
+p.stock<10
+?
+"Hampir Habis"
+:
+p.stock+" unit"
+}
+
+</p>
+
+
 <div class="qty-box">
 
 <button onclick="minusQty(${originalIndex})">-</button>
