@@ -165,6 +165,17 @@ if(!products){
 products = defaultProducts;
 
 
+localStorage.setItem(
+"products",
+JSON.stringify(products)
+);
+
+}
+
+
+  
+
+
 }else{
 
 
@@ -283,7 +294,37 @@ onchange="editPrice(${index},this.value)">
 
 <td>
 
-${p.category}
+<select onchange="editCategory(${index},this.value)">
+
+<option value="runcit" ${p.category=="runcit"?"selected":""}>
+🛒 Runcit
+</option>
+
+<option value="minuman" ${p.category=="minuman"?"selected":""}>
+🥤 Minuman
+</option>
+
+<option value="penjagaan" ${p.category=="penjagaan"?"selected":""}>
+🧴 Penjagaan
+</option>
+
+<option value="pencuci" ${p.category=="pencuci"?"selected":""}>
+🧼 Pencuci
+</option>
+
+<option value="sejukbeku" ${p.category=="sejukbeku"?"selected":""}>
+❄️ Sejuk Beku
+</option>
+
+<option value="pembungkus" ${p.category=="pembungkus"?"selected":""}>
+📦 Pembungkus
+</option>
+
+<option value="borong-product" ${p.category=="borong-product"?"selected":""}>
+🏪 Borong
+</option>
+
+</select>
 
 </td>
 
@@ -406,6 +447,29 @@ alert(
 );
 
 
+
+document.getElementById("name").value="";
+document.getElementById("barcode").value="";
+document.getElementById("price").value="";
+document.getElementById("stock").value="";
+document.getElementById("image").value="";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
 }
 
 
@@ -473,7 +537,13 @@ alert(
 
 }
 
+function editCategory(i,value){
 
+products[i].category=value;
+
+save();
+
+}
 
 
 
