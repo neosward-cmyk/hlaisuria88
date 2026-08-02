@@ -3574,27 +3574,27 @@ padding:10px 12px;
 
 <div class="nav-links">
 
-<a href="#utama">
+<a href="#utama" class="nav-link active">
 🏠 Utama
 </a>
 
-<a href="#produk">
+<a href="#produk" class="nav-link">
 🛒 Produk
 </a>
 
-<a href="#borong">
+<a href="#borong" class="nav-link">
 📦 Borong
 </a>
 
-<a href="#promosi">
+<a href="#promosi" class="nav-link">
 🔥 Promosi
 </a>
 
-<a href="#hubungi">
+<a href="#hubungi" class="nav-link">
 📲 Hubungi
 </a>
 
-<a href="#lokasi">
+<a href="#lokasi" class="nav-link">
 📍 Lokasi
 </a>
 
@@ -6646,32 +6646,59 @@ Tutup
 <!-- VIDEO FULLSCREEN -->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-    
-    
- 
-
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"6975d47a27184c9ab4cf67cf986fa9e6","r":1}' crossorigin="anonymous"></script>
+
+
+<script>
+
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(".nav-link");
+
+
+function updateActiveNav(){
+
+    let scrollY = window.scrollY + 150;
+
+
+    sections.forEach(section => {
+
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute("id");
+
+
+        if(
+            scrollY >= sectionTop &&
+            scrollY < sectionTop + sectionHeight
+        ){
+
+            navLinks.forEach(link=>{
+                link.classList.remove("active");
+            });
+
+
+            const activeLink = document.querySelector(
+                '.nav-link[href="#' + sectionId + '"]'
+            );
+
+
+            if(activeLink){
+                activeLink.classList.add("active");
+            }
+
+        }
+
+    });
+
+}
+
+
+window.addEventListener("scroll", updateActiveNav);
+
+
+</script>
+
+
 </body>
 </html>
 ```
