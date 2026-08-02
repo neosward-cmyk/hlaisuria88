@@ -263,6 +263,8 @@ onchange="editName(${index},this.value)">
 
 </td>
 
+
+
 <td>
 
 RM
@@ -276,6 +278,16 @@ value="${p.price}"
 onchange="editPrice(${index},this.value)">
 
 </td>
+
+
+
+<td>
+
+${p.category}
+
+</td>
+
+
 
 <td>
 
@@ -457,7 +469,7 @@ alert(
 );
 
 
-displayProducts();
+();
 
 }
 
