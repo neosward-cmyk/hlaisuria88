@@ -250,7 +250,20 @@ alert(
 
 
 
-function displayProducts(){
+function displayProducts(list=null){
+
+let products =
+JSON.parse(localStorage.getItem("products")) || [];
+
+
+if(list){
+
+products=list;
+
+}
+
+
+// kod render table anda kekal di bawah sini
 
 let table=document.getElementById("productTable");
 
@@ -394,17 +407,6 @@ onclick="deleteProduct(${index})">
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 function searchProducts(){
 
 let keyword = document
@@ -436,6 +438,22 @@ return (
 displayProducts(filteredProducts);
 
 }
+
+
+
+function clearSearch(){
+
+document.getElementById("searchProduct").value="";
+
+displayProducts();
+
+}
+
+
+
+
+
+
 
 
 
