@@ -2886,7 +2886,55 @@ line-height:1.6;
 
 
 
+.product-filter{
 
+display:flex;
+gap:10px;
+overflow-x:auto;
+padding:5px 0 20px;
+
+scrollbar-width:none;
+
+}
+
+.product-filter::-webkit-scrollbar{
+display:none;
+}
+
+.filter-btn{
+
+border:none;
+background:#f3f3f3;
+
+padding:10px 18px;
+
+border-radius:30px;
+
+font-weight:600;
+
+cursor:pointer;
+
+white-space:nowrap;
+
+transition:.3s;
+
+}
+
+.filter-btn:hover{
+
+background:#00994d;
+
+color:#fff;
+
+}
+
+.filter-btn.active{
+
+background:linear-gradient(135deg,#00994d,#ff6b00);
+
+color:#fff;
+
+}
 
 
 
@@ -3678,6 +3726,50 @@ class="btn btn-primary">
 🛒 Produk Hlai Suria 88
 </h2>
 
+<div class="product-filter">
+
+<button class="filter-btn active"
+onclick="filterProducts('all',this)">
+Semua
+</button>
+
+<button class="filter-btn"
+onclick="filterProducts('runcit',this)">
+Runcit
+</button>
+
+<button class="filter-btn"
+onclick="filterProducts('minuman',this)">
+Minuman
+</button>
+
+<button class="filter-btn"
+onclick="filterProducts('penjagaan',this)">
+Penjagaan
+</button>
+
+<button class="filter-btn"
+onclick="filterProducts('pencuci',this)">
+Pencuci
+</button>
+
+<button class="filter-btn"
+onclick="filterProducts('sejukbeku',this)">
+Sejuk Beku
+</button>
+
+<button class="filter-btn"
+onclick="filterProducts('pembungkus',this)">
+Pembungkus
+</button>
+
+<button class="filter-btn"
+onclick="filterProducts('borong-product',this)">
+Borong
+</button>
+
+</div>   
+
 <span 
 class="close-product"
 onclick="closeProductPopup()">
@@ -3860,59 +3952,119 @@ JSON.stringify(products)
  OPEN PRODUCT POPUP
 ========================= */
 
+
 function openProductPopup(){
 
-
-
+// Refresh data terbaru dari localStorage
 products =
 JSON.parse(localStorage.getItem("products"))
 || [];
+
+// Paparkan popup
+document.getElementById("productModal").style.display="block";
+
+// Kosongkan senarai produk
+document.getElementById("productList").innerHTML="";
+
+// Reset semua button kategori
+document.querySelectorAll(".filter-btn")
+.forEach(btn=>btn.classList.remove("active"));
+
+// Jadikan button "Semua" sebagai aktif
+const firstBtn=document.querySelector(".filter-btn");
+
+if(firstBtn){
+
+firstBtn.classList.add("active");
+
+// Paparkan semua produk
+filterProducts("all",firstBtn);
+
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
    
 
 
-let modal=document.getElementById("productModal");
 
-modal.style.display="block";
+function filterProducts(category,btn){
 
+document.querySelectorAll(".filter-btn")
+.forEach(b=>b.classList.remove("active"));
+
+btn.classList.add("active");
 
 let list=document.getElementById("productList");
 
 list.innerHTML="";
 
+let data =
+category==="all"
+?
+products
+:
+products.filter(p=>p.category===category);
 
-products.forEach((p,index)=>{
+data.forEach((p)=>{
 
+let originalIndex=products.indexOf(p);
 
 list.innerHTML+=`
 
 <div class="product-item">
 
-
 <img src="${p.image}">
-
 
 <div class="product-info">
 
 <h3>${p.name}</h3>
 
-
-
-
 <div class="price">
 RM ${p.price.toFixed(2)}
 </div>
 
-
 <p class="stock">
 
 📦 ${
-p.stock <=0
+p.stock<=0
 ?
 "Habis"
 :
-p.stock <10
+p.stock<10
 ?
 "Hampir Habis"
 :
@@ -3923,46 +4075,56 @@ p.stock+" unit"
 
 <div class="qty-box">
 
-<button onclick="minusQty(${index})">
+<button onclick="minusQty(${originalIndex})">
 -
 </button>
 
-
 <input
 type="number"
-min="1"
+id="qty${originalIndex}"
 class="qty-input"
-id="qty${index}"
-value="1">
+value="1"
+min="1">
 
-
-<button onclick="plusQty(${index})">
+<button onclick="plusQty(${originalIndex})">
 +
 </button>
 
 </div>
 
-
-<button 
+<button
 class="order-btn"
-onclick="addCart(${index})">
+onclick="addCart(${originalIndex})">
 
 🛒 Tambah Ke Cart
 
 </button>
 
-
 </div>
 
 </div>
-
 
 `;
 
 });
 
+}
 
- }   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
 
 
 function openCategory(category){
