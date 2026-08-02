@@ -296,7 +296,7 @@ onchange="editStock(${index},this.value)">
 class="refresh-btn"
 onclick="refreshProducts()">
 
-💾 Simpan
+💾
 
 </button>
 
@@ -306,7 +306,7 @@ onclick="refreshProducts()">
 class="delete"
 onclick="deleteProduct(${index})">
 
-🗑 Remove
+🗑
 
 </button>
 
