@@ -5427,59 +5427,42 @@ const navSections = [
 const navLinks = document.querySelectorAll(".nav-links a");
 
 
+
+
 function updateActiveNav(){
 
 let current="";
 
+const scrollPos=window.scrollY+120;
 
 navSections.forEach(id=>{
 
-let section=document.getElementById(id);
+const section=document.getElementById(id);
 
-
-if(section){
-
-let sectionTop = section.offsetTop - 200;
-
-let sectionHeight = section.offsetHeight;
-
+if(!section) return;
 
 if(
-window.scrollY >= sectionTop &&
-window.scrollY < sectionTop + sectionHeight
+scrollPos>=section.offsetTop &&
+scrollPos<section.offsetTop+section.offsetHeight
 ){
-
 current=id;
-
 }
-
-}
-
 
 });
-
-
 
 navLinks.forEach(link=>{
 
 link.classList.remove("active");
 
-
-if(link.getAttribute("href") === "#"+current){
-
+if(link.getAttribute("href")==="#"+current){
 link.classList.add("active");
-
 }
-
 
 });
 
-
 }
 
-
-
-window.addEventListener("scroll",updateActiveNav);
+window.addEventListener("scroll",updateActiveNav,{passive:true});
 
 window.addEventListener("load",updateActiveNav);
 
@@ -5488,16 +5471,14 @@ window.addEventListener("load",updateActiveNav);
 
 
 
-if('serviceWorker' in navigator){
 
-    window.addEventListener('load',()=>{
 
-        navigator.serviceWorker.register('./service-worker.js');
 
-    });
 
-}
 
+
+
+   
 
 
 /* =========================
