@@ -169,7 +169,7 @@ localStorage.setItem(
 JSON.stringify(products)
 );
 
-}
+
 
 
   
