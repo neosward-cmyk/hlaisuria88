@@ -3040,24 +3040,114 @@ padding:11px;
 }
 
 
+/* =========================
+   PRODUCT CATEGORY FILTER
+========================= */
+
 .product-filter{
 
-display:grid;
+display:flex;
 
-grid-template-columns:
-repeat(auto-fit,minmax(130px,1fr));
+flex-wrap:wrap;
+
+justify-content:center;
+
+align-items:center;
 
 gap:12px;
+
+width:100%;
 
 margin:15px 0 25px;
 
 }
 
+
 .filter-btn{
 
-width:100%;
+flex:0 1 auto;
 
-padding:12px;
+min-width:120px;
+
+padding:11px 18px;
+
+border:none;
+
+border-radius:30px;
+
+background:#f3f4f6;
+
+color:#444;
+
+font-size:14px;
+
+font-weight:600;
+
+cursor:pointer;
+
+transition:.3s;
+
+white-space:nowrap;
+
+box-shadow:
+0 4px 12px rgba(0,0,0,.08);
+
+}
+
+
+.filter-btn:hover{
+
+background:#00994d;
+
+color:white;
+
+transform:translateY(-2px);
+
+}
+
+
+.filter-btn.active{
+
+background:
+linear-gradient(
+135deg,
+#00994d,
+#ff6b00
+);
+
+color:white;
+
+box-shadow:
+0 8px 20px rgba(0,153,77,.25);
+
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+
+.product-filter{
+
+justify-content:flex-start;
+
+gap:10px;
+
+}
+
+
+.filter-btn{
+
+min-width:105px;
+
+font-size:13px;
+
+padding:10px 12px;
+
+}
+
 
 }
     
@@ -3836,12 +3926,6 @@ class="btn btn-primary">
 
 <div class="product-header">
 
-<h2>
-🛒 Produk Hlai Suria 88
-</h2>
-
-<div class="product-filter">
-
 <button class="filter-btn active"
 onclick="filterProducts('all',this)">
 Semua
@@ -3881,6 +3965,19 @@ Pembungkus
 onclick="filterProducts('borong-product',this)">
 Borong
 </button>
+
+
+
+
+   
+
+<h2>
+🛒 Produk Hlai Suria 88
+</h2>
+
+<div class="product-filter">
+
+
 
 </div>   
 
