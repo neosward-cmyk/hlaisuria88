@@ -166,10 +166,33 @@ if(!products){
 products = defaultProducts;
 
 
+}else{
+
+
+products = products.map(p=>({
+
+barcode:p.barcode || "",
+
+name:p.name || "",
+
+price:Number(p.price)||0,
+
+stock:Number(p.stock)||0,
+
+category:p.category || "runcit",
+
+image:p.image || "./images/default.jpg"
+
+
+}));
+
+
+
 localStorage.setItem(
 "products",
 JSON.stringify(products)
 );
+
 
 }
 
