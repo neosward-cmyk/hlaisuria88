@@ -155,6 +155,7 @@ image:"./images/gredD.jpeg"
 
 
 
+
 let products =
 JSON.parse(localStorage.getItem("products")) || null;
 
@@ -168,11 +169,6 @@ localStorage.setItem(
 "products",
 JSON.stringify(products)
 );
-
-
-
-
-  
 
 
 }else{
@@ -192,9 +188,7 @@ category:p.category || "runcit",
 
 image:p.image || "./images/default.jpg"
 
-
 }));
-
 
 
 localStorage.setItem(
@@ -204,6 +198,25 @@ JSON.stringify(products)
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
