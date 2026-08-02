@@ -405,7 +405,37 @@ onclick="deleteProduct(${index})">
 
 
 
+function searchProducts(){
 
+let keyword = document
+.getElementById("searchProduct")
+.value
+.toLowerCase()
+.trim();
+
+
+let products =
+JSON.parse(localStorage.getItem("products")) || [];
+
+
+let filteredProducts = products.filter(p=>{
+
+return (
+
+(p.name && p.name.toLowerCase().includes(keyword)) ||
+
+(p.barcode && p.barcode.toLowerCase().includes(keyword)) ||
+
+(p.category && p.category.toLowerCase().includes(keyword))
+
+);
+
+});
+
+
+displayProducts(filteredProducts);
+
+}
 
 
 
