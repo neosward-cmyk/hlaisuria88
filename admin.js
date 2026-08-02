@@ -156,8 +156,7 @@ image:"./images/gredD.jpeg"
 
 
 let products =
-JSON.parse(localStorage.getItem("products"));
-
+JSON.parse(localStorage.getItem("products")) || null;
 
 
 if(!products){
@@ -242,8 +241,13 @@ function displayProducts(){
 
 let table=document.getElementById("productTable");
 
-table.innerHTML="";
+if(!table){
+console.log("Table tidak jumpa");
+return;
+}
 
+
+table.innerHTML="";
 products.forEach((p,index)=>{
 
 table.innerHTML+=`
