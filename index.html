@@ -1,0 +1,6261 @@
+<!DOCTYPE html>
+
+
+
+<html lang="ms">
+<head>
+
+
+<link rel="manifest" href="manifest.json">
+
+<meta name="theme-color" content="#00994d">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+<meta name="apple-mobile-web-app-title" content="Hlai Suria 88">
+
+
+<link rel="apple-touch-icon" href="./images/logo.jpeg">
+
+
+
+
+
+
+
+   
+
+   <!-- WEBSITE ICON -->
+<link rel="icon" href="./images/logo.jpeg" type="image/jpeg">
+
+<link rel="apple-touch-icon" href="./images/logo.jpeg">
+
+<meta name="theme-color" content="#00994d">
+
+   
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Hlai Suria 88 | Kedai Serbaneka & Borong</title>
+
+<meta name="description"
+content="Hlai Suria 88 - Kedai Serbaneka dan Borong Kuala Terengganu. Produk runcit, minuman, barangan rumah dan pembelian borong.">
+
+
+<meta name="keywords"
+content="kedai borong Kuala Terengganu, barang runcit, Hlai Suria 88">
+
+
+   
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+:root{
+--green:#00994d;
+--orange:#ff6b00;
+--red:#e53935;
+--dark:#1d1d1d;
+--light:#f7f8fa;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#fff;
+color:#333;
+}
+
+.topbar{
+background:#111;
+color:#fff;
+padding:10px 8%;
+display:flex;
+justify-content:space-between;
+font-size:14px;
+}
+
+.navbar{
+background:white;
+padding:15px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:1000;
+box-shadow:0 2px 20px rgba(0,0,0,.08);
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.logo-icon{
+width:55px;
+height:55px;
+background:linear-gradient(135deg,var(--green),var(--orange));
+border-radius:12px;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+font-size:24px;
+}
+
+.logo h2{
+font-size:28px;
+}
+
+/* =========================
+   PREMIUM NAV MENU
+========================= */
+
+.nav-links{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+
+.nav-links a{
+
+position:relative;
+
+text-decoration:none;
+
+color:#333;
+
+font-weight:600;
+
+font-size:15px;
+
+padding:10px 18px;
+
+border-radius:30px;
+
+transition:.3s;
+
+overflow:hidden;
+
+}
+
+
+/* Hover background */
+
+.nav-links a:hover{
+
+color:white;
+
+background:linear-gradient(
+135deg,
+#00994d,
+#ff6b00
+);
+
+transform:translateY(-3px);
+
+box-shadow:
+0 8px 20px rgba(0,153,77,.25);
+
+}
+
+
+
+/* Animated underline */
+
+.nav-links a::after{
+
+content:"";
+
+position:absolute;
+
+bottom:5px;
+
+left:50%;
+
+width:0;
+
+height:3px;
+
+background:#ff6b00;
+
+border-radius:10px;
+
+transition:.3s;
+
+transform:translateX(-50%);
+
+}
+
+
+
+.nav-links a:hover::after{
+
+width:50%;
+
+}
+
+.hero{
+position:relative;
+height:90vh;
+overflow:hidden;
+}
+
+.hero::before{
+content:"";
+position:absolute;
+inset:0;
+
+background:url('./images/hero.jpeg') center/cover no-repeat;
+
+transform:scale(1);
+filter:none;
+
+z-index:-2;
+}
+
+.hero::after{
+content:"";
+position:absolute;
+inset:0;
+
+background:rgba(0,0,0,.12);
+
+z-index:-1;
+}
+
+.hero-content{
+max-width:700px;
+}
+
+.badge{
+background:var(--orange);
+padding:10px 20px;
+border-radius:50px;
+display:inline-block;
+margin-bottom:20px;
+font-weight:600;
+}
+
+.hero h1{
+font-size:60px;
+margin-bottom:20px;
+line-height:1.2;
+}
+
+.hero p{
+font-size:18px;
+line-height:1.8;
+margin-bottom:30px;
+color:#ffffff;
+text-shadow:0 2px 8px rgba(0,0,0,.4);
+}
+
+.btn{
+display:inline-block;
+padding:15px 35px;
+border-radius:50px;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+margin-right:10px;
+}
+
+.btn-primary{
+background:var(--green);
+color:white;
+}
+
+.btn-secondary{
+background:white;
+color:#222;
+}
+
+.btn:hover{
+transform:translateY(-4px);
+}
+
+.promo-bar{
+background:linear-gradient(90deg,var(--green),var(--orange));
+padding:16px;
+text-align:center;
+color:white;
+font-weight:600;
+}
+
+.section{
+padding:80px 8%;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:50px;
+}
+
+.section-title h2{
+font-size:42px;
+margin-bottom:10px;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.stat-card{
+background:white;
+padding:35px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.stat-card h3{
+font-size:40px;
+color:var(--green);
+}
+
+
+
+
+.slider{
+    width:100%;
+    overflow:hidden;
+    position:relative;
+}
+
+.slide-track{
+    display:flex;
+    width:max-content;
+    animation:marquee 18s linear infinite;
+}
+
+.slide-track img{
+    width:420px;
+    height:420px;
+    object-fit:cover;
+    flex-shrink:0;
+    display:block;
+}
+
+@keyframes marquee{
+    from{
+        transform:translateX(0);
+    }
+    to{
+        transform:translateX(-50%);
+    }
+}
+
+
+
+/* =========================
+   CATEGORY ICON LIST
+========================= */
+
+.categories{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:18px;
+margin-top:35px;
+}
+
+.card{
+
+width:140px;
+padding:20px 15px;
+
+background:#fff;
+
+border-radius:20px;
+
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+
+cursor:pointer;
+
+transition:.3s;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.card:hover{
+
+transform:translateY(-8px);
+
+background:linear-gradient(135deg,#00994d,#ff6b00);
+
+color:#fff;
+
+box-shadow:0 15px 35px rgba(0,0,0,.18);
+
+}
+
+.card i{
+
+font-size:42px;
+
+margin-bottom:15px;
+
+color:#00994d;
+
+transition:.3s;
+
+}
+
+.card:hover i{
+
+color:#fff;
+
+transform:scale(1.15);
+
+}
+
+.card h3{
+
+font-size:15px;
+font-weight:700;
+text-align:center;
+
+}
+
+.card p{
+display:none;
+}
+
+.card img{
+display:none;
+}
+
+@media(max-width:768px){
+
+.categories{
+
+overflow-x:auto;
+
+flex-wrap:nowrap;
+
+justify-content:flex-start;
+
+padding-bottom:10px;
+
+scrollbar-width:none;
+
+}
+
+.categories::-webkit-scrollbar{
+display:none;
+}
+
+.card{
+
+min-width:110px;
+padding:18px 10px;
+
+}
+
+.card i{
+
+font-size:35px;
+
+}
+
+.card h3{
+
+font-size:13px;
+
+}
+
+}
+
+
+
+
+
+
+    
+
+
+.promo-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+}
+
+.promo-card{
+background:linear-gradient(135deg,var(--green),var(--orange));
+color:white;
+padding:35px;
+border-radius:20px;
+}
+
+.cta{
+background:linear-gradient(135deg,var(--green),var(--orange));
+padding:70px;
+border-radius:30px;
+text-align:center;
+color:white;
+}
+
+.cta h2{
+font-size:42px;
+margin-bottom:15px;
+}
+
+.footer{
+background:#111;
+color:#ddd;
+padding:60px 8%;
+margin-top:60px;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:2fr 1fr 1fr;
+gap:40px;
+}
+
+.footer ul{
+list-style:none;
+}
+
+.footer li{
+margin-bottom:10px;
+}
+
+.footer-bottom{
+text-align:center;
+margin-top:40px;
+padding-top:20px;
+border-top:1px solid #333;
+}
+
+
+/* GALERI */
+
+.gallery-modal{
+display:none;
+position:fixed;
+z-index:9999;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.9);
+overflow:auto;
+}
+
+.gallery-content{
+background:white;
+margin:40px auto;
+max-width:1200px;
+padding:30px;
+border-radius:20px;
+}
+
+.gallery-content h2{
+text-align:center;
+margin-bottom:25px;
+}
+
+.gallery-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.gallery-grid img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:15px;
+transition:.3s;
+}
+
+.gallery-grid img:hover{
+transform:scale(1.05);
+}
+
+.close{
+float:right;
+font-size:40px;
+cursor:pointer;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:42px;
+}
+
+.nav-links{
+display:none;
+}
+
+.footer-grid{
+grid-template-columns:1fr;
+}
+
+.hero{
+height:auto;
+padding:100px 8%;
+}
+
+}
+
+ .main-logo{
+    height:80px;
+    width:auto;
+    object-fit:contain;
+    display:block;
+}
+
+.logo h2{
+
+font-size:28px;
+font-weight:800;
+
+background:linear-gradient(
+135deg,
+#00994d,
+#ff6b00
+);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+letter-spacing:.5px;
+
+text-shadow:
+0 5px 15px rgba(0,153,77,.15);
+
+transition:.3s;
+
+}
+
+
+.logo h2::after{
+
+content:"Kedai Serbaneka & Borong";
+
+display:block;
+
+font-size:11px;
+
+font-weight:500;
+
+letter-spacing:1px;
+
+color:#777;
+
+margin-top:3px;
+
+-webkit-text-fill-color:#777;
+
+}
+
+
+.logo:hover h2{
+
+transform:scale(1.05);
+
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+ /* PRODUCT POPUP */
+
+.product-modal{
+display:none;
+position:fixed;
+z-index:9999;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.8);
+overflow:auto;
+}
+
+.product-box{
+background:white;
+width:90%;
+max-width:1100px;
+margin:50px auto;
+padding:30px;
+border-radius:25px;
+animation:popup .4s ease;
+}
+
+@keyframes popup{
+from{
+transform:scale(.7);
+opacity:0;
+}
+to{
+transform:scale(1);
+opacity:1;
+}
+}
+
+
+.product-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:30px;
+}
+
+.product-header h2{
+font-size:35px;
+color:#00994d;
+}
+
+.close-product{
+font-size:40px;
+cursor:pointer;
+}
+
+
+.product-list{
+
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:25px;
+
+}
+
+
+.product-item{
+
+background:#fff;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.1);
+overflow:hidden;
+transition:.3s;
+
+}
+
+.product-item:hover{
+transform:translateY(-8px);
+}
+
+
+.product-item img{
+
+width:100%;
+height:200px;
+object-fit:cover;
+
+}
+
+
+.product-info{
+
+padding:20px;
+
+}
+
+
+.product-info h3{
+
+margin-bottom:10px;
+
+}
+
+
+.price{
+
+font-size:22px;
+font-weight:700;
+color:#e53935;
+
+}
+
+
+.order-btn{
+
+display:block;
+margin-top:15px;
+background:#25D366;
+color:white;
+text-align:center;
+padding:12px;
+border-radius:30px;
+text-decoration:none;
+font-weight:600;
+
+}
+
+
+
+.cart-total{
+font-size:22px;
+font-weight:700;
+margin-top:15px;
+color:#00994d;
+}
+
+
+
+.qty-box{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+margin:15px 0;
+}
+
+.qty-box button{
+width:35px;
+height:35px;
+border:none;
+background:#00994d;
+color:#fff;
+font-size:20px;
+font-weight:700;
+border-radius:8px;
+cursor:pointer;
+}
+
+
+.cart-item{
+display:flex;
+justify-content:space-between;
+margin-bottom:12px;
+padding-bottom:12px;
+border-bottom:1px solid #eee;
+}
+
+.checkout-btn{
+width:100%;
+padding:15px;
+background:#25D366;
+border:none;
+border-radius:30px;
+color:#fff;
+font-weight:700;
+cursor:pointer;
+margin-top:15px;
+}
+
+
+
+.qty-input{
+width:60px;
+text-align:center;
+font-size:16px;
+padding:8px;
+border:1px solid #ddd;
+border-radius:8px;
+}
+
+
+ .cart-floating{
+
+position:fixed;
+right:25px;
+bottom:25px;
+background:#00994d;
+color:white;
+border:none;
+padding:15px 25px;
+border-radius:50px;
+font-size:18px;
+font-weight:700;
+cursor:pointer;
+z-index:10000;
+box-shadow:0 10px 25px rgba(0,0,0,.2);
+
+}
+
+.cart-box{
+display:none;
+position:fixed;
+right:25px;
+bottom:90px;
+width:320px;
+background:white;
+padding:20px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+z-index:9999;
+max-height:500px;
+overflow:auto;
+}
+
+/* =========================
+   CUSTOM CONFIRM POPUP
+========================= */
+
+.confirm-modal{
+display:none;
+position:fixed;
+z-index:20000;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.65);
+backdrop-filter:blur(5px);
+}
+
+
+.confirm-box{
+
+background:linear-gradient(145deg,#ffffff,#f8f8f8);
+width:90%;
+max-width:430px;
+margin:120px auto;
+padding:35px 30px;
+border-radius:30px;
+text-align:center;
+
+box-shadow:
+0 20px 60px rgba(0,0,0,.25),
+0 0 0 1px rgba(255,255,255,.5);
+
+animation:popupShow .35s cubic-bezier(.17,.67,.45,1.2);
+
+position:relative;
+overflow:hidden;
+
+}
+
+
+.confirm-box:before{
+
+content:"";
+position:absolute;
+top:-80px;
+right:-80px;
+
+width:180px;
+height:180px;
+
+background:linear-gradient(
+135deg,
+#00994d,
+#ff6b00
+);
+
+opacity:.12;
+
+border-radius:50%;
+
+}
+
+
+@keyframes popupShow{
+
+from{
+transform:scale(.7);
+opacity:0;
+}
+
+to{
+transform:scale(1);
+opacity:1;
+}
+
+}
+
+
+
+.confirm-icon{
+
+width:70px;
+height:70px;
+margin:auto;
+border-radius:50%;
+background:#00994d;
+color:white;
+font-size:35px;
+display:flex;
+align-items:center;
+justify-content:center;
+margin-bottom:20px;
+
+}
+
+
+.confirm-box h3{
+
+font-size:24px;
+margin-bottom:10px;
+
+}
+
+
+.confirm-box p{
+
+color:#666;
+margin-bottom:25px;
+
+}
+
+
+
+.confirm-buttons{
+
+display:flex;
+gap:15px;
+justify-content:center;
+
+}
+
+
+.confirm-buttons button{
+
+padding:12px 25px;
+border:none;
+border-radius:30px;
+font-weight:700;
+cursor:pointer;
+font-size:15px;
+
+}
+
+
+.confirm-ok{
+
+background:#00994d;
+color:white;
+
+}
+
+
+.confirm-cancel{
+
+background:#ddd;
+color:#333;
+
+}
+
+
+.confirm-delete{
+
+background:#e53935;
+color:white;
+
+}
+
+ /* WEB APP INSTALL POPUP */
+
+.webapp-popup{
+
+display:none;
+position:fixed;
+bottom:20px;
+left:20px;
+right:20px;
+background:white;
+padding:25px;
+border-radius:25px;
+box-shadow:0 15px 40px rgba(0,0,0,.25);
+z-index:99999;
+
+animation:appSlide .4s ease;
+
+}
+
+
+@keyframes appSlide{
+
+from{
+transform:translateY(100px);
+opacity:0;
+}
+
+to{
+transform:translateY(0);
+opacity:1;
+}
+
+}
+
+
+.webapp-popup h3{
+
+color:#00994d;
+font-size:22px;
+margin-bottom:10px;
+
+}
+
+
+.webapp-popup p{
+
+color:#555;
+font-size:14px;
+
+}
+
+
+.webapp-btn{
+
+width:100%;
+padding:14px;
+margin-top:15px;
+border:none;
+border-radius:30px;
+background:#00994d;
+color:white;
+font-size:16px;
+font-weight:700;
+cursor:pointer;
+
+}
+
+
+.webapp-close{
+
+position:absolute;
+right:20px;
+top:15px;
+font-size:25px;
+cursor:pointer;
+
+}
+
+ /* PROMOSI POSTER BESAR */
+
+.promo-poster{
+max-width:1000px;
+margin:auto;
+}
+
+.promo-poster img{
+width:100%;
+display:block;
+border-radius:25px;
+cursor:pointer;
+box-shadow:0 15px 40px rgba(0,0,0,.15);
+transition:.3s;
+}
+
+.promo-poster img:hover{
+transform:scale(1.01);
+}
+
+/* FULLSCREEN POSTER */
+
+.poster-viewer{
+display:none;
+position:fixed;
+z-index:999999;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.95);
+justify-content:center;
+align-items:center;
+padding:15px;
+}
+
+.poster-viewer img{
+width:100%;
+height:auto;
+max-height:100%;
+object-fit:contain;
+border-radius:15px;
+}
+
+.poster-close{
+position:absolute;
+top:20px;
+right:25px;
+font-size:45px;
+color:white;
+cursor:pointer;
+font-weight:bold;
+}
+
+@media(max-width:768px){
+
+.promo-poster img{
+border-radius:18px;
+}
+
+.poster-close{
+font-size:38px;
+top:10px;
+right:15px;
+}
+
+}
+
+
+.cart-count{
+background:#e53935;
+color:#fff;
+padding:2px 8px;
+border-radius:20px;
+font-size:12px;
+margin-left:5px;
+}
+
+
+.slider:hover .slide-track{
+animation-play-state:paused;
+}
+
+
+.card{
+cursor:pointer;
+}
+
+.card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 15px 35px rgba(0,0,0,.15);
+
+}
+
+
+.btn-location{
+background:#4285F4;
+color:white;
+}
+
+.btn-location:hover{
+background:#1a73e8;
+transform:translateY(-4px);
+}
+
+
+.hero-content .btn{
+margin-bottom:15px;
+}
+
+
+@media(max-width:768px){
+
+.hero-content .btn{
+display:block;
+width:100%;
+text-align:center;
+margin-right:0;
+}
+
+}
+
+
+
+    .checkout-icon{
+
+background:
+linear-gradient(
+135deg,
+#00994d,
+#ff6b00
+)!important;
+
+box-shadow:
+0 10px 25px rgba(0,153,77,.35);
+
+}
+
+
+
+ .checkout-choice{
+
+display:flex;
+flex-direction:column;
+gap:15px;
+
+}
+
+
+.checkout-choice button{
+
+height:60px;
+border-radius:18px;
+
+font-size:17px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+
+transition:.3s;
+
+}
+
+
+.checkout-choice button:hover{
+
+transform:translateY(-3px);
+
+box-shadow:
+0 10px 25px rgba(0,0,0,.15);
+
+}   
+
+
+.delivery-select{
+
+width:100%;
+
+padding:16px 18px;
+
+border:none;
+
+background:#f7f8fa;
+
+border-radius:18px;
+
+font-size:16px;
+
+font-weight:600;
+
+color:#333;
+
+outline:none;
+
+cursor:pointer;
+
+box-shadow:
+inset 0 0 0 1px #ddd;
+
+transition:.3s;
+
+appearance:none;
+
+background-image:
+linear-gradient(45deg,transparent 50%,#00994d 50%),
+linear-gradient(135deg,#00994d 50%,transparent 50%);
+
+background-position:
+calc(100% - 20px) 22px,
+calc(100% - 14px) 22px;
+
+background-size:
+6px 6px,
+6px 6px;
+
+background-repeat:no-repeat;
+
+}
+
+
+.delivery-select:hover{
+
+box-shadow:
+0 0 0 3px rgba(0,153,77,.15);
+
+}
+
+
+.delivery-select:focus{
+
+box-shadow:
+0 0 0 3px rgba(255,107,0,.25);
+
+}
+
+
+
+/* ==========================
+   CLEAR STOCK PROMOTION
+========================== */
+
+
+.clear-stock{
+
+background:
+linear-gradient(
+135deg,
+#fff5e6,
+#ffffff
+);
+
+}
+
+
+
+.clear-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(250px,1fr));
+
+gap:25px;
+
+}
+
+
+
+.clear-card{
+
+background:white;
+
+border-radius:25px;
+
+overflow:hidden;
+
+position:relative;
+
+box-shadow:
+0 15px 35px rgba(0,0,0,.12);
+
+transition:.3s;
+
+}
+
+
+
+.clear-card:hover{
+
+transform:translateY(-8px);
+
+}
+
+
+
+.clear-card img{
+
+width:100%;
+
+height:230px;
+
+object-fit:cover;
+
+}
+
+
+
+.discount{
+
+position:absolute;
+
+top:15px;
+
+left:15px;
+
+background:#e53935;
+
+color:white;
+
+padding:10px 18px;
+
+border-radius:50px;
+
+font-weight:800;
+
+font-size:18px;
+
+z-index:2;
+
+}
+
+
+
+.clear-info{
+
+padding:25px;
+
+text-align:center;
+
+}
+
+
+
+.clear-info h3{
+
+font-size:22px;
+
+margin-bottom:10px;
+
+}
+
+
+
+.old-price{
+
+text-decoration:line-through;
+
+color:#888;
+
+font-size:16px;
+
+}
+
+
+
+.new-price{
+
+font-size:30px;
+
+font-weight:800;
+
+color:#e53935;
+
+margin:10px 0;
+
+}
+
+
+
+.clear-info a{
+
+display:block;
+
+background:#00994d;
+
+color:white;
+
+padding:13px;
+
+border-radius:30px;
+
+text-decoration:none;
+
+font-weight:700;
+
+transition:.3s;
+
+}
+
+
+
+.clear-info a:hover{
+
+background:#ff6b00;
+
+transform:translateY(-3px);
+
+}
+
+
+
+.clear-btn{
+
+display:block;
+width:100%;
+border:none;
+background:#00994d;
+color:white;
+padding:13px;
+border-radius:30px;
+font-weight:700;
+font-size:16px;
+cursor:pointer;
+transition:.3s;
+
+}
+
+.clear-btn:hover{
+
+background:#ff6b00;
+transform:translateY(-3px);
+
+}
+
+
+@media(max-width:768px){
+
+.main-logo{
+height:55px;
+}
+
+.logo h2{
+
+font-size:20px;
+
+}
+
+}
+
+
+.qr-image{
+width:220px;
+height:220px;
+object-fit:contain;
+border-radius:20px;
+margin:20px auto;
+display:block;
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+.qr-payment-text{
+text-align:center;
+font-size:14px;
+color:#555;
+margin-bottom:20px;
+}
+
+.qr-buttons{
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+
+
+
+
+    /* ==========================
+   QR PAYMENT WIDE POPUP
+========================== */
+
+#qrModal .confirm-box{
+
+width:95%;
+max-width:850px;
+padding:35px;
+
+}
+
+
+#qrModal .qr-layout{
+
+display:grid;
+grid-template-columns:1fr 300px;
+gap:35px;
+align-items:center;
+
+}
+
+
+#qrModal .qr-info{
+
+text-align:left;
+
+}
+
+
+#qrModal .qr-image{
+
+width:260px;
+height:260px;
+margin:auto;
+
+}
+
+
+#qrModal .qr-buttons{
+
+margin-top:20px;
+
+}
+
+
+@media(max-width:768px){
+
+#qrModal .confirm-box{
+
+width:95%;
+padding:25px;
+
+}
+
+
+#qrModal .qr-layout{
+
+grid-template-columns:1fr;
+
+}
+
+
+#qrModal .qr-info{
+
+text-align:center;
+
+}
+
+
+}
+    
+
+
+/* QR PAYMENT PROFESSIONAL STYLE */
+
+
+#qrModal .confirm-box{
+
+width:95%;
+max-width:900px;
+
+padding:40px;
+
+}
+
+
+
+.qr-layout{
+
+display:grid;
+
+grid-template-columns:
+1fr 320px;
+
+gap:40px;
+
+align-items:center;
+
+}
+
+
+
+.qr-info{
+
+text-align:left;
+
+}
+
+
+
+.qr-info h3{
+
+font-size:28px;
+
+margin-bottom:10px;
+
+}
+
+
+
+.qr-detail{
+
+background:#f7f8fa;
+
+padding:14px;
+
+border-radius:15px;
+
+margin:10px 0;
+
+font-weight:600;
+
+}
+
+
+
+.qr-total{
+
+font-size:32px;
+
+font-weight:800;
+
+color:#e53935;
+
+margin-top:20px;
+
+}
+
+
+
+.qr-side{
+
+text-align:center;
+
+}
+
+
+
+.qr-side .qr-image{
+
+width:260px;
+
+height:260px;
+
+}
+
+
+
+.qr-side button{
+
+width:100%;
+
+margin-top:12px;
+
+}
+
+
+
+@media(max-width:768px){
+
+
+.qr-layout{
+
+grid-template-columns:1fr;
+
+}
+
+
+
+.qr-info{
+
+text-align:center;
+
+}
+
+
+#qrModal .confirm-box{
+
+padding:25px;
+
+}
+
+
+}
+
+
+
+    /* ===============================
+   MOBILE OPTIMIZATION
+================================ */
+
+
+@media(max-width:768px){
+
+
+/* TOP BAR */
+
+.topbar{
+
+padding:8px 15px;
+font-size:11px;
+gap:10px;
+
+}
+
+
+/* NAVBAR */
+
+.navbar{
+
+padding:10px 15px;
+
+}
+
+
+.main-logo{
+
+height:45px;
+
+}
+
+
+.logo h2{
+
+font-size:17px;
+
+}
+
+
+.logo{
+
+gap:8px;
+
+}
+
+
+/* HERO */
+
+.hero{
+
+min-height:85vh;
+padding:80px 20px;
+
+background-position:center;
+
+}
+
+
+.hero-content{
+
+width:100%;
+
+}
+
+
+.badge{
+
+font-size:13px;
+padding:8px 15px;
+
+}
+
+
+.hero h1{
+
+font-size:34px;
+line-height:1.25;
+
+}
+
+
+.hero p{
+
+font-size:15px;
+line-height:1.6;
+
+}
+
+
+/* BUTTON HERO */
+
+
+.hero-content .btn{
+
+width:100%;
+margin:8px 0;
+padding:14px 20px;
+font-size:15px;
+
+}
+
+
+
+/* SECTION */
+
+.section{
+
+padding:45px 15px;
+
+}
+
+
+.section-title h2{
+
+font-size:30px;
+
+}
+
+
+.section-title p{
+
+font-size:14px;
+
+}
+
+
+
+/* STAT CARD */
+
+
+.stats{
+
+grid-template-columns:repeat(2,1fr);
+gap:12px;
+
+}
+
+
+.stat-card{
+
+padding:20px 10px;
+border-radius:15px;
+
+}
+
+
+.stat-card h3{
+
+font-size:28px;
+
+}
+
+
+.stat-card p{
+
+font-size:13px;
+
+}
+
+
+
+/* SLIDER */
+
+
+.slide-track img{
+
+width:180px;
+height:180px;
+
+}
+
+
+
+/* CATEGORY CARD */
+
+
+.categories{
+
+grid-template-columns:1fr;
+
+}
+
+
+.card{
+
+border-radius:15px;
+
+}
+
+
+.card img{
+
+height:180px;
+
+}
+
+
+.card-body{
+
+padding:18px;
+
+}
+
+
+
+/* PRODUCT POPUP */
+
+
+.product-box{
+
+width:95%;
+margin:15px auto;
+padding:18px;
+border-radius:20px;
+
+}
+
+
+.product-header h2{
+
+font-size:22px;
+
+}
+
+
+.close-product{
+
+font-size:32px;
+
+}
+
+
+.product-list{
+
+grid-template-columns:1fr;
+gap:15px;
+
+}
+
+
+
+.product-item img{
+
+height:180px;
+
+}
+
+
+.product-info{
+
+padding:15px;
+
+}
+
+
+.price{
+
+font-size:20px;
+
+}
+
+
+/* QUANTITY */
+
+
+.qty-box{
+
+gap:8px;
+
+}
+
+
+.qty-box button{
+
+width:38px;
+height:38px;
+
+}
+
+
+.qty-input{
+
+width:55px;
+
+}
+
+
+/* CART */
+
+
+.cart-floating{
+
+right:15px;
+bottom:15px;
+
+padding:12px 18px;
+
+font-size:15px;
+
+}
+
+
+.cart-box{
+
+left:10px;
+right:10px;
+bottom:80px;
+
+width:auto;
+
+max-height:70vh;
+
+border-radius:20px;
+
+}
+
+
+
+/* CART ITEM */
+
+
+.cart-item{
+
+font-size:13px;
+
+}
+
+
+
+/* CONFIRM POPUP */
+
+
+.confirm-box{
+
+width:90%;
+margin:80px auto;
+padding:25px 20px;
+
+}
+
+
+.confirm-box h3{
+
+font-size:20px;
+
+}
+
+
+.confirm-buttons{
+
+flex-direction:column;
+
+}
+
+
+.confirm-buttons button{
+
+width:100%;
+
+}
+
+
+
+/* CHECKOUT */
+
+
+.checkout-choice button{
+
+height:55px;
+font-size:15px;
+
+}
+
+
+
+/* DELIVERY */
+
+
+.delivery-select{
+
+font-size:14px;
+
+}
+
+
+
+/* PROMO POSTER */
+
+
+.promo-poster img{
+
+border-radius:15px;
+
+}
+
+
+
+/* CLEAR STOCK */
+
+
+.clear-grid{
+
+grid-template-columns:1fr;
+
+}
+
+
+.clear-card img{
+
+height:200px;
+
+}
+
+
+.new-price{
+
+font-size:25px;
+
+}
+
+
+
+/* QR PAYMENT */
+
+
+#qrModal .confirm-box{
+
+width:95%;
+padding:20px;
+
+}
+
+
+.qr-layout{
+
+grid-template-columns:1fr;
+
+gap:20px;
+
+}
+
+
+.qr-info{
+
+text-align:center;
+
+}
+
+
+.qr-info h3{
+
+font-size:22px;
+
+}
+
+
+.qr-total{
+
+font-size:26px;
+
+}
+
+
+.qr-side .qr-image{
+
+width:200px;
+height:200px;
+
+}
+
+
+
+.qr-payment-text{
+
+font-size:13px;
+
+}
+
+
+
+/* MAP */
+
+iframe{
+
+height:300px!important;
+
+}
+
+
+/* FOOTER */
+
+
+.footer{
+
+padding:40px 20px;
+
+}
+
+
+.footer-grid{
+
+grid-template-columns:1fr;
+
+gap:25px;
+
+}
+
+
+.footer h3{
+
+font-size:20px;
+
+}
+
+
+}
+
+
+
+
+@media(max-width:390px){
+
+
+.hero h1{
+
+font-size:29px;
+
+}
+
+
+.section-title h2{
+
+font-size:26px;
+
+}
+
+
+.stats{
+
+grid-template-columns:1fr;
+
+}
+
+
+.slide-track img{
+
+width:150px;
+height:150px;
+
+}
+
+
+.cart-floating{
+
+font-size:14px;
+
+}
+
+
+}
+
+
+
+    /* ==========================
+   FIX QR POPUP MOBILE SCROLL
+========================== */
+
+
+#qrModal{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:999999;
+    background:rgba(0,0,0,.65);
+
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+
+    padding:20px 10px;
+}
+
+
+#qrModal .confirm-box{
+
+    width:95%;
+    max-width:900px;
+
+    margin:20px auto;
+
+    max-height:none;
+
+    overflow:visible;
+
+    padding:30px;
+
+}
+
+
+@media(max-width:768px){
+
+
+#qrModal{
+
+    align-items:flex-start;
+
+}
+
+
+#qrModal .confirm-box{
+
+    width:95%;
+
+    margin:10px auto 30px;
+
+    padding:20px;
+
+}
+
+
+
+.qr-layout{
+
+    display:flex;
+    flex-direction:column;
+
+}
+
+
+
+.qr-info{
+
+    text-align:center;
+
+}
+
+
+
+.qr-side{
+
+    width:100%;
+
+}
+
+
+
+#qrModal .qr-side .qr-image{
+
+    width:180px;
+    height:180px;
+
+}
+
+
+
+#qrModal .confirm-buttons{
+
+    flex-direction:column;
+
+}
+
+
+}
+
+/* FIX CART OVERLAY MOBILE */
+
+.cart-box{
+    z-index:9999;
+}
+
+
+.confirm-modal{
+    z-index:50000;
+}
+
+
+#checkoutModal,
+#deliveryModal,
+#qrModal,
+#confirmModal{
+    z-index:60000;
+}
+
+
+
+
+/* =========================
+   SOCIAL VIDEO HERO
+========================= */
+
+.hero-video-section{
+
+display:flex;
+gap:20px;
+margin-top:35px;
+flex-wrap:wrap;
+
+}
+
+
+/* SOCIAL MEDIA CARD OPTIMIZED */
+
+/* =========================
+   COMPACT SOCIAL MEDIA CARD
+========================= */
+
+.social-media-grid{
+
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:18px;
+max-width:900px;
+margin:auto;
+
+}
+
+
+.social-card{
+
+background:white;
+border-radius:20px;
+padding:25px 15px;
+
+text-align:center;
+
+box-shadow:
+0 10px 25px rgba(0,0,0,.08);
+
+transition:.3s;
+
+}
+
+
+.social-card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:
+0 15px 35px rgba(0,0,0,.15);
+
+}
+
+
+
+.social-icon{
+
+width:65px;
+height:65px;
+
+margin:auto;
+margin-bottom:15px;
+
+border-radius:50%;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-size:32px;
+
+color:white;
+
+}
+
+
+
+.youtube-icon{
+
+background:#ff0000;
+
+}
+
+
+.tiktok-icon{
+
+background:#000;
+
+}
+
+
+.facebook-icon{
+
+background:#1877f2;
+
+}
+
+
+.threads-icon{
+
+background:#333;
+
+}
+
+
+
+
+.social-title{
+
+font-size:15px;
+font-weight:700;
+
+margin-bottom:12px;
+
+}
+
+
+
+.social-btn{
+
+display:block;
+
+padding:9px 15px;
+
+border-radius:30px;
+
+color:white;
+
+text-decoration:none;
+
+font-size:13px;
+
+font-weight:700;
+
+}
+
+
+
+.youtube-btn{
+background:#ff0000;
+}
+
+
+.tiktok-btn{
+background:#000;
+}
+
+
+.facebook-btn{
+background:#1877f2;
+}
+
+
+.threads-btn{
+background:#333;
+}
+
+
+
+
+
+@media(max-width:768px){
+
+
+.social-media-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+gap:12px;
+
+}
+
+
+.social-card{
+
+padding:20px 10px;
+
+}
+
+
+.social-icon{
+
+width:55px;
+height:55px;
+
+font-size:26px;
+
+}
+
+
+.social-title{
+
+font-size:13px;
+
+}
+
+
+}
+
+
+
+@media(max-width:768px){
+
+.social-media-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+gap:12px;
+
+}
+
+
+.social-title{
+
+font-size:12px;
+
+}
+
+
+.social-btn{
+
+font-size:12px;
+padding:8px;
+
+}
+
+
+}
+
+
+.nav-links a:first-child{
+
+background:#00994d;
+
+color:white;
+
+box-shadow:
+0 8px 20px rgba(0,153,77,.25);
+
+}
+
+
+
+
+.logo h2{
+
+transition:.3s;
+
+}
+
+
+.logo h2:hover{
+
+transform:scale(1.05);
+
+filter:drop-shadow(
+0 5px 10px rgba(0,153,77,.3)
+);
+
+}
+
+
+  
+
+
+@media(max-width:768px){
+
+.logo h2{
+
+font-size:18px;
+
+}
+
+
+.logo h2::after{
+
+font-size:8px;
+
+}
+
+
+.main-logo{
+
+height:50px;
+
+}
+
+
+}
+
+
+
+
+
+.hero h1 span{
+
+background:
+linear-gradient(
+90deg,
+#00ff88,
+#ffb000
+);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+}
+
+
+
+
+
+   .main-logo{
+
+border-radius:15px;
+
+filter:
+drop-shadow(
+0 8px 15px rgba(0,153,77,.25)
+);
+
+transition:.3s;
+
+}
+
+
+.main-logo:hover{
+
+transform:
+rotate(-3deg)
+scale(1.08);
+
+}
+
+
+/* ACTIVE MENU KETIKA SCROLL */
+
+.nav-links a.active{
+
+background:linear-gradient(
+135deg,
+#00994d,
+#ff6b00
+);
+
+color:white;
+
+box-shadow:
+0 8px 20px rgba(0,153,77,.35);
+
+transform:translateY(-3px);
+
+}
+
+
+.nav-links a.active::after{
+
+width:50%;
+
+}
+
+
+.install-ios{
+
+background:#fff3cd;
+
+padding:15px;
+
+border-radius:15px;
+
+margin-top:15px;
+
+font-size:14px;
+
+line-height:1.6;
+
+}
+
+
+
+.product-filter{
+
+display:flex;
+gap:10px;
+overflow-x:auto;
+padding:5px 0 20px;
+
+scrollbar-width:none;
+
+}
+
+.product-filter::-webkit-scrollbar{
+display:none;
+}
+
+.filter-btn{
+
+border:none;
+background:#f3f3f3;
+
+padding:10px 18px;
+
+border-radius:30px;
+
+font-weight:600;
+
+cursor:pointer;
+
+white-space:nowrap;
+
+transition:.3s;
+
+}
+
+.filter-btn:hover{
+
+background:#00994d;
+
+color:#fff;
+
+}
+
+.filter-btn.active{
+
+background:linear-gradient(135deg,#00994d,#ff6b00);
+
+color:#fff;
+
+}
+
+
+
+/* =========================
+   PRODUCT FILTER
+========================= */
+
+.product-filter{
+
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+align-items:center;
+
+gap:12px;
+
+margin:10px 0 25px;
+
+}
+
+
+.filter-btn{
+
+padding:10px 18px;
+
+border:none;
+
+border-radius:30px;
+
+background:#f3f4f6;
+
+color:#444;
+
+font-size:14px;
+font-weight:600;
+
+cursor:pointer;
+
+transition:.3s;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+min-width:110px;
+
+box-shadow:0 3px 10px rgba(0,0,0,.08);
+
+}
+
+
+.filter-btn:hover{
+
+background:#00994d;
+
+color:#fff;
+
+transform:translateY(-2px);
+
+}
+
+
+.filter-btn.active{
+
+background:linear-gradient(
+135deg,
+#00994d,
+#ff6b00
+);
+
+color:white;
+
+box-shadow:0 8px 20px rgba(0,153,77,.25);
+
+}
+
+
+
+@media(max-width:768px){
+
+.product-filter{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:10px;
+
+}
+
+.filter-btn{
+
+width:100%;
+
+min-width:unset;
+
+font-size:13px;
+
+padding:11px;
+
+}
+
+}
+
+
+/* =========================
+   PRODUCT CATEGORY FILTER
+========================= */
+
+.product-filter{
+
+display:flex;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+align-items:center;
+
+gap:12px;
+
+width:100%;
+
+margin:15px 0 25px;
+
+}
+
+
+.filter-btn{
+
+flex:0 1 auto;
+
+min-width:120px;
+
+padding:11px 18px;
+
+border:none;
+
+border-radius:30px;
+
+background:#f3f4f6;
+
+color:#444;
+
+font-size:14px;
+
+font-weight:600;
+
+cursor:pointer;
+
+transition:.3s;
+
+white-space:nowrap;
+
+box-shadow:
+0 4px 12px rgba(0,0,0,.08);
+
+}
+
+
+.filter-btn:hover{
+
+background:#00994d;
+
+color:white;
+
+transform:translateY(-2px);
+
+}
+
+
+.filter-btn.active{
+
+background:
+linear-gradient(
+135deg,
+#00994d,
+#ff6b00
+);
+
+color:white;
+
+box-shadow:
+0 8px 20px rgba(0,153,77,.25);
+
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+
+.product-filter{
+
+justify-content:flex-start;
+
+gap:10px;
+
+}
+
+
+.filter-btn{
+
+min-width:105px;
+
+font-size:13px;
+
+padding:10px 12px;
+
+}
+
+
+}
+    
+
+
+
+    
+    
+
+
+
+    
+
+    
+
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+<span>🕒 Dibuka Setiap Hari</span>
+<span>📞 011-39993118</span>
+</div>
+
+<nav class="navbar">
+
+<div class="logo">
+<img src="./images/logo.jpeg" alt="Hlai Suria 88 Logo" class="main-logo">
+<h2>Hlai Suria 88</h2>
+</div>
+
+<div class="nav-links">
+
+<a href="#utama">
+🏠 Utama
+</a>
+
+<a href="#produk">
+🛒 Produk
+</a>
+
+<a href="#borong">
+📦 Borong
+</a>
+
+<a href="#promosi">
+🔥 Promosi
+</a>
+
+<a href="#hubungi">
+📲 Hubungi
+</a>
+
+<a href="#lokasi">
+📍 Lokasi
+</a>
+
+</div>
+
+</nav>
+
+<section class="hero" id="utama">
+
+<div class="hero-content">
+
+<div class="badge">
+Kedai Serbaneka & Borong
+</div>
+
+<h1>
+Hlai Suria 88
+<br>
+<span>
+Pusat Keperluan Harian & Borong Anda
+</span>
+</h1>
+
+<p>
+Pelbagai pilihan makanan, minuman, produk rumah dan barangan borong
+dengan harga berpatutan untuk keluarga dan perniagaan.
+</p>
+
+<a href="#" onclick="openProductPopup();return false;" 
+class="btn btn-primary">
+
+🛒 Lihat Produk
+
+</a>
+
+
+<a href="https://wa.me/601139993118?text=Saya%20ingin%20membuat%20tempahan%20barang%20di%20Hlai%20Suria%2088"
+target="_blank"
+class="btn btn-secondary">
+
+📲 Hubungi Kami
+
+</a>
+
+
+<a href="https://www.google.com/maps/search/?api=1&query=56,+Jalan+Petani,+20000+Kuala+Terengganu,+Terengganu"
+target="_blank"
+class="btn btn-location">
+
+📍 Lokasi Kami
+
+</a>
+
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+</div>
+
+</section>
+
+
+<!-- SOCIAL MEDIA VIDEO SECTION -->
+
+<section class="section social-video-section">
+
+<div class="section-title">
+
+<h2>
+📱 Ikuti Media Sosial Kami
+</h2>
+
+<p>
+Promosi, stok terbaru dan aktiviti Hlai Suria 88
+</p>
+
+</div>
+
+
+<div class="social-media-grid">
+
+
+<div class="social-card">
+
+<div class="social-icon youtube-icon">
+
+<i class="fa-brands fa-youtube"></i>
+
+</div>
+
+
+<div class="social-title">
+YouTube
+</div>
+
+
+<a 
+href="https://www.youtube.com/@hlaisuria88"
+target="_blank"
+class="social-btn youtube-btn">
+
+Tonton
+
+</a>
+
+</div>
+
+
+
+
+
+<div class="social-card">
+
+<div class="social-icon tiktok-icon">
+
+<i class="fa-brands fa-tiktok"></i>
+
+</div>
+
+
+<div class="social-title">
+TikTok
+</div>
+
+
+<a 
+href="https://www.tiktok.com/@suriaku1"
+target="_blank"
+class="social-btn tiktok-btn">
+
+Ikuti
+
+</a>
+
+</div>
+
+
+
+
+
+
+<div class="social-card">
+
+<div class="social-icon facebook-icon">
+
+<i class="fa-brands fa-facebook-f"></i>
+
+</div>
+
+
+<div class="social-title">
+Facebook
+</div>
+
+
+<a 
+href="https://www.facebook.com/profile.php?id=61587785911219"
+target="_blank"
+class="social-btn facebook-btn">
+
+Lihat
+
+</a>
+
+</div>
+
+
+
+
+
+
+<div class="social-card">
+
+<div class="social-icon threads-icon">
+
+<i class="fa-brands fa-threads"></i>
+
+</div>
+
+
+<div class="social-title">
+Threads
+</div>
+
+
+<a 
+href="https://www.threads.com/@hlaisuria88"
+target="_blank"
+class="social-btn threads-btn">
+
+Ikuti
+
+</a>
+
+
+</div>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+<div class="promo-bar">
+🔥 PROMOSI MINGGU INI • HARGA BORONG • STOK BAHARU SETIAP MINGGU
+</div>
+
+<section class="section">
+
+<div class="section-title">
+<h2>Kenapa Pilih Kami?</h2>
+</div>
+
+<div class="stats">
+
+<div class="stat-card">
+<h3>1000+</h3>
+<p>Produk Harian</p>
+</div>
+
+<div class="stat-card">
+<h3>7 Hari</h3>
+<p>Seminggu Operasi</p>
+</div>
+
+<div class="stat-card">
+<h3>100%</h3>
+<p>Kepuasan Pelanggan</p>
+</div>
+
+<div class="stat-card">
+<h3>24/7</h3>
+<p>Sokongan Tempahan</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="section-title">
+<h2>Galeri Produk Popular</h2>
+</div>
+
+<div class="slider">
+
+<div class="slide-track">
+    
+    <img src="./images/ayamsegar.jpeg">
+    <img src="./images/susutingoldcoin.jpeg">
+    <img src="./images/jati5kg.jpeg">
+    <img src="./images/jati10kg.jpeg">
+    <img src="./images/gredAA.jpeg">
+    <img src="./images/gredA.jpeg">
+    <img src="./images/gredB.jpeg">
+    <img src="./images/gredC.jpeg">
+    <img src="./images/gredD.jpeg">
+    <img src="./images/gulakasar.jpeg">
+    <img src="./images/maggiayam.jpeg">
+    <img src="./images/maggikari.jpeg">
+    <img src="./images/maggitomyam.jpeg">
+    <img src="./images/marigoldbiru.jpeg">
+    <img src="./images/marigoldpink.jpeg">
+    <img src="./images/Milo900gm.jpeg">
+    <img src="./images/mmpaket.jpeg">
+    <img src="./images/MuslimKT.jpeg">
+    <img src="./images/MuslimMK.jpeg">
+    <img src="./images/santan1L.jpeg">
+    <img src="./images/santan2L.jpeg">
+    <img src="./images/ubikentang.jpeg">
+
+
+
+
+
+</div>
+
+
+    
+</div>
+
+</section>
+
+
+
+<section class="section" id="produk">
+
+<div class="section-title">
+
+<h2>🛒 Kategori Produk</h2>
+
+<p>Pilih kategori yang anda ingin lihat</p>
+
+</div>
+
+<div class="categories">
+
+<div class="card" onclick="openCategory('runcit')">
+<i class="fa-solid fa-basket-shopping"></i>
+<h3>Barang Runcit</h3>
+</div>
+
+<div class="card" onclick="openCategory('minuman')">
+<i class="fa-solid fa-mug-hot"></i>
+<h3>Minuman</h3>
+</div>
+
+<div class="card" onclick="openCategory('penjagaan')">
+<i class="fa-solid fa-pump-soap"></i>
+<h3>Penjagaan</h3>
+</div>
+
+<div class="card" onclick="openCategory('pencuci')">
+<i class="fa-solid fa-soap"></i>
+<h3>Produk Pencuci</h3>
+</div>
+
+<div class="card" onclick="openCategory('sejukbeku')">
+<i class="fa-solid fa-snowflake"></i>
+<h3>Sejuk Beku</h3>
+</div>
+
+<div class="card" onclick="openCategory('pembungkus')">
+<i class="fa-solid fa-box-open"></i>
+<h3>Pembungkus</h3>
+</div>
+
+<div class="card" onclick="openCategory('borong-product')">
+<i class="fa-solid fa-boxes-stacked"></i>
+<h3>Borong</h3>
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+<section class="section" id="borong">
+
+<div class="section-title">
+<h2>Pembelian Borong</h2>
+<p>Produk borong untuk peniaga dan perniagaan</p>
+</div>
+
+
+<div class="categories">
+
+
+<div class="card" onclick="openCategory('borong-product')">
+
+<img src="./images/borong.jpeg">
+
+<div class="card-body">
+
+<i class="fa-solid fa-boxes-stacked"></i>
+
+<h3>Barang Borong</h3>
+
+<p>
+Harga istimewa untuk pembelian kuantiti banyak.
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+    
+
+
+
+    
+
+<section class="section" id="promosi">
+
+<div class="section-title">
+<h2>Promosi Mingguan</h2>
+</div>
+
+<div class="promo-poster">
+
+<img src="./images/flyer.jpeg"
+alt="Promosi Mingguan Hlai Suria 88"
+onclick="openPromoPoster(this.src)"
+>
+
+</div>
+
+</section>
+
+<section class="section clear-stock">
+
+<div class="section-title">
+
+<h2>
+🔥 Promosi Clear Stock
+</h2>
+
+<p>
+Harga runtuh untuk habiskan stok terpilih!
+</p>
+
+</div>
+
+
+<div class="clear-grid">
+
+
+<div class="clear-card">
+
+<div class="discount">
+-30%
+</div>
+
+
+<img src="./images/jati5kg.jpeg">
+
+
+<div class="clear-info">
+
+<h3>
+Beras Jati 5kg
+</h3>
+
+
+<p class="old-price">
+RM25.00
+</p>
+
+
+<p class="new-price">
+RM18.00
+</p>
+
+
+<button onclick="addClearCart('Beras Jati 5kg',18)"
+class="clear-btn">
+
+🛒 Beli Sekarang
+
+</button>
+
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="clear-card">
+
+<div class="discount">
+-40%
+</div>
+
+
+<img src="./images/maggikari.jpeg">
+
+
+<div class="clear-info">
+
+<h3>
+Maggi Kari 2 Minit
+</h3>
+
+
+<p class="old-price">
+RM5.50
+</p>
+
+
+<p class="new-price">
+RM3.50
+</p>
+
+
+<button onclick="addClearCart('Maggi Kari 2 Minit',3.50)"
+class="clear-btn">
+
+🛒 Beli Sekarang
+
+</button>
+
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="clear-card">
+
+<div class="discount">
+-25%
+</div>
+
+
+<img src="./images/gulakasar.jpeg">
+
+
+<div class="clear-info">
+
+<h3>
+Gula Kasar
+</h3>
+
+
+<p class="old-price">
+RM3.50
+</p>
+
+
+<p class="new-price">
+RM2.80
+</p>
+
+
+<button onclick="addClearCart('Gula Kasar',2.80)"
+class="clear-btn">
+
+🛒 Beli Sekarang
+
+</button>
+
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+    
+
+<section class="section" id="hubungi">
+
+<div class="cta">
+
+<h2>Order Barang Sekarang!</h2>
+
+<p>
+Hubungi kami melalui WhatsApp untuk membuat tempahan.
+</p>
+
+<br>
+
+<a href="https://wa.me/601139993118"
+class="btn btn-secondary"
+target="_blank">
+📲 WhatsApp Kami
+</a>
+
+</div>
+
+</section>
+
+    <section class="section" id="lokasi">
+
+<div class="section-title">
+<h2>Lokasi Kami</h2>
+<p>Datang terus ke kedai Hlai Suria 88</p>
+</div>
+
+
+<iframe 
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d590.5213019593456!2d103.14093068503551!3d5.3345064532230415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31b7be77ef59cbcf%3A0x5882bb6fdb562a6!2s56%2C%20Jalan%20Petani%2C%2020000%20Kuala%20Terengganu%2C%20Terengganu!5e0!3m2!1sen!2smy!4v1784522210286!5m2!1sen!2smy"
+width="100%"
+height="450"
+style="border:0;border-radius:25px;"
+allowfullscreen=""
+loading="lazy">
+</iframe>
+
+
+<br><br>
+
+
+<center>
+
+<a href="https://www.google.com/maps/search/?api=1&query=56,+Jalan+Petani,+20000+Kuala+Terengganu,+Terengganu"
+target="_blank"
+class="btn btn-primary">
+
+🚗 Dapatkan Arah
+
+</a>
+
+</center>
+
+
+</section>
+
+<footer class="footer">
+
+<div class="footer-grid">
+
+<div>
+<h3>Hlai Suria 88</h3>
+<p>Kedai serbaneka moden untuk semua keperluan harian anda.</p>
+</div>
+
+<div>
+<h3>Pautan</h3>
+<ul>
+<li>Utama</li>
+<li>Produk</li>
+<li>Promosi</li>
+<li>Hubungi</li>
+</ul>
+</div>
+
+<div>
+<h3>Maklumat</h3>
+<ul>
+<li>📍 Lokasi Kedai</li>
+<li>📞 011-39993118</li>
+<li>✉ <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="83eaede5ecc3ebaeefe2eae4f1ecf6f3ade0ecee">[email&#160;protected]</a></li>
+  
+</ul>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+© 2026 Hlai Suria 88. Semua Hak Cipta Terpelihara.
+</div>
+
+
+
+
+    
+
+</footer>
+
+
+
+<div id="gallery" class="gallery-modal">
+
+<div class="gallery-content">
+
+<span class="close" onclick="closeGallery()">&times;</span>
+
+<h2>Produk Hlai Suria 88</h2>
+
+<div class="gallery-grid">
+
+<img src="https://images.unsplash.com/photo-1784187504721-a5621aa5da8b">
+<img src="https://images.unsplash.com/photo-1784187504721-a5621aa5da8b">
+<img src="https://images.unsplash.com/photo-1784187504721-a5621aa5da8b">
+<img src="https://images.unsplash.com/photo-1784187504721-a5621aa5da8b">
+</div>
+
+</div>
+
+</div>
+
+ <!-- PRODUCT POPUP -->
+<div id="productModal" class="product-modal">
+
+<div class="product-box">
+
+<div class="product-header">
+
+
+
+
+
+   
+
+<h2>
+🛒 Produk Hlai Suria 88
+</h2>
+
+
+
+
+   
+
+<span 
+class="close-product"
+onclick="closeProductPopup()">
+&times;
+</span>
+
+</div>
+
+
+<div class="product-filter">
+
+<button class="filter-btn active"
+onclick="filterProducts('all',this)">
+Semua
+</button>
+
+<button class="filter-btn"
+onclick="filterProducts('runcit',this)">
+Runcit
+</button>
+
+<button class="filter-btn"
+onclick="filterProducts('minuman',this)">
+Minuman
+</button>
+
+<button class="filter-btn"
+onclick="filterProducts('penjagaan',this)">
+Penjagaan
+</button>
+
+<button class="filter-btn"
+onclick="filterProducts('pencuci',this)">
+Pencuci
+</button>
+
+<button class="filter-btn"
+onclick="filterProducts('sejukbeku',this)">
+Sejuk Beku
+</button>
+
+<button class="filter-btn"
+onclick="filterProducts('pembungkus',this)">
+Pembungkus
+</button>
+
+<button class="filter-btn"
+onclick="filterProducts('borong-product',this)">
+Borong
+</button>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+   
+
+
+<div id="productList" class="product-list"></div>
+
+
+</div>
+
+</div>
+
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+
+let cart = [];
+
+
+/* =========================
+   PRODUK DATA
+========================= */
+
+let products = JSON.parse(localStorage.getItem("products"));
+
+products = products.map(p=>({
+
+barcode:p.barcode || "",
+name:p.name,
+price:p.price,
+stock:p.stock,
+category:p.category,
+image:p.image
+
+}));
+
+localStorage.setItem(
+"products",
+JSON.stringify(products)
+);
+
+
+
+
+
+
+
+   
+
+if(!products){
+
+products = [
+
+{
+name:"Beras 10kg",
+price:35,
+  stock:100,
+category:"runcit",
+image:"./images/jati10kg.jpeg"
+},
+
+{
+name:"Beras 5kg",
+price:18,
+  stock:100,
+category:"runcit",
+image:"./images/jati5kg.jpeg"
+},
+
+{
+name:"Susu Tin Gold Coin",
+price:4.50,
+  stock:100,
+category:"minuman",
+image:"./images/susutingoldcoin.jpeg"
+},
+
+{
+name:"Minuman Tin",
+price:2.00,
+  stock:100,
+category:"minuman",
+image:"./images/minumantin.jpeg"
+},
+
+{
+name:"Sabun Mandi",
+price:8.00,
+stock:100,
+category:"penjagaan",
+image:"./images/sabunmandi.jpeg"
+},
+
+
+{
+name:"Sabun Basuh Baju",
+price:8.00,
+stock:100,
+category:"penjagaan",
+image:"./images/sabunbasuh.jpeg"
+},
+
+
+    
+{
+name:"Syampu",
+price:12.00,
+stock:100,
+category:"penjagaan",
+image:"./images/shampoo.jpeg"
+},
+
+{
+name:"Beras Borong 10kg (5 Unit)",
+price:170,
+stock:100,
+category:"borong-product",
+image:"./images/jati10kg.jpeg"
+},
+
+{
+name:"Minuman Tin 24 Kotak",
+price:45,
+stock:100,
+category:"borong-product",
+image:"./images/minumantin.jpeg"
+},
+
+{
+name:"Susu Tin Borong 48 Unit",
+price:180,
+stock:100,
+category:"borong-product",
+image:"./images/susutingoldcoin.jpeg"
+},
+
+{
+name:"Sabun Basuh Borong",
+price:90,
+stock:100,
+category:"borong-product",
+image:"./images/sabunbasuh.jpeg"
+},
+
+{
+name:"Telur Ayam Gred AA",
+price:90,
+stock:100,
+category:"runcit",
+image:"./images/gredAA.jpeg"
+},
+
+ {
+name:"Telur Ayam Gred A",
+price:90,
+stock:100,
+category:"runcit",
+image:"./images/gredA.jpeg"
+},
+
+{
+name:"Telur Ayam Gred B",
+price:90,
+stock:100,
+category:"runcit",
+image:"./images/gredB.jpeg"
+},
+
+
+{
+name:"Telur Ayam Gred C",
+price:90,
+stock:100,
+category:"runcit",
+image:"./images/gredC.jpeg"
+},
+
+ {
+name:"Telur Ayam Gred D",
+price:90,
+ stock:100,
+category:"runcit",
+image:"./images/gredD.jpeg"
+}
+
+
+];
+
+
+// simpan pertama kali
+localStorage.setItem(
+"products",
+JSON.stringify(products)
+);
+
+}
+
+
+
+/* =========================
+ OPEN PRODUCT POPUP
+========================= */
+
+
+function openProductPopup(){
+
+// Refresh data terbaru dari localStorage
+products =
+JSON.parse(localStorage.getItem("products"))
+|| [];
+
+// Paparkan popup
+document.getElementById("productModal").style.display="block";
+
+// Kosongkan senarai produk
+document.getElementById("productList").innerHTML="";
+
+// Reset semua button kategori
+document.querySelectorAll(".filter-btn")
+.forEach(btn=>btn.classList.remove("active"));
+
+// Jadikan button "Semua" sebagai aktif
+const firstBtn=document.querySelector(".filter-btn");
+
+if(firstBtn){
+
+firstBtn.classList.add("active");
+
+// Paparkan semua produk
+filterProducts("all",firstBtn);
+
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+function filterProducts(category,btn){
+
+document.querySelectorAll(".filter-btn")
+.forEach(b=>b.classList.remove("active"));
+
+btn.classList.add("active");
+
+let list=document.getElementById("productList");
+
+list.innerHTML="";
+
+let data =
+category==="all"
+?
+products
+:
+products.filter(p=>p.category===category);
+
+data.forEach((p)=>{
+
+let originalIndex=products.indexOf(p);
+
+list.innerHTML+=`
+
+<div class="product-item">
+
+<img src="${p.image}">
+
+<div class="product-info">
+
+<h3>${p.name}</h3>
+
+<div class="price">
+RM ${p.price.toFixed(2)}
+</div>
+
+<p class="stock">
+
+📦 ${
+p.stock<=0
+?
+"Habis"
+:
+p.stock<10
+?
+"Hampir Habis"
+:
+p.stock+" unit"
+}
+
+</p>
+
+<div class="qty-box">
+
+<button onclick="minusQty(${originalIndex})">
+-
+</button>
+
+<input
+type="number"
+id="qty${originalIndex}"
+class="qty-input"
+value="1"
+min="1">
+
+<button onclick="plusQty(${originalIndex})">
++
+</button>
+
+</div>
+
+<button
+class="order-btn"
+onclick="addCart(${originalIndex})">
+
+🛒 Tambah Ke Cart
+
+</button>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+function openCategory(category){
+
+let modal=document.getElementById("productModal");
+
+modal.style.display="block";
+
+
+// =========================
+// ACTIVE FILTER BUTTON
+// =========================
+
+document.querySelectorAll(".filter-btn")
+.forEach(btn=>{
+
+btn.classList.remove("active");
+
+});
+
+
+
+let activeButton =
+document.querySelector(
+`.filter-btn[onclick="filterProducts('${category}',this)"]`
+);
+
+
+
+if(activeButton){
+
+activeButton.classList.add("active");
+
+}
+
+
+
+
+
+   
+
+let list=document.getElementById("productList");
+
+list.innerHTML="";
+
+let filtered = products.filter(
+p => p.category === category
+);
+
+filtered.forEach((p,index)=>{
+
+let originalIndex = products.indexOf(p);
+
+list.innerHTML += `
+
+<div class="product-item">
+
+<img src="${p.image}">
+
+<div class="product-info">
+
+<h3>${p.name}</h3>
+
+<div class="price">
+RM ${p.price.toFixed(2)}
+</div>
+
+<p class="stock">
+
+📦 ${
+p.stock<=0
+?
+"Habis"
+:
+p.stock<10
+?
+"Hampir Habis"
+:
+p.stock+" unit"
+}
+
+</p>
+
+
+<div class="qty-box">
+
+<button onclick="minusQty(${originalIndex})">-</button>
+
+<input
+type="number"
+min="1"
+class="qty-input"
+id="qty${originalIndex}"
+value="1">
+
+<button onclick="plusQty(${originalIndex})">+</button>
+
+</div>
+
+<button
+class="order-btn"
+onclick="addCart(${originalIndex})">
+
+🛒 Tambah Ke Cart
+
+</button>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
+
+    
+
+
+
+function closeProductPopup(){
+
+document.getElementById("productModal").style.display="none";
+
+}
+
+
+
+
+/* =========================
+ QUANTITY
+========================= */
+
+
+function plusQty(i){
+
+let q=document.getElementById("qty"+i);
+
+q.value=parseInt(q.value)+1;
+
+}
+
+
+
+function minusQty(i){
+
+let q=document.getElementById("qty"+i);
+
+if(q.value>1){
+
+q.value=parseInt(q.value)-1;
+
+}
+
+}
+
+
+
+
+
+/* =========================
+ CART
+========================= */
+
+
+function addCart(index){
+
+
+
+
+let qty=parseInt(
+document.getElementById("qty"+index).value
+);
+
+
+let item=products[index];
+
+
+let exist=cart.find(
+x=>x.name==item.name
+);
+
+
+if(exist){
+
+exist.qty+=qty;
+
+}
+
+else{
+
+
+cart.push({
+
+barcode:item.barcode || "",
+name:item.name,
+price:item.price,
+qty:qty
+
+});
+
+}
+
+
+
+updateCart();
+
+
+   document.getElementById("cartBox").style.display="block";
+
+
+document.getElementById("cartBox").style.zIndex="9999";
+
+    
+
+showConfirm(
+"Berjaya Ditambah!",
+item.name+" telah dimasukkan ke dalam cart.",
+"add"
+);
+
+}
+
+
+function removeCart(index){
+
+
+let item=cart[index];
+
+
+showConfirm(
+"Buang Produk?",
+"Anda pasti mahu buang "+item.name+" dari cart?",
+"delete",
+
+function(){
+
+
+cart.splice(index,1);
+
+updateCart();
+
+
+}
+
+);
+
+
+}
+
+
+function cartPlus(index){
+
+    cart[index].qty = Number(cart[index].qty) + 1;
+
+    updateCart();
+
+}
+
+
+
+function cartMinus(index){
+
+    if(cart[index].qty > 1){
+
+        cart[index].qty = Number(cart[index].qty) - 1;
+
+        updateCart();
+
+    }else{
+
+        showConfirm(
+            "Buang Produk?",
+            "Bilangan sudah 1. Buang produk dari cart?",
+            "delete",
+            function(){
+
+                cart.splice(index,1);
+
+                updateCart();
+
+            }
+        );
+
+    }
+
+}
+
+
+
+
+    
+
+    
+
+ 
+
+
+function updateCart(){
+
+let box=document.getElementById("cartItems");
+
+box.innerHTML="";
+
+let total=0;
+let count=0;
+
+
+cart.forEach((item,index)=>{
+
+total += item.price * item.qty;
+count += item.qty;
+
+
+box.innerHTML+=`
+
+<div class="cart-item">
+
+<span>
+
+<strong>${item.name}</strong>
+
+<br>
+
+<div class="qty-box">
+
+<button onclick="cartMinus(${index})">
+−
+</button>
+
+<input 
+class="qty-input"
+value="${item.qty}"
+readonly
+id="cartQty${index}">
+
+
+<button onclick="cartPlus(${index})">
++
+</button>
+
+</div>
+
+
+RM ${item.price.toFixed(2)} / unit
+
+
+<br>
+
+<button onclick="removeCart(${index})"
+style="
+background:#e53935;
+color:white;
+border:none;
+padding:5px 10px;
+border-radius:20px;
+margin-top:8px;
+">
+
+🗑 Buang
+
+</button>
+
+
+</span>
+
+
+<b>
+RM ${(item.qty * item.price).toFixed(2)}
+</b>
+
+
+</div>
+
+`;
+
+});
+
+
+document.getElementById("cartTotal").innerHTML=
+"Jumlah: RM "+total.toFixed(2);
+
+
+document.getElementById("cartBtn").innerHTML=
+`🛒 Cart <span class="cart-count">${count}</span>`;
+
+}
+
+
+
+function getGrandTotal(){
+
+let total = 0;
+
+cart.forEach(item=>{
+
+total += item.price * item.qty;
+
+});
+
+return total;
+
+}
+
+/* =========================
+ WHATSAPP CHECKOUT
+========================= */
+
+
+function checkoutWhatsApp(method, area="", deliveryFee=0){
+
+if(cart.length===0){
+
+showConfirm(
+"Cart Kosong",
+"Sila tambah produk terlebih dahulu.",
+"delete"
+);
+
+return;
+
+}
+
+
+let message =
+"*Tempahan Hlai Suria 88*\n"+
+"*Kaedah:* "+method+
+"\n\n";
+
+
+let total=0;
+
+
+cart.forEach(item=>{
+
+let subtotal=item.qty * item.price;
+
+message +=
+`
+📦 ${item.name}
+🏷️ Barcode: ${item.barcode || "-"}
+🔢 Qty: ${item.qty}
+💰 Harga: RM${subtotal.toFixed(2)}
+
+`;
+
+
+total += subtotal;
+
+
+});
+
+
+if(method==="Delivery"){
+
+
+total += deliveryFee;
+
+
+message +=
+"\nKawasan Delivery: "+area;
+
+
+message +=
+"\nKos Delivery: RM"+
+deliveryFee.toFixed(2);
+
+
+}
+
+
+
+if(method==="Self-Pickup"){
+
+message +=
+"\nLokasi Ambil: Hlai Suria 88" +
+"\nGoogle Maps: https://www.google.com/maps/search/?api=1&query=56,+Jalan+Petani,+20000+Kuala+Terengganu,+Terengganu";
+
+}
+
+
+message +=
+"\n\nJumlah Bayaran: RM"+
+total.toFixed(2);
+
+
+
+
+window.currentOrderMessage = message;
+
+
+
+
+let barangTotal = 0;
+
+
+cart.forEach(item=>{
+
+barangTotal += item.qty * item.price;
+
+});
+
+
+
+document.getElementById("qrChargeType").innerHTML =
+"Kaedah: "+method;
+
+
+
+document.getElementById("qrCartTotal").innerHTML =
+"Jumlah Barang: RM "+barangTotal.toFixed(2);
+
+
+
+if(method==="Delivery"){
+
+
+document.getElementById("qrDeliveryCharge").innerHTML =
+"Caj Delivery ("+area+"): RM "+
+deliveryFee.toFixed(2);
+
+
+}else{
+
+
+document.getElementById("qrDeliveryCharge").innerHTML =
+"Caj Delivery: RM0.00 (Self-Pickup)";
+
+
+}
+
+
+
+document.getElementById("qrGrandTotal").innerHTML =
+"Jumlah Bayaran: RM "+total.toFixed(2);
+
+
+
+
+
+
+
+    
+
+
+
+closeCheckoutOptions();
+closeDeliveryModal();
+
+
+
+document.getElementById("qrModal").style.display="block";
+
+
+}
+
+
+
+    
+
+/* =========================
+ GALLERY
+========================= */
+
+
+function closeGallery(){
+
+document.getElementById("gallery").style.display="none";
+
+}
+
+
+ function openCart(){
+
+  document.getElementById("cartBox").style.display="block";
+
+}
+
+
+function toggleCart(){
+
+let cartBox=document.getElementById("cartBox");
+
+if(cartBox.style.display==="block"){
+
+cartBox.style.display="none";
+
+}
+else{
+
+cartBox.style.display="block";
+
+}
+
+updateCart();
+
+}
+
+
+function showConfirm(title,message,type="add",callback=null){
+
+
+let modal=document.getElementById("confirmModal");
+
+let icon=document.getElementById("confirmIcon");
+
+let action=document.getElementById("confirmAction");
+
+
+document.getElementById("confirmTitle").innerHTML=title;
+
+document.getElementById("confirmMessage").innerHTML=message;
+
+
+if(type=="delete"){
+
+icon.innerHTML="🗑";
+icon.style.background="#e53935";
+
+action.className="confirm-delete";
+
+}
+
+else{
+
+icon.innerHTML="🛒";
+icon.style.background="#00994d";
+
+action.className="confirm-ok";
+
+}
+
+
+modal.style.display="block";
+
+
+action.onclick=function(){
+
+if(callback){
+
+callback();
+
+}
+
+closeConfirm();
+
+}
+
+
+}
+
+
+
+
+function closeConfirm(){
+
+document.getElementById("confirmModal").style.display="none";
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function openPromoPoster(src){
+
+document.getElementById("posterViewer").style.display="flex";
+
+document.getElementById("posterImage").src=src;
+
+document.body.style.overflow="hidden";
+
+}
+
+function closePromoPoster(){
+
+document.getElementById("posterViewer").style.display="none";
+
+document.body.style.overflow="auto";
+
+}
+
+document.getElementById("posterViewer").addEventListener("click",function(e){
+
+if(e.target.id==="posterViewer"){
+
+closePromoPoster();
+
+}
+
+});
+
+
+
+
+
+window.onclick=function(e){
+
+let productModal=document.getElementById("productModal");
+
+if(e.target===productModal){
+
+closeProductPopup();
+
+}
+
+}
+
+
+
+    function openCheckoutOptions(){
+
+
+document.getElementById("cartBox").style.display="none";
+
+        document.body.style.overflow="hidden";
+
+
+        
+
+if(cart.length===0){
+
+showConfirm(
+"Cart Kosong",
+"Sila tambah produk terlebih dahulu.",
+"delete"
+);
+
+return;
+}
+
+document.getElementById(
+"checkoutModal"
+).style.display="block";
+
+}
+
+function closeCheckoutOptions(){
+
+document.getElementById(
+"checkoutModal"
+).style.display="none";
+
+document.body.style.overflow="auto";
+
+}
+
+
+    function openDeliveryModal(){
+
+closeCheckoutOptions();
+
+document.getElementById(
+"deliveryModal"
+).style.display="block";
+
+}
+
+function closeDeliveryModal(){
+
+let modal=document.getElementById("deliveryModal");
+
+if(modal){
+modal.style.display="none";
+}
+
+}
+
+
+    function confirmDelivery(){
+
+let selected =
+document.getElementById(
+"deliveryArea"
+).value;
+
+if(selected===""){
+
+showConfirm(
+"Lokasi Belum Dipilih",
+"Sila pilih kawasan penghantaran dahulu.",
+"delete"
+);
+
+return;
+
+}
+
+let data = selected.split("|");
+
+let area = data[0];
+let fee = parseFloat(data[1]);
+
+checkoutWhatsApp(
+"Delivery",
+area,
+fee
+);
+
+}
+
+
+
+function addClearCart(name,price){
+
+let exist = cart.find(
+x=>x.name==name
+);
+
+
+if(exist){
+
+exist.qty++;
+
+}else{
+
+
+cart.push({
+
+name:name,
+price:price,
+qty:1
+
+});
+
+
+}
+
+
+updateCart();
+
+
+document.getElementById("cartBox").style.display="block";
+
+
+showConfirm(
+"Berjaya Ditambah!",
+name+" telah dimasukkan ke dalam cart.",
+"add"
+);
+
+
+}
+
+
+
+
+    window.onload=function(){
+
+updateCart();
+
+const track=document.querySelector(".slide-track");
+
+if(track){
+track.innerHTML += track.innerHTML;
+}
+
+      
+
+}
+
+
+
+function sendOrderAfterQR(){
+
+
+let paid=document.getElementById("paidCheck");
+
+if(!paid.checked){
+
+showConfirm(
+"Belum Selesai",
+"Sila tandakan anda sudah membuat pembayaran.",
+"delete"
+);
+
+return;
+
+}
+
+
+    
+
+let message = window.currentOrderMessage;
+
+
+if(!message){
+
+alert("Maklumat tempahan tiada.");
+
+return;
+
+    
+
+}
+
+
+// buka WhatsApp selepas QR
+
+window.open(
+"https://wa.me/601139993118?text="+
+encodeURIComponent(message),
+"_blank"
+);
+
+showConfirm(
+"Tempahan Dihantar",
+"Terima kasih kerana membuat pembayaran dan tempahan.",
+"add"
+);
+
+
+
+
+    
+
+
+// =============================
+// AUTO TOLAK STOCK
+// =============================
+
+
+cart.forEach(cartItem=>{
+
+
+let product = products.find(
+p => p.name === cartItem.name
+);
+
+
+if(product){
+
+
+product.stock -= cartItem.qty;
+
+
+// elak stock negatif
+
+if(product.stock < 0){
+
+product.stock = 0;
+
+}
+
+
+}
+
+
+
+});
+
+
+
+// simpan stock terbaru
+
+localStorage.setItem(
+"products",
+JSON.stringify(products)
+);
+
+
+
+
+
+
+   
+
+// kosongkan cart selepas hantar
+
+cart=[];
+
+updateCart();
+
+
+// tutup popup
+closeQRModal();
+
+closeCheckoutOptions();
+
+closeDeliveryModal();
+
+
+// notifikasi
+
+
+
+
+}
+
+
+
+
+
+
+function closeQRModal(){
+
+document.getElementById("qrModal").style.display="none";
+
+window.currentOrderMessage="";
+
+}
+
+
+
+
+/* =========================
+ ACTIVE NAVBAR ON SCROLL
+========================= */
+
+const navSections = [
+"utama",
+"produk",
+"borong",
+"promosi",
+"hubungi",
+"lokasi"
+];
+
+const navLinks = document.querySelectorAll(".nav-links a");
+
+
+function updateActiveNav(){
+
+let current="";
+
+
+navSections.forEach(id=>{
+
+let section=document.getElementById(id);
+
+
+if(section){
+
+let sectionTop = section.offsetTop - 200;
+
+let sectionHeight = section.offsetHeight;
+
+
+if(
+window.scrollY >= sectionTop &&
+window.scrollY < sectionTop + sectionHeight
+){
+
+current=id;
+
+}
+
+}
+
+
+});
+
+
+
+navLinks.forEach(link=>{
+
+link.classList.remove("active");
+
+
+if(link.getAttribute("href") === "#"+current){
+
+link.classList.add("active");
+
+}
+
+
+});
+
+
+}
+
+
+
+window.addEventListener("scroll",updateActiveNav);
+
+window.addEventListener("load",updateActiveNav);
+
+
+
+
+
+
+if('serviceWorker' in navigator){
+
+    window.addEventListener('load',()=>{
+
+        navigator.serviceWorker.register('./service-worker.js');
+
+    });
+
+}
+
+
+
+/* =========================
+   PWA INSTALL SYSTEM
+========================= */
+
+
+let deferredPrompt = null;
+
+
+
+window.addEventListener(
+"beforeinstallprompt",
+(e)=>{
+
+
+e.preventDefault();
+
+
+deferredPrompt = e;
+
+
+
+// keluar popup selepas 3 saat
+
+setTimeout(()=>{
+
+
+if(!localStorage.getItem("pwaClosed")){
+
+
+document.getElementById(
+"webAppPopup"
+).style.display="block";
+
+
+}
+
+
+},3000);
+
+
+
+});
+
+
+
+
+
+
+async function addToHomeScreen(){
+
+
+
+// Android Chrome
+
+if(deferredPrompt){
+
+
+deferredPrompt.prompt();
+
+
+
+const result =
+await deferredPrompt.userChoice;
+
+
+
+if(result.outcome==="accepted"){
+
+
+localStorage.setItem(
+"installed",
+"yes"
+);
+
+
+document.getElementById(
+"webAppPopup"
+).style.display="none";
+
+
+}
+
+
+deferredPrompt=null;
+
+
+return;
+
+}
+
+
+
+
+// iPhone Safari
+
+let isIOS =
+/iphone|ipad|ipod/i.test(
+window.navigator.userAgent
+);
+
+
+
+if(isIOS){
+
+
+document.getElementById(
+"installText"
+).innerHTML = `
+
+<div class="install-ios">
+
+<b>📱 Cara Install iPhone:</b>
+
+<br><br>
+
+1. Tekan butang 
+<b>Share ⬆️</b>
+
+<br>
+
+2. Pilih 
+<b>Add to Home Screen</b>
+
+<br>
+
+3. Tekan 
+<b>Add</b>
+
+</div>
+
+`;
+
+
+return;
+
+
+}
+
+
+
+
+// Browser tidak support
+
+
+showConfirm(
+"Install Tidak Tersedia",
+"Sila buka menggunakan Chrome untuk install aplikasi.",
+"delete"
+);
+
+
+
+}
+
+
+
+
+
+function closeWebAppPopup(){
+
+
+document.getElementById(
+"webAppPopup"
+).style.display="none";
+
+
+localStorage.setItem(
+"pwaClosed",
+"yes"
+);
+
+
+}
+
+
+
+
+window.addEventListener(
+"appinstalled",
+()=>{
+
+
+localStorage.setItem(
+"installed",
+"yes"
+);
+
+
+
+document.getElementById(
+"webAppPopup"
+).style.display="none";
+
+
+});
+
+
+   
+function addProduct(newProduct){
+
+let currentProducts =
+JSON.parse(localStorage.getItem("products")) || [];
+
+
+currentProducts.push(newProduct);
+
+
+localStorage.setItem(
+"products",
+JSON.stringify(currentProducts)
+);
+
+
+// refresh variable utama
+products = currentProducts;
+
+
+}
+
+
+
+function reduceStock(){
+
+
+cart.forEach(item=>{
+
+
+let product = products.find(
+p=>p.name === item.name
+);
+
+
+if(product){
+
+product.stock -= item.qty;
+
+
+if(product.stock < 0){
+
+product.stock = 0;
+
+}
+
+}
+
+
+});
+
+
+localStorage.setItem(
+"products",
+JSON.stringify(products)
+);
+
+
+}
+
+
+
+   
+    
+
+
+
+
+
+
+
+    
+
+
+ 
+ 
+
+</script>
+
+
+
+
+
+<!-- CART -->
+
+<div class="cart-box" id="cartBox">
+
+
+<h3>
+🛒 Cart Anda
+</h3>
+
+
+<div id="cartItems">
+
+</div>
+
+
+<div 
+id="cartTotal"
+class="cart-total">
+
+Jumlah: RM0.00
+
+</div>
+
+
+
+<button
+onclick="openCheckoutOptions()"
+class="checkout-btn">
+
+Checkout
+
+</button>
+
+</div>
+
+
+
+<button onclick="toggleCart()" class="cart-floating" id="cartBtn">
+🛒 Cart
+</button>
+
+
+ <!-- CONFIRM POPUP -->
+
+<div id="confirmModal" class="confirm-modal">
+
+<div class="confirm-box">
+
+
+<div class="confirm-icon" id="confirmIcon">
+🛒
+</div>
+
+
+<h3 id="confirmTitle">
+Tambah ke Cart
+</h3>
+
+
+<p id="confirmMessage">
+Produk telah ditambah ke cart.
+</p>
+
+
+<div class="confirm-buttons">
+
+
+<button 
+class="confirm-cancel"
+onclick="closeConfirm()">
+
+Tutup
+
+</button>
+
+
+<button 
+id="confirmAction"
+class="confirm-ok">
+
+OK
+
+</button>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<div id="webAppPopup" class="webapp-popup">
+
+<span 
+class="webapp-close"
+onclick="closeWebAppPopup()">
+×
+</span>
+
+
+<h3>
+📱 Pasang Hlai Suria 88 App
+</h3>
+
+<p id="installText">
+Pasang website ini ke Home Screen untuk akses lebih cepat seperti aplikasi.
+</p>
+
+
+<button 
+onclick="addToHomeScreen()"
+class="webapp-btn"
+id="installBtn">
+
+Pasang Sekarang
+
+</button>
+
+
+</div>
+
+
+<!-- FULL SCREEN POSTER -->
+
+<div id="posterViewer" class="poster-viewer">
+
+<span
+class="poster-close"
+onclick="closePromoPoster()">
+&times;
+</span>
+
+<img
+id="posterImage"
+src=""
+alt="Poster Promosi">
+
+</div>
+
+
+
+
+
+
+<!-- CHECKOUT OPTION MODAL -->
+
+<div id="checkoutModal" class="confirm-modal">
+
+<div class="confirm-box">
+
+<div class="confirm-icon checkout-icon">
+🛍️
+</div>
+
+<h3>Pilih Kaedah Tempahan</h3>
+
+<p>Sila pilih cara anda ingin menerima barang.</p>
+
+<div class="checkout-choice">
+
+<button
+class="confirm-ok"
+onclick="checkoutWhatsApp('Self-Pickup')">
+
+🏪 Self-Pickup
+
+</button>
+
+
+<button
+class="confirm-ok"
+onclick="openDeliveryModal()">
+
+🚚 Delivery
+
+</button>
+
+
+<button
+class="confirm-cancel"
+onclick="closeCheckoutOptions()">
+
+Tutup
+
+</button>
+
+</div>
+
+
+</div>
+
+</div>
+
+    <!-- DELIVERY AREA POPUP -->
+
+<div id="deliveryModal" class="confirm-modal">
+
+<div class="confirm-box">
+
+<div class="confirm-icon">
+🚚
+</div>
+
+<h3>
+🚚 Pilih Lokasi Penghantaran
+</h3>
+
+<p>
+Kami akan hantar barang terus ke lokasi anda.
+</p>
+
+<select id="deliveryArea"
+class="delivery-select">
+
+
+    
+<option value="">-- Pilih Kawasan --</option>
+
+<option value="Bandar Kuala Terengganu|5">
+Bandar Kuala Terengganu (RM5)
+</option>
+
+<option value="Batu Buruk|5">
+Batu Buruk (RM5)
+</option>
+
+<option value="Ladang Tok Pelam|5">
+Ladang Tok Pelam (RM5)
+</option>
+
+<option value="Kuala Ibai|6">
+Kuala Ibai (RM6)
+</option>
+
+<option value="Chendering|8">
+Chendering (RM8)
+</option>
+
+<option value="Bukit Besar|5">
+Bukit Besar (RM5)
+</option>
+
+<option value="Manir|8">
+Manir (RM8)
+</option>
+
+<option value="Wakaf Mempelam|8">
+Wakaf Mempelam (RM8)
+</option>
+
+<option value="Gong Badak|10">
+Gong Badak (RM10)
+</option>
+
+<option value="Seberang Takir|10">
+Seberang Takir (RM10)
+</option>
+
+<option value="Kuala Nerus|12">
+Kuala Nerus (RM12)
+</option>
+
+<option value="Tok Jembal|12">
+Tok Jembal (RM12)
+</option>
+
+</select>
+
+<button
+class="confirm-ok"
+onclick="confirmDelivery()">
+
+Teruskan
+
+</button>
+
+<br><br>
+
+<button
+class="confirm-cancel"
+onclick="closeDeliveryModal()">
+
+Tutup
+
+</button>
+
+</div>
+
+</div>
+
+
+
+
+<!-- QR PAYMENT POPUP -->
+
+<div id="qrModal" class="confirm-modal qr-scroll">
+
+<div class="confirm-box">
+
+
+<div class="qr-layout">
+
+
+<!-- INFO KIRI -->
+
+<div class="qr-info">
+
+
+<div class="confirm-icon checkout-icon">
+💳
+</div>
+
+
+<h3>
+Pembayaran QR Kedai
+</h3>
+
+
+<p>
+Sila buat pembayaran dahulu menggunakan QR Kedai.
+</p>
+
+
+
+<div id="qrChargeType"
+class="qr-detail">
+
+Kaedah: -
+</div>
+
+
+
+<div id="qrCartTotal"
+class="qr-detail">
+
+Jumlah Barang: RM0.00
+
+</div>
+
+
+
+<div id="qrDeliveryCharge"
+class="qr-detail">
+
+Caj Delivery: RM0.00
+
+</div>
+
+
+<hr>
+
+
+
+<div id="qrGrandTotal"
+class="qr-total">
+
+Jumlah Bayaran: RM0.00
+
+</div>
+
+
+</div>
+
+
+
+
+<!-- QR KANAN -->
+
+
+<div class="qr-side">
+
+
+<img 
+src="./images/qr-kedai.jpeg"
+class="qr-image"
+alt="QR Payment Hlai Suria 88">
+
+
+
+<p class="qr-payment-text">
+
+Scan QR untuk membuat pembayaran.
+
+Selepas selesai, tekan butang hantar tempahan.
+
+</p>
+
+
+<label style="
+display:block;
+margin:15px 0;
+font-weight:600;
+">
+
+<input 
+type="checkbox" 
+id="paidCheck">
+
+Saya sudah membuat pembayaran
+
+</label>
+
+
+<button
+class="confirm-ok"
+onclick="sendOrderAfterQR()">
+
+📲 Hantar Tempahan WhatsApp
+
+</button>
+
+
+
+
+
+
+
+
+    
+
+
+<button
+class="confirm-cancel"
+onclick="closeQRModal()">
+
+Tutup
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</div>
+ 
+
+
+
+<!-- VIDEO FULLSCREEN -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+    
+    
+ 
+
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"6975d47a27184c9ab4cf67cf986fa9e6","r":1}' crossorigin="anonymous"></script>
+</body>
+</html>
+```
