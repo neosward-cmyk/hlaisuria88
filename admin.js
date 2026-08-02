@@ -528,46 +528,6 @@ document.getElementById("image").value="";
 
 
 
-function searchProducts(){
-
-let keyword =
-document.getElementById("searchProduct").value
-.toLowerCase();
-
-
-let rows =
-document.querySelectorAll("#productTable tr");
-
-
-rows.forEach(row=>{
-
-let text =
-row.innerText.toLowerCase();
-
-
-if(text.includes(keyword)){
-
-row.style.display="";
-
-}else{
-
-row.style.display="none";
-
-}
-
-});
-
-}
-
-
-
-function clearSearch(){
-
-document.getElementById("searchProduct").value="";
-
-searchProducts();
-
-}
 
 
 
