@@ -252,16 +252,19 @@ alert(
 
 function displayProducts(list=null){
 
-let products =
-JSON.parse(localStorage.getItem("products")) || [];
+let displayProducts =
+list ||
+JSON.parse(localStorage.getItem("products")) ||
+[];
 
 
-if(list){
+let table=document.getElementById("productTable");
 
-products=list;
 
-}
+table.innerHTML="";
 
+
+displaydisplayProducts.forEach((p,index)=>{
 
 // kod render table anda kekal di bawah sini
 
@@ -274,7 +277,7 @@ return;
 
 
 table.innerHTML="";
-products.forEach((p,index)=>{
+displayProducts.forEach((p,index)=>{
 
 table.innerHTML+=`
 
