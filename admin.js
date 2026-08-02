@@ -247,12 +247,9 @@ alert(
 
 
 
-
-
-
 function displayProducts(list=null){
 
-let displayProducts =
+let displayList =
 list ||
 JSON.parse(localStorage.getItem("products")) ||
 [];
@@ -261,15 +258,6 @@ JSON.parse(localStorage.getItem("products")) ||
 let table=document.getElementById("productTable");
 
 
-table.innerHTML="";
-
-
-displaydisplayProducts.forEach((p,index)=>{
-
-// kod render table anda kekal di bawah sini
-
-let table=document.getElementById("productTable");
-
 if(!table){
 console.log("Table tidak jumpa");
 return;
@@ -277,7 +265,10 @@ return;
 
 
 table.innerHTML="";
-displayProducts.forEach((p,index)=>{
+
+
+displayList.forEach((p,index)=>{
+
 
 table.innerHTML+=`
 
@@ -287,22 +278,20 @@ table.innerHTML+=`
 <img src="${p.image}">
 </td>
 
+
 <td>
 
 <input
-
 value="${p.barcode || ""}"
-
 onchange="editBarcode(${index},this.value)">
 
 </td>
 
+
 <td>
 
 <input
-
 value="${p.name}"
-
 onchange="editName(${index},this.value)">
 
 </td>
@@ -314,11 +303,8 @@ onchange="editName(${index},this.value)">
 RM
 
 <input
-
 type="number"
-
 value="${p.price}"
-
 onchange="editPrice(${index},this.value)">
 
 </td>
@@ -366,14 +352,12 @@ onchange="editPrice(${index},this.value)">
 <td>
 
 <input
-
 type="number"
-
 value="${p.stock}"
-
 onchange="editStock(${index},this.value)">
 
 </td>
+
 
 <td>
 
@@ -386,7 +370,6 @@ onclick="refreshProducts()">
 </button>
 
 
-
 <button
 class="delete"
 onclick="deleteProduct(${index})">
@@ -397,13 +380,17 @@ onclick="deleteProduct(${index})">
 
 </td>
 
+
 </tr>
 
 `;
 
 });
 
+
 }
+
+
 
 
 
