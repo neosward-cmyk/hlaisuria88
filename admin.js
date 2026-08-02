@@ -158,7 +158,6 @@ image:"./images/gredD.jpeg"
 let products =
 JSON.parse(localStorage.getItem("products"));
 
-let uploadedImage = "";
 
 
 if(!products){
@@ -323,89 +322,6 @@ onclick="deleteProduct(${index})">
 
 
 
-function uploadImage(){
-
-
-let file =
-document.getElementById("imageUpload").files[0];
-
-
-if(!file){
-
-alert("Sila pilih gambar dahulu");
-
-return;
-
-}
-
-
-let formData = new FormData();
-
-
-formData.append(
-"image",
-file
-);
-
-
-
-fetch("upload.php",{
-
-method:"POST",
-
-body:formData
-
-})
-
-
-.then(response=>response.json())
-
-
-.then(data=>{
-
-
-if(data.status=="success"){
-
-
-uploadedImage = data.url;
-
-
-alert(
-"✅ Gambar berjaya dimuat naik"
-);
-
-
-}
-
-else{
-
-
-alert(
-"❌ Gagal upload gambar"
-);
-
-
-}
-
-
-})
-
-
-.catch(error=>{
-
-
-console.log(error);
-
-
-alert(
-"Ralat upload gambar"
-);
-
-
-});
-
-
-}
 
 
 
@@ -461,10 +377,10 @@ price:Number(document.getElementById("price").value),
 
 stock:Number(document.getElementById("stock").value),
 
+category:document.getElementById("category").value,
+
 image:
-uploadedImage || "./images/default.jpg",
-  
-category:document.getElementById("category").value
+document.getElementById("image").value || "./images/default.jpg"
 
 });
 
