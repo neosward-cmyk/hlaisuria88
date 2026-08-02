@@ -4025,6 +4025,30 @@ let cart = [];
 
 let products = JSON.parse(localStorage.getItem("products"));
 
+products = products.map(p=>({
+
+barcode:p.barcode || "",
+name:p.name,
+price:p.price,
+stock:p.stock,
+category:p.category,
+image:p.image
+
+}));
+
+localStorage.setItem(
+"products",
+JSON.stringify(products)
+);
+
+
+
+
+
+
+
+   
+
 if(!products){
 
 products = [
